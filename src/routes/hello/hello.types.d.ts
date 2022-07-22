@@ -1,0 +1,3 @@
+type HelloWorldResponse = {
+  hello: string;
+};
