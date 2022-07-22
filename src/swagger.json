@@ -1,0 +1,30 @@
+{
+  "components": {
+    "examples": {},
+    "headers": {},
+    "parameters": {},
+    "requestBodies": {},
+    "responses": {},
+    "schemas": {},
+    "securitySchemes": {}
+  },
+  "info": {
+    "title": "express-starter",
+    "version": "0.0.1",
+    "description": "Express Starter",
+    "license": {
+      "name": "MIT"
+    },
+    "contact": {
+      "name": "hieudoanm ",
+      "email": "hieumdoan@gmail.com"
+    }
+  },
+  "openapi": "3.0.0",
+  "paths": {},
+  "servers": [
+    {
+      "url": "/"
+    }
+  ]
+}
