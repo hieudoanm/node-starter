@@ -5,7 +5,17 @@
     "parameters": {},
     "requestBodies": {},
     "responses": {},
-    "schemas": {},
+    "schemas": {
+      "HelloWorldResponse": {
+        "properties": {
+          "hello": {
+            "type": "string"
+          }
+        },
+        "required": ["hello"],
+        "type": "object"
+      }
+    },
     "securitySchemes": {}
   },
   "info": {
@@ -21,7 +31,82 @@
     }
   },
   "openapi": "3.0.0",
-  "paths": {},
+  "paths": {
+    "/hello": {
+      "get": {
+        "operationId": "Get",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HelloWorldResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Hello World"],
+        "security": [],
+        "parameters": []
+      },
+      "post": {
+        "operationId": "Create",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HelloWorldResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Hello World"],
+        "security": [],
+        "parameters": []
+      },
+      "put": {
+        "operationId": "Update",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HelloWorldResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Hello World"],
+        "security": [],
+        "parameters": []
+      },
+      "delete": {
+        "operationId": "Remove",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HelloWorldResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Hello World"],
+        "security": [],
+        "parameters": []
+      }
+    }
+  },
   "servers": [
     {
       "url": "/"
