@@ -1,0 +1,451 @@
+{
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"HelloWorldResponse": {
+				"properties": {
+					"hello": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"hello"
+				],
+				"type": "object"
+			},
+			"TodoType": {
+				"properties": {
+					"status": {
+						"type": "boolean"
+					},
+					"todo": {
+						"type": "string"
+					},
+					"id": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"status",
+					"todo",
+					"id"
+				],
+				"type": "object"
+			},
+			"FlattenMaps_T_": {
+				"properties": {},
+				"type": "object"
+			},
+			"Document_any.any.any_": {
+				"$ref": "#/components/schemas/FlattenMaps_T_",
+				"description": "Generic types for Document:\n*  T - the type of _id\n*  TQueryHelpers - Object with any helpers that should be mixed into the Query type\n*  DocType - the type of the actual Document created"
+			},
+			"ObjectId": {
+				"type": "string"
+			}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "express-starter",
+		"version": "0.0.1",
+		"description": "Express Starter",
+		"license": {
+			"name": "MIT"
+		},
+		"contact": {
+			"name": "hieudoanm ",
+			"email": "hieumdoan@gmail.com"
+		}
+	},
+	"openapi": "3.0.0",
+	"paths": {
+		"/hello": {
+			"get": {
+				"operationId": "Get",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HelloWorldResponse"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Hello World"
+				],
+				"security": [],
+				"parameters": []
+			},
+			"post": {
+				"operationId": "Create",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HelloWorldResponse"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Hello World"
+				],
+				"security": [],
+				"parameters": []
+			},
+			"put": {
+				"operationId": "Update",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HelloWorldResponse"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Hello World"
+				],
+				"security": [],
+				"parameters": []
+			},
+			"delete": {
+				"operationId": "Remove",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/HelloWorldResponse"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Hello World"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/todos": {
+			"get": {
+				"operationId": "GetTodos",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/TodoType"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Todos"
+				],
+				"security": [],
+				"parameters": []
+			},
+			"post": {
+				"operationId": "CreateTodo",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/TodoType"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Todos"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/todos/{id}": {
+			"get": {
+				"operationId": "GetTodo",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/Document_any.any.any_"
+										},
+										{
+											"properties": {
+												"status": {
+													"type": "boolean"
+												},
+												"todo": {
+													"type": "string"
+												},
+												"id": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"status",
+												"todo",
+												"id"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"_id": {
+													"$ref": "#/components/schemas/ObjectId"
+												}
+											},
+											"required": [
+												"_id"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Todos"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			},
+			"put": {
+				"operationId": "UpdateTodo",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/Document_any.any.any_"
+										},
+										{
+											"properties": {
+												"status": {
+													"type": "boolean"
+												},
+												"todo": {
+													"type": "string"
+												},
+												"id": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"status",
+												"todo",
+												"id"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"_id": {
+													"$ref": "#/components/schemas/ObjectId"
+												}
+											},
+											"required": [
+												"_id"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Todos"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/TodoType"
+							}
+						}
+					}
+				}
+			},
+			"patch": {
+				"operationId": "PatchTodo",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/Document_any.any.any_"
+										},
+										{
+											"properties": {
+												"status": {
+													"type": "boolean"
+												},
+												"todo": {
+													"type": "string"
+												},
+												"id": {
+													"type": "string"
+												}
+											},
+											"required": [
+												"status",
+												"todo",
+												"id"
+											],
+											"type": "object"
+										},
+										{
+											"properties": {
+												"_id": {
+													"$ref": "#/components/schemas/ObjectId"
+												}
+											},
+											"required": [
+												"_id"
+											],
+											"type": "object"
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Todos"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"boolean": {
+										"type": "boolean"
+									},
+									"todo": {
+										"type": "string"
+									}
+								},
+								"type": "object"
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"operationId": "DeleteTodo",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Todos"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}
