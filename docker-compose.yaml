@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+  express-database:
+    image: mongo:latest
+    container_name: express-database
+    ports:
+      - '27017:27017'
+
+  express-keycloak:
+    image: quay.io/keycloak/keycloak:19.0.0
+    container_name: express-keycloak
+    expose:
+      - 8080
+    ports:
+      - '8080:8080'
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+    command:
+      - start-dev
+
+  express-service:
+    container_name: express-service
+    build:
+      context: .
+      no_cache: true
+    ports:
+      - '8081:8080'
+    environment:
+      - PORT=8080
+      - MONGO_URI=mongodb://express-database:27017/test
+      - KEY_CLOAK_ADMIN_HOST=http://express-keycloak:8080/admin/realms/express
+      - KEY_CLOAK_ADMIN_CLI_HOST=http://express-keycloak:8080/realms/master
+      - KEY_CLOAK_EXPRESS_HOST=http://express-keycloak:8080/realms/express
+    command: yarn dev
