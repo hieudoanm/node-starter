@@ -6,6 +6,28 @@
 		"requestBodies": {},
 		"responses": {},
 		"schemas": {
+			"RequestOtpResponse": {
+				"properties": {
+					"otp": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"otp"
+				],
+				"type": "object"
+			},
+			"VerifyOtpResponse": {
+				"properties": {
+					"verified": {
+						"type": "boolean"
+					}
+				},
+				"required": [
+					"verified"
+				],
+				"type": "object"
+			},
 			"SignInResponse": {
 				"properties": {
 					"tokenType": {
@@ -87,6 +109,97 @@
 				],
 				"type": "object"
 			},
+			"User": {
+				"properties": {
+					"access": {
+						"properties": {
+							"manage": {
+								"type": "boolean"
+							},
+							"impersonate": {
+								"type": "boolean"
+							},
+							"mapRoles": {
+								"type": "boolean"
+							},
+							"view": {
+								"type": "boolean"
+							},
+							"manageGroupMembership": {
+								"type": "boolean"
+							}
+						},
+						"required": [
+							"manage",
+							"impersonate",
+							"mapRoles",
+							"view",
+							"manageGroupMembership"
+						],
+						"type": "object"
+					},
+					"notBefore": {
+						"type": "number",
+						"format": "double"
+					},
+					"requiredActions": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"disableableCredentialTypes": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"email": {
+						"type": "string"
+					},
+					"lastName": {
+						"type": "string"
+					},
+					"firstName": {
+						"type": "string"
+					},
+					"emailVerified": {
+						"type": "boolean"
+					},
+					"totp": {
+						"type": "boolean"
+					},
+					"enabled": {
+						"type": "boolean"
+					},
+					"username": {
+						"type": "string"
+					},
+					"createdTimestamp": {
+						"type": "number",
+						"format": "double"
+					},
+					"id": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"access",
+					"notBefore",
+					"requiredActions",
+					"disableableCredentialTypes",
+					"email",
+					"lastName",
+					"firstName",
+					"emailVerified",
+					"totp",
+					"enabled",
+					"username",
+					"createdTimestamp",
+					"id"
+				],
+				"type": "object"
+			},
 			"HelloWorldResponse": {
 				"properties": {
 					"hello": {
@@ -134,7 +247,53 @@
 	},
 	"openapi": "3.0.0",
 	"paths": {
-		"/auth/refresh": {
+		"/auth/otp/request": {
+			"post": {
+				"operationId": "RequestOTP",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/RequestOtpResponse"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Authentication",
+					"OTP"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/auth/otp/verify": {
+			"post": {
+				"operationId": "VerifyOTP",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/VerifyOtpResponse"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Authentication",
+					"OTP"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/auth/profile/refresh": {
 			"post": {
 				"operationId": "RefreshAccessToken",
 				"responses": {
@@ -150,13 +309,14 @@
 					}
 				},
 				"tags": [
-					"Authentication"
+					"Authentication",
+					"Profile"
 				],
 				"security": [],
 				"parameters": []
 			}
 		},
-		"/auth/sign-in": {
+		"/auth/profile/sign-in": {
 			"post": {
 				"operationId": "SignIn",
 				"responses": {
@@ -172,7 +332,8 @@
 					}
 				},
 				"tags": [
-					"Authentication"
+					"Authentication",
+					"Profile"
 				],
 				"security": [],
 				"parameters": [],
@@ -188,7 +349,7 @@
 				}
 			}
 		},
-		"/auth/sign-up": {
+		"/auth/profile/sign-up": {
 			"post": {
 				"operationId": "SignUp",
 				"responses": {
@@ -204,7 +365,8 @@
 					}
 				},
 				"tags": [
-					"Authentication"
+					"Authentication",
+					"Profile"
 				],
 				"security": [],
 				"parameters": [],
@@ -220,7 +382,7 @@
 				}
 			}
 		},
-		"/auth/sign-out": {
+		"/auth/profile/sign-out": {
 			"post": {
 				"operationId": "SignOut",
 				"responses": {
@@ -244,10 +406,65 @@
 					}
 				},
 				"tags": [
-					"Authentication"
+					"Authentication",
+					"Profile"
 				],
 				"security": [],
 				"parameters": []
+			}
+		},
+		"/auth/users": {
+			"post": {
+				"operationId": "GetUser",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"user": {
+											"allOf": [
+												{
+													"$ref": "#/components/schemas/User"
+												}
+											],
+											"nullable": true
+										}
+									},
+									"required": [
+										"user"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Authentication",
+					"Users"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"email": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"email"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
 			}
 		},
 		"/hello": {
