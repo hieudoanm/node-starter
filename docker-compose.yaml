@@ -8,7 +8,7 @@ services:
       - '27017:27017'
 
   keycloak-instance:
-    image: quay.io/keycloak/keycloak:19.0.0
+    image: quay.io/keycloak/keycloak:19.0.1
     container_name: keycloak-instance
     expose:
       - 8080
