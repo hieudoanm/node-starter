@@ -1,0 +1,33 @@
+name: Docs
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  github-actions:
+    strategy:
+      matrix:
+        node-version: [16.x]
+        os: [ubuntu-latest]
+    name: Node.js ${{ matrix.node-version }} ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install Redoc CLI
+        run: yarn global add redoc-cli
+      - name: Bundle Docs
+        run: redoc-cli bundle ./services/express-starter/docs/swagger.json --output ./services/express-starter/docs/index.html --title "express World API"
+      - name: Deploy GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.4.0
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          branch: gh-pages
+          folder: services/express-starter/docs
+          clean: true

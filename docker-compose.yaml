@@ -1,0 +1,81 @@
+version: '3.9'
+
+services:
+  mongo-instance:
+    image: mongo:latest
+    container_name: mongo-instance
+    ports:
+      - '27017:27017'
+
+  keycloak-instance:
+    image: quay.io/keycloak/keycloak:19.0.1
+    container_name: keycloak-instance
+    expose:
+      - 8080
+    ports:
+      - '8080:8080'
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+    command:
+      - start-dev
+
+  graphql-service:
+    container_name: graphql-service
+    build:
+      context: .
+      no_cache: true
+    expose:
+      - 5000
+    ports:
+      - '5000:5000'
+    environment:
+      - PORT=5000
+    command: yarn dev
+
+  express-service:
+    container_name: express-service
+    build:
+      context: .
+      no_cache: true
+    expose:
+      - 8080
+    ports:
+      - '8081:8080'
+    environment:
+      - PORT=8080
+    command: yarn dev
+
+  key-cloak-service:
+    container_name: key-cloak-service
+    build:
+      context: .
+      no_cache: true
+    expose:
+      - 8080
+    ports:
+      - '8082:8080'
+    environment:
+      - PORT=8080
+      - KEY_CLOAK_ADMIN_HOST=http://key-cloak-instance:8080/admin/realms/express
+      - KEY_CLOAK_ADMIN_CLI_HOST=http://key-cloak-instance:8080/realms/master
+      - KEY_CLOAK_EXPRESS_HOST=http://key-cloak-instance:8080/realms/express
+    command: yarn dev
+    depends_on:
+      - key-cloak-instance
+
+  mongo-service:
+    container_name: mongo-service
+    build:
+      context: .
+      no_cache: true
+    expose:
+      - 8080
+    ports:
+      - '8083:8080'
+    environment:
+      - PORT=8080
+      - MONGO_URI=mongodb://mongo-instance:27017/test
+    command: yarn dev
+    depends_on:
+      - mongo-instance
