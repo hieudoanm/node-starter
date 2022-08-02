@@ -1,0 +1,48 @@
+{
+  "name": "graphql-starter",
+  "version": "0.0.1",
+  "description": "GraphQL Starter",
+  "main": "dist/server.js",
+  "repository": "git@github.com:hieudoanm/node-starter.git",
+  "author": "hieudoanm <hieumdoan@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">= 14",
+    "npm": ">= 8",
+    "yarn": "1"
+  },
+  "scripts": {
+    "build": "webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "dev": "kill-port 5000 && nodemon",
+    "lint": "eslint . --fix --ext .ts",
+    "start": "node .",
+    "test": "jest",
+    "watch": "webpack --watch"
+  },
+  "dependencies": {
+    "apollo-server": "3.10.0",
+    "graphql": "16.5.0",
+    "lodash": "4.17.21",
+    "pino": "8.3.1"
+  },
+  "devDependencies": {
+    "@types/jest": "28.1.6",
+    "@types/lodash": "4.14.182",
+    "@types/node": "18.6.3",
+    "@typescript-eslint/eslint-plugin": "5.32.0",
+    "@typescript-eslint/parser": "5.32.0",
+    "eslint": "8.21.0",
+    "jest": "28.1.3",
+    "kill-port": "2.0.1",
+    "nodemon": "2.0.19",
+    "ts-jest": "28.0.7",
+    "ts-node": "10.9.1",
+    "typescript": "4.7.4",
+    "webpack": "5.74.0",
+    "webpack-cli": "4.10.0",
+    "webpack-node-externals": "3.0.0"
+  }
+}
