@@ -15,9 +15,9 @@
         type: "object"
     securitySchemes: {}
   info: 
-    title: "hello-starter"
+    title: "express-starter"
     version: "1.0.0"
-    description: "Hello Starter"
+    description: "Express Starter"
     license: 
       name: "MIT"
     contact: 
