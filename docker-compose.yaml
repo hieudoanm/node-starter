@@ -1,29 +1,53 @@
 version: '3.9'
 
+volumes:
+  postgres_data:
+    driver: local
+
 services:
+  postgre-instance:
+    image: postgres:latest
+    container_name: postgres-instance
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: password
+
   mongo-instance:
     image: mongo:latest
     container_name: mongo-instance
     ports:
       - '27017:27017'
 
-  keycloak-instance:
+  key-cloak-instance:
     image: quay.io/keycloak/keycloak:19.0.1
-    container_name: keycloak-instance
+    container_name: key-cloak-instance
     expose:
       - 8080
     ports:
       - '8080:8080'
     environment:
+      - DB_VENDOR=POSTGRES
+      - DB_ADDR=postgres-instance
+      - DB_SCHEMA=public
+      - DB_DATABASE=keycloak
+      - DB_USER=keycloak
+      - DB_PASSWORD=password
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=admin
     command:
       - start-dev
+    depends_on:
+      - postgres-instance
 
   graphql-service:
     container_name: graphql-service
     build:
-      context: .
+      context: ./services/graphql-starter
       no_cache: true
     expose:
       - 5000
@@ -36,7 +60,7 @@ services:
   express-service:
     container_name: express-service
     build:
-      context: .
+      context: ./services/express-starter
       no_cache: true
     expose:
       - 8080
@@ -49,7 +73,7 @@ services:
   key-cloak-service:
     container_name: key-cloak-service
     build:
-      context: .
+      context: ./services/key-cloak-starter
       no_cache: true
     expose:
       - 8080
@@ -59,7 +83,11 @@ services:
       - PORT=8080
       - KEY_CLOAK_ADMIN_HOST=http://key-cloak-instance:8080/admin/realms/express
       - KEY_CLOAK_ADMIN_CLI_HOST=http://key-cloak-instance:8080/realms/master
+      - KEY_CLOAK_ADMIN_CLI_CLIENT_ID=admin-cli
+      - KEY_CLOAK_ADMIN_CLI_CLIENT_SECRET=
       - KEY_CLOAK_EXPRESS_HOST=http://key-cloak-instance:8080/realms/express
+      - KEY_CLOAK_EXPRESS_CLIENT_ID=express-client
+      - KEY_CLOAK_EXPRESS_CLIENT_SECRET=
     command: yarn dev
     depends_on:
       - key-cloak-instance
@@ -67,7 +95,7 @@ services:
   mongo-service:
     container_name: mongo-service
     build:
-      context: .
+      context: ./services/mongo-starter
       no_cache: true
     expose:
       - 8080
@@ -76,6 +104,7 @@ services:
     environment:
       - PORT=8080
       - MONGO_URI=mongodb://mongo-instance:27017/test
+      - KEY_CLOAK_EXPRESS_HOST=http://key-cloak-instance:8080/realms/express
     command: yarn dev
     depends_on:
       - mongo-instance

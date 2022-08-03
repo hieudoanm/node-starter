@@ -26,7 +26,17 @@
 				"type": "object"
 			}
 		},
-		"securitySchemes": {}
+		"securitySchemes": {
+			"jwt": {
+				"type": "oauth2",
+				"flows": {
+					"implicit": {
+						"authorizationUrl": "http://key-cloak-instance:8080/realms/express",
+						"scopes": {}
+					}
+				}
+			}
+		}
 	},
 	"info": {
 		"title": "mongo-starter",
@@ -63,7 +73,11 @@
 				"tags": [
 					"Todos"
 				],
-				"security": [],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
 				"parameters": []
 			},
 			"post": {
@@ -83,7 +97,11 @@
 				"tags": [
 					"Todos"
 				],
-				"security": [],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
 				"parameters": [],
 				"requestBody": {
 					"required": true,
@@ -123,7 +141,11 @@
 				"tags": [
 					"Todos"
 				],
-				"security": [],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
 				"parameters": [
 					{
 						"in": "path",
@@ -152,7 +174,11 @@
 				"tags": [
 					"Todos"
 				],
-				"security": [],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
 				"parameters": [
 					{
 						"in": "path",
@@ -203,7 +229,11 @@
 				"tags": [
 					"Todos"
 				],
-				"security": [],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
 				"parameters": [
 					{
 						"in": "path",
@@ -258,7 +288,11 @@
 				"tags": [
 					"Todos"
 				],
-				"security": [],
+				"security": [
+					{
+						"jwt": []
+					}
+				],
 				"parameters": [
 					{
 						"in": "path",

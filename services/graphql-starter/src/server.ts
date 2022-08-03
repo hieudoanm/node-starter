@@ -22,6 +22,23 @@ const server = new ApolloServer({
   ],
 });
 
-server.listen({ port: PORT }).then(({ url }) => {
-  logger.info(`🚀  Server is listening at ${url}`);
+const main = async () => {
+  server.listen({ port: PORT }).then(({ url }) => {
+    logger.info(`🚀  Server is listening at ${url}`);
+  });
+};
+
+main().catch((error: Error) => logger.error(error));
+
+process.on('unhandledRejection', (reason: string) => {
+  // I just caught an unhandled promise rejection,
+  // since we already have fallback handler for unhandled errors (see below),
+  // let throw and let him handle that
+  throw reason;
+});
+
+process.on('uncaughtException', (error: Error) => {
+  // I just received an error that was never handled, time to handle it and then decide whether a restart is needed
+  logger.error(error);
+  process.exit(1);
 });

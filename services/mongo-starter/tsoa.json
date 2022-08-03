@@ -3,10 +3,19 @@
   "noImplicitAdditionalProperties": "throw-on-extras",
   "controllerPathGlobs": ["src/router/**/*.controller.ts"],
   "spec": {
+    "securityDefinitions": {
+      "jwt": {
+        "type": "oauth2",
+        "authorizationUrl": "http://key-cloak-instance:8080/realms/express",
+        "flow": "implicit",
+        "scopes": {}
+      }
+    },
     "outputDirectory": "docs",
     "specVersion": 3
   },
   "routes": {
+    "authenticationModule": "src/middlewares/authentication",
     "routesDir": "src"
   }
 }
