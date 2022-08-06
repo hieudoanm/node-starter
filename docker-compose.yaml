@@ -115,7 +115,7 @@ services:
       - KEY_CLOAK_EXPRESS_HOST=http://key-cloak-instance:8080/realms/express
     command: yarn dev
     depends_on:
-      - mongo-instance
+      - postgres-instance
 
   postgres-service:
     container_name: postgres-service
@@ -128,7 +128,37 @@ services:
       - '8084:8080'
     environment:
       - PORT=8080
-      - DATABASE_URL=postgresql://keycloak:password@postgres-instance:5432/keycloak?schema=public
+      - KEY_CLOAK_EXPRESS_HOST=http://key-cloak-instance:8080/realms/express
     command: yarn dev
     depends_on:
       - postgres-instance
+
+  redis-service:
+    container_name: redis-service
+    build:
+      context: ./services/redis-starter
+      no_cache: true
+    expose:
+      - 8080
+    ports:
+      - '8084:8080'
+    environment:
+      - PORT=8080
+      - KEY_CLOAK_EXPRESS_HOST=http://key-cloak-instance:8080/realms/express
+    command: yarn dev
+    depends_on:
+      - redis-instance
+
+  solana-service:
+    container_name: solana-service
+    build:
+      context: ./services/solana-starter
+      no_cache: true
+    expose:
+      - 8080
+    ports:
+      - '8085:8080'
+    environment:
+      - PORT=8080
+      - KEY_CLOAK_EXPRESS_HOST=http://key-cloak-instance:8080/realms/express
+    command: yarn dev

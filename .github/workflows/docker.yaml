@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - master
+      - 'hotfix/**'
+      - 'feature/**'
+      - 'renovate/**'
 
 jobs:
   github-actions:
@@ -44,6 +47,9 @@ jobs:
       - name: Service - Redis - Docker Build
         run: docker build . --no-cache
         working-directory: ./services/redis-starter
+      - name: Service - Solana - Docker Build
+        run: docker build . --no-cache
+        working-directory: ./services/solana-starter
       - name: Web - Next.js - Docker Build
         run: docker build . --no-cache
         working-directory: ./web/next-starter
