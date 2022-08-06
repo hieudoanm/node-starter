@@ -12,6 +12,12 @@
   - [typescript](https://www.typescriptlang.org/)
 - framework
   - [express.js](https://expressjs.com/)
+- database
+  - [mongodb](https://www.mongodb.com/)
+  - [postgres](https://www.postgresql.org/)
+- orm
+  - [mongoose](https://mongoosejs.com/)
+  - [prisma](https://www.prisma.io/)
 - testing
   - [jest](https://jestjs.io/)
 - documentation
