@@ -1393,7 +1393,7 @@
   dependencies:
     buffer "~6.0.3"
 
-"@solana/web3.js@^1.50.1":
+"@solana/web3.js@1.50.1":
   version "1.50.1"
   resolved "https://registry.yarnpkg.com/@solana/web3.js/-/web3.js-1.50.1.tgz#dae726a06267d1bcd88b1e3cd8ae44c709302dcf"
   integrity sha512-1l9N/nS8pJEA2YibNT8wa072718O0/A1eKWE0+pdWC5wDGQgBNxZSLuv7Cq5Dcn46WsZ5J5ZstK89q8J/ZZaQA==
@@ -2272,10 +2272,10 @@ ajv@^6.10.0, ajv@^6.12.4, ajv@^6.12.5:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-amqplib@0.10.1:
-  version "0.10.1"
-  resolved "https://registry.yarnpkg.com/amqplib/-/amqplib-0.10.1.tgz#5c6d3803e5f25cca72d1df5bddafcee73289cf12"
-  integrity sha512-Hs33MdtFmJ2WKQT9SBtrlet3aUNzMzZA/FF6p3NGGo7Fp/BVD4X3Po7bQxAA7uE0MmXPZ8EschLMbN+CjGx4dg==
+amqplib@0.10.2:
+  version "0.10.2"
+  resolved "https://registry.yarnpkg.com/amqplib/-/amqplib-0.10.2.tgz#04ec8cbdcdf526dc36a4e46fb0591d449dca3372"
+  integrity sha512-l8U1thHT5QRNJF6Fv6ZveMeHV/bl+3UROQBn/cLOwRfeV3F0syZxkjnumJCG4NMvqfy9wT7mCgwpPSq2fApRpA==
   dependencies:
     bitsyntax "~0.1.0"
     buffer-more-ints "~1.0.0"
