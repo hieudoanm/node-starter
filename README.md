@@ -1,4 +1,4 @@
-# Express Starter
+# Node.js Starter
 
 ## Reference
 
@@ -12,6 +12,7 @@
   - [typescript](https://www.typescriptlang.org/)
 - framework
   - [express.js](https://expressjs.com/)
+  - [next.js](https://nextjs.org/)
 - database
   - [mongodb](https://www.mongodb.com/)
   - [postgres](https://www.postgresql.org/)
