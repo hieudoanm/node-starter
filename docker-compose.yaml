@@ -52,6 +52,14 @@ services:
     ports:
       - '6379:6379'
 
+  vault-instance:
+    image: vault:latest
+    container_name: vault-instance
+    ports:
+      - '8200:8200'
+    environment:
+      - VAULT_DEV_ROOT_TOKEN_ID=07b165bf-74fc-4636-96aa-e5070c96f75f
+
   graphql-service:
     container_name: graphql-service
     build:

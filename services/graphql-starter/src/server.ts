@@ -24,7 +24,7 @@ const server = new ApolloServer({
 
 const main = async () => {
   server.listen({ port: PORT }).then(({ url }) => {
-    logger.info(`🚀  Server is listening at ${url}`);
+    logger.info(`🚀 Server is listening at ${url}`);
   });
 };
 

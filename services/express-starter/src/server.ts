@@ -9,62 +9,19 @@ import http from 'http';
 import { HttpError } from 'http-errors';
 import app from './app';
 import logger from './libs/logger';
-
-const normalizePort = (val: string): string | number | boolean => {
-  const portOrPipe = parseInt(val, 10);
-
-  if (isNaN(portOrPipe)) {
-    // named pipe
-    return val;
-  }
-
-  if (portOrPipe >= 0) {
-    // port number
-    return portOrPipe;
-  }
-
-  return false;
-};
+import { normalizePort, onError, onListening } from './utils/server';
 
 // Get port from environment and store in Express.
-const port = normalizePort(process.env.PORT || '8080');
-app.set('port', port);
+const PORT = normalizePort(process.env.PORT || '8080');
+app.set('port', PORT);
 
 // Create HTTP server.
 const server = http.createServer(app);
 
-const onError = (error: HttpError) => {
-  if (error.syscall !== 'listen') {
-    throw error;
-  }
-
-  const bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
-
-  // handle specific listen errors with friendly messages
-  switch (error.code) {
-    case 'EACCES':
-      logger.error(bind + ' requires elevated privileges');
-      process.exit(1);
-      break;
-    case 'EADDRINUSE':
-      logger.error(bind + ' is already in use');
-      process.exit(1);
-      break;
-    default:
-      throw error;
-  }
-};
-
-const onListening = () => {
-  const addr = server.address();
-  const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr?.port;
-  logger.info(`🚀  Server is listening on ${bind}`);
-};
-
 const main = async () => {
-  server.listen(port);
-  server.on('error', onError);
-  server.on('listening', onListening);
+  server.listen(PORT);
+  server.on('listening', () => onListening(server));
+  server.on('error', (error: HttpError) => onError(error, PORT));
 };
 
 main().catch((error: Error) => logger.error(error));

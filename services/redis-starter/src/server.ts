@@ -59,7 +59,7 @@ const onError = (error: HttpError) => {
 const onListening = () => {
   const addr = server.address();
   const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr?.port;
-  logger.info(`🚀  Server is listening on ${bind}`);
+  logger.info(`🚀 Server is listening on ${bind}`);
 };
 
 const main = async () => {

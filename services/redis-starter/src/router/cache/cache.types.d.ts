@@ -1,4 +1,4 @@
-export type CacheResponse={
-  key:string
-  value:string
-}
+export type CacheResponse = {
+  key: string;
+  value: string;
+};

@@ -1,3 +1,4 @@
+import { AxiosError } from 'axios';
 import { Request, Response } from 'express';
 import { ValidateError } from 'tsoa';
 import { errorHandler } from '.';
@@ -24,6 +25,18 @@ describe('errorHandler', () => {
 
   it('should return validate error', () => {
     const error = new ValidateError({}, 'error message');
+    const mockedRequest = {} as Request;
+    const mockedResponse = mockResponse();
+    const nextFunction = jest.fn();
+
+    errorHandler(error, mockedRequest, mockedResponse, nextFunction);
+
+    expect(mockedResponse.status).toBeCalled();
+    expect(mockedResponse.json).toBeCalled();
+  });
+
+  it('should return other error', () => {
+    const error = new AxiosError('error message');
     const mockedRequest = {} as Request;
     const mockedResponse = mockResponse();
     const nextFunction = jest.fn();

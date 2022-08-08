@@ -23,11 +23,11 @@ export const getTodo = async (id: string): Promise<TodoType> => {
 
 export const updateTodo = async (
   id: string,
-  todo: { todo?: string; status?: boolean }
+  { todo, status }: { todo?: string; status?: boolean }
 ): Promise<TodoType> => {
   const updatedTodo = await TodoModel.findOneAndUpdate<TodoType>(
     { id },
-    { $set: todo },
+    { $set: { todo, status } },
     { new: true }
   );
   if (!updatedTodo) {
