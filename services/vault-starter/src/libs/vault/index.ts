@@ -1,35 +1,20 @@
-import Vault from 'node-vault';
 import { VAULT_ENDPOINT, VAULT_TOKEN } from '../../configs';
-import logger from '../logger';
-
-let vault: Vault.client | null = null;
-
-export const getVault = () => {
-  if (vault !== null) {
-    return vault;
-  }
-
-  logger.info(VAULT_ENDPOINT);
-  logger.info(VAULT_TOKEN);
-
-  vault = Vault({
-    apiVersion: 'v2',
-    endpoint: VAULT_ENDPOINT,
-    token: VAULT_TOKEN,
-  });
-
-  vault
-    .init({ secret_shares: 1, secret_threshold: 1 })
-    .then((result) => logger.info(result))
-    .catch((error) => logger.error(error, 'Vault Init Error'));
-
-  return vault;
-};
+import { axiosGet, axiosPost } from '../axios';
 
 export const getSecret = async <T>(path: string): Promise<T> => {
-  return getVault().read(path);
+  const url = `${VAULT_ENDPOINT}/v1/secret/data/${path}`;
+  const headers = { 'X-Vault-Token': VAULT_TOKEN };
+  const response = await axiosGet<{ data: { data: T } }>(url, { headers });
+  return response.data.data || ({} as T);
 };
 
-export const setSecret = async <T>(path: string, value: T): Promise<T> => {
-  return getVault().write(path, { data: value });
+export const setSecret = async <T>(path: string, data: T): Promise<T> => {
+  const url = `${VAULT_ENDPOINT}/v1/secret/data/${path}`;
+  const headers = { 'X-Vault-Token': VAULT_TOKEN };
+  const { value } = await axiosPost<{ value: T }, { data: T }>(
+    url,
+    { data },
+    { headers }
+  );
+  return value;
 };

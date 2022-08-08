@@ -4,7 +4,7 @@ components:
   parameters: {}
   requestBodies: {}
   responses: {}
-  schemas: {SecretResponse: {properties: {value: {type: string}, path: {type: string}}, required: [value, path], type: object}}
+  schemas: {Record_string.string_: {properties: {}, type: object, description: 'Construct a type with a set of properties K of type T'}, SecretResponse: {properties: {data: {$ref: '#/components/schemas/Record_string.string_'}, path: {type: string}}, required: [data, path], type: object}}
   securitySchemes: {}
 info:
   title: vault-starter
@@ -15,6 +15,6 @@ info:
 openapi: 3.0.0
 paths:
   /secrets/get: {post: {operationId: GetSecret, responses: {'200': {description: Ok, content: {application/json: {schema: {$ref: '#/components/schemas/SecretResponse'}}}}}, tags: [Secrets], security: [], parameters: [], requestBody: {required: true, content: {application/json: {schema: {properties: {path: {type: string}}, required: [path], type: object}}}}}}
-  /secrets/set: {post: {operationId: SetSecret, responses: {'200': {description: Ok, content: {application/json: {schema: {$ref: '#/components/schemas/SecretResponse'}}}}}, tags: [Secrets], security: [], parameters: [], requestBody: {required: true, content: {application/json: {schema: {properties: {value: {type: string}, path: {type: string}}, required: [value, path], type: object}}}}}}
+  /secrets/set: {post: {operationId: SetSecret, responses: {'200': {description: Ok, content: {application/json: {schema: {$ref: '#/components/schemas/SecretResponse'}}}}}, tags: [Secrets], security: [], parameters: [], requestBody: {required: true, content: {application/json: {schema: {properties: {data: {}, path: {type: string}}, required: [data, path], type: object}}}}}}
 servers:
   - {url: /}

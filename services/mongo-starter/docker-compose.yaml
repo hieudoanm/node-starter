@@ -15,7 +15,7 @@ services:
     expose:
       - 8080
     ports:
-      - '8083:8080'
+      - '8080:8080'
     environment:
       - PORT=8080
       - MONGO_URI=mongodb://mongo-instance:27017/test

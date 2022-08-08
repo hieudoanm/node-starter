@@ -25,12 +25,12 @@
     "watch": "webpack --watch"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "compression": "1.7.4",
     "cookie-parser": "1.4.6",
     "cors": "2.8.5",
     "dotenv": "16.0.1",
     "express": "4.18.1",
-    "node-vault": "0.9.22",
     "pino": "8.4.0",
     "tsoa": "4.1.1"
   },

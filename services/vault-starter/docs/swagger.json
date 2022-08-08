@@ -6,17 +6,22 @@
 		"requestBodies": {},
 		"responses": {},
 		"schemas": {
+			"Record_string.string_": {
+				"properties": {},
+				"type": "object",
+				"description": "Construct a type with a set of properties K of type T"
+			},
 			"SecretResponse": {
 				"properties": {
-					"value": {
-						"type": "string"
+					"data": {
+						"$ref": "#/components/schemas/Record_string.string_"
 					},
 					"path": {
 						"type": "string"
 					}
 				},
 				"required": [
-					"value",
+					"data",
 					"path"
 				],
 				"type": "object"
@@ -104,15 +109,13 @@
 						"application/json": {
 							"schema": {
 								"properties": {
-									"value": {
-										"type": "string"
-									},
+									"data": {},
 									"path": {
 										"type": "string"
 									}
 								},
 								"required": [
-									"value",
+									"data",
 									"path"
 								],
 								"type": "object"

@@ -6,14 +6,14 @@ export const getSecretAsString = async (
   path: string
 ): Promise<SecretResponse> => {
   logger.info(path, 'path');
-  const value: string = await getSecret<string>(path);
-  return { path, value };
+  const data = await getSecret<Record<string, string>>(path);
+  return { path, data };
 };
 export const setSecretAsString = async (
   path: string,
-  value: string
+  data: Record<string, string>
 ): Promise<SecretResponse> => {
   logger.info(path, 'path');
-  await setSecret<string>(path, value);
-  return { path, value };
+  await setSecret(path, data);
+  return { path, data };
 };

@@ -14,8 +14,8 @@ export class VaultController extends Controller {
 
   @Post('set')
   public async setSecret(
-    @Body() { path, value }: { path: string; value: string }
+    @Body() { path, data }: { path: string; data: any }
   ): Promise<SecretResponse> {
-    return setSecretAsString(path, value);
+    return setSecretAsString(path, data);
   }
 }
