@@ -1,0 +1,34 @@
+version: '3.9'
+
+volumes:
+  postgres_data:
+    driver: local
+
+services:
+  postgre-instance:
+    image: postgres:latest
+    container_name: postgres-instance
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+
+  postgres-service:
+    container_name: postgres-service
+    build:
+      context: .
+      no_cache: true
+    expose:
+      - 8080
+    ports:
+      - '8080:8080'
+    environment:
+      - PORT=8080
+      - KEY_CLOAK_EXPRESS_HOST=http://key-cloak-instance:8080/realms/express
+    command: yarn dev
+    depends_on:
+      - postgres-instance
