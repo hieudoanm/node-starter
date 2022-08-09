@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  zookeeper:
+    image: zookeeper
+    hostname: zookeeper
+    ports:
+      - '2181:2181'
+
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    depends_on:
+      - zookeeper
+    ports:
+      - 29092:29092
