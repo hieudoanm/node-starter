@@ -69,6 +69,7 @@
   },
   "workspaces": [
     "messages/*",
+    "serverless/*",
     "services/*",
     "web/*"
   ]
