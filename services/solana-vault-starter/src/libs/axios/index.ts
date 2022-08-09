@@ -12,9 +12,8 @@ export const axiosGet = <T>(
         return resolve(response.data);
       })
       .catch((error: AxiosError<T>) => {
-        const axiosError = { message: error.message, status: error.status };
         logger.error({ error }, 'AxiosError');
-        return reject(error.response?.data || axiosError);
+        return reject(error.response?.data);
       });
   });
 };
@@ -26,14 +25,13 @@ export const axiosPost = <T, D>(
 ): Promise<T> => {
   return new Promise((resolve, reject) => {
     axios
-      .post<T, AxiosResponse<T>, D>(url, data, configs)
+      .post<T, AxiosResponse<T>>(url, data, configs)
       .then((response: AxiosResponse<T>) => {
         resolve(response.data);
       })
       .catch((error: AxiosError<T>) => {
-        logger.error({ error }, 'AxiosError');
-        const axiosError = { message: error.message, status: error.status };
-        reject(error.response?.data || axiosError);
+        logger.error(error, 'AxiosError');
+        reject(error.response?.data);
       });
   });
 };
