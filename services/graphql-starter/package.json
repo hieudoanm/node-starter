@@ -23,7 +23,7 @@
     "watch": "webpack --watch"
   },
   "dependencies": {
-    "apollo-server": "3.10.0",
+    "apollo-server": "3.10.1",
     "graphql": "16.5.0",
     "lodash": "4.17.21",
     "pino": "8.4.0"
