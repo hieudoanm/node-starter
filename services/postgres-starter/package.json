@@ -25,7 +25,7 @@
     "watch": "webpack --watch"
   },
   "dependencies": {
-    "@prisma/client": "4.2.0",
+    "@prisma/client": "4.2.1",
     "compression": "1.7.4",
     "cookie-parser": "1.4.6",
     "cors": "2.8.5",
@@ -51,7 +51,7 @@
     "eslint": "8.21.0",
     "jest": "28.1.3",
     "kill-port": "2.0.1",
-    "prisma": "4.2.0",
+    "prisma": "4.2.1",
     "ts-jest": "28.0.7",
     "ts-loader": "9.3.1",
     "ts-node": "10.9.1",
