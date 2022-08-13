@@ -32,24 +32,27 @@ jobs:
       - name: Service - GraphQL - Docker Build
         run: docker build . --no-cache
         working-directory: ./services/graphql-starter
+      - name: Service - Elastic - Docker Build
+        run: docker build . --no-cache
+        working-directory: ./services/express/elastic-starter
       - name: Service - Express - Docker Build
         run: docker build . --no-cache
-        working-directory: ./services/express-starter
+        working-directory: ./services/express/express-starter
       - name: Service - KeyCloak - Docker Build
         run: docker build . --no-cache
-        working-directory: ./services/key-cloak-starter
+        working-directory: ./services/express/key-cloak-starter
       - name: Service - MongoDB - Docker Build
         run: docker build . --no-cache
-        working-directory: ./services/mongo-starter
+        working-directory: ./services/express/mongo-starter
       - name: Service - Postgres - Docker Build
         run: docker build . --no-cache
-        working-directory: ./services/postgres-starter
+        working-directory: ./services/express/postgres-starter
       - name: Service - Redis - Docker Build
         run: docker build . --no-cache
-        working-directory: ./services/redis-starter
+        working-directory: ./services/express/redis-starter
       - name: Service - Solana - Docker Build
         run: docker build . --no-cache
-        working-directory: ./services/solana-starter
+        working-directory: ./services/express/solana-vault-starter
       - name: Web - Next.js - Docker Build
         run: docker build . --no-cache
         working-directory: ./web/next-starter

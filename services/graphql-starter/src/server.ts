@@ -3,6 +3,7 @@ import {
   ApolloServerPluginLandingPageGraphQLPlayground,
   ApolloServerPluginLandingPageProductionDefault,
 } from 'apollo-server-core';
+import depthLimit from 'graphql-depth-limit';
 import { resolvers, typeDefs } from './graphql';
 import logger from './libs/logger';
 
@@ -14,6 +15,8 @@ const server = new ApolloServer({
   resolvers,
   csrfPrevention: true,
   cache: 'bounded',
+  introspection: NODE_ENV === 'development',
+  validationRules: [depthLimit(10)],
   plugins: [
     // Install a landing page plugin based on NODE_ENV
     NODE_ENV === 'production'

@@ -1,0 +1,464 @@
+{
+  "item": [
+    {
+      "id": "5730d24f-39fc-4c17-bba6-e63341996fa6",
+      "name": "auth",
+      "item": [
+        {
+          "id": "e81aeb3f-4d1a-415d-acf6-e9c55a3030cf",
+          "name": "otp",
+          "item": [
+            {
+              "id": "1e4a8520-c8b9-4ef6-80f0-b9be3825fd66",
+              "name": "Request OTP",
+              "request": {
+                "name": "Request OTP",
+                "description": {},
+                "url": {
+                  "path": ["auth", "otp", "request"],
+                  "host": ["{{baseUrl}}"],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "auth": null
+              },
+              "response": [
+                {
+                  "id": "63cc8df2-3166-41e0-a6de-c0abc4eaafeb",
+                  "name": "Ok",
+                  "originalRequest": {
+                    "url": {
+                      "path": ["auth", "otp", "request"],
+                      "host": ["{{baseUrl}}"],
+                      "query": [],
+                      "variable": []
+                    },
+                    "method": "POST",
+                    "body": {}
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "body": "{\n  \"otp\": \"qui ipsum\"\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": []
+            },
+            {
+              "id": "eb38895c-db78-4996-8011-00c6fb257806",
+              "name": "Verify OTP",
+              "request": {
+                "name": "Verify OTP",
+                "description": {},
+                "url": {
+                  "path": ["auth", "otp", "verify"],
+                  "host": ["{{baseUrl}}"],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "auth": null
+              },
+              "response": [
+                {
+                  "id": "3126b709-e4e5-4a62-a956-1e53eaf46ef9",
+                  "name": "Ok",
+                  "originalRequest": {
+                    "url": {
+                      "path": ["auth", "otp", "verify"],
+                      "host": ["{{baseUrl}}"],
+                      "query": [],
+                      "variable": []
+                    },
+                    "method": "POST",
+                    "body": {}
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "body": "{\n  \"verified\": true\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": []
+            }
+          ],
+          "event": []
+        },
+        {
+          "id": "80af25d1-9c95-490d-aefe-67020296109d",
+          "name": "profile",
+          "item": [
+            {
+              "id": "1d629922-477a-40e0-a14d-8f511c135554",
+              "name": "Refresh Access Token",
+              "request": {
+                "name": "Refresh Access Token",
+                "description": {},
+                "url": {
+                  "path": ["auth", "profile", "refresh"],
+                  "host": ["{{baseUrl}}"],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "auth": null
+              },
+              "response": [
+                {
+                  "id": "84234bcc-345a-4acc-8cd9-8401bfff274d",
+                  "name": "Ok",
+                  "originalRequest": {
+                    "url": {
+                      "path": ["auth", "profile", "refresh"],
+                      "host": ["{{baseUrl}}"],
+                      "query": [],
+                      "variable": []
+                    },
+                    "method": "POST",
+                    "body": {}
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "body": "{\n  \"tokenType\": \"sunt tempor\",\n  \"expiresIn\": 14170165.556239486,\n  \"accessToken\": \"ad culpa non velit\"\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": []
+            },
+            {
+              "id": "5f853945-3447-40a1-86fd-4410611ff9c7",
+              "name": "Sign In",
+              "request": {
+                "name": "Sign In",
+                "description": {},
+                "url": {
+                  "path": ["auth", "profile", "sign-in"],
+                  "host": ["{{baseUrl}}"],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"password\": \"<string>\",\n  \"email\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": [
+                {
+                  "id": "174ee063-9fb1-4c82-acfa-daf1fc98d577",
+                  "name": "Ok",
+                  "originalRequest": {
+                    "url": {
+                      "path": ["auth", "profile", "sign-in"],
+                      "host": ["{{baseUrl}}"],
+                      "query": [],
+                      "variable": []
+                    },
+                    "method": "POST",
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"password\": \"<string>\",\n  \"email\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "body": "{\n  \"tokenType\": \"sunt tempor\",\n  \"expiresIn\": 14170165.556239486,\n  \"accessToken\": \"ad culpa non velit\"\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "766e5ba9-782c-41c0-ae22-1f6e9edb710d",
+              "name": "Sign Up",
+              "request": {
+                "name": "Sign Up",
+                "description": {},
+                "url": {
+                  "path": ["auth", "profile", "sign-up"],
+                  "host": ["{{baseUrl}}"],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "auth": null,
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"lastName\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"password\": \"<string>\",\n  \"email\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": [
+                {
+                  "id": "96ce5b05-8e4c-4ceb-8a5a-4fb35f139251",
+                  "name": "Ok",
+                  "originalRequest": {
+                    "url": {
+                      "path": ["auth", "profile", "sign-up"],
+                      "host": ["{{baseUrl}}"],
+                      "query": [],
+                      "variable": []
+                    },
+                    "method": "POST",
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"lastName\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"password\": \"<string>\",\n  \"email\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "body": "{\n  \"tokenType\": \"sunt tempor\",\n  \"expiresIn\": 14170165.556239486,\n  \"accessToken\": \"ad culpa non velit\"\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "73c7a116-0659-4da1-a1ef-39f99472f484",
+              "name": "Sign Out",
+              "request": {
+                "name": "Sign Out",
+                "description": {},
+                "url": {
+                  "path": ["auth", "profile", "sign-out"],
+                  "host": ["{{baseUrl}}"],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "auth": null
+              },
+              "response": [
+                {
+                  "id": "63a89bf6-3166-4d46-b6d2-a5b8bf3d302e",
+                  "name": "Ok",
+                  "originalRequest": {
+                    "url": {
+                      "path": ["auth", "profile", "sign-out"],
+                      "host": ["{{baseUrl}}"],
+                      "query": [],
+                      "variable": []
+                    },
+                    "method": "POST",
+                    "body": {}
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "body": "{\n  \"isSignedOut\": true\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": []
+            }
+          ],
+          "event": []
+        },
+        {
+          "id": "5f853107-3557-4779-bb50-be7c4d0d5186",
+          "name": "Get User",
+          "request": {
+            "name": "Get User",
+            "description": {},
+            "url": {
+              "path": ["auth", "users"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cb89ff42-d943-4c05-82cd-c1473648c4f4",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": ["auth", "users"],
+                  "host": ["{{baseUrl}}"],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"user\": {\n    \"access\": {\n      \"manage\": true,\n      \"impersonate\": true,\n      \"mapRoles\": true,\n      \"view\": true,\n      \"manageGroupMembership\": false\n    },\n    \"notBefore\": -75298968.04693803,\n    \"requiredActions\": [\n      \"voluptate incididunt\",\n      \"in est qui\"\n    ],\n    \"disableableCredentialTypes\": [\n      \"elit nostrud deserunt\",\n      \"ut\"\n    ],\n    \"email\": \"ut incididunt laboris ea aliquip\",\n    \"lastName\": \"est\",\n    \"firstName\": \"ut anim\",\n    \"emailVerified\": true,\n    \"totp\": true,\n    \"enabled\": false,\n    \"username\": \"qui exerci\",\n    \"createdTimestamp\": -84089599.74326935,\n    \"id\": \"proident in veniam exercitation\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6ebdecb2-507d-4075-abb2-1c935fd95c48",
+    "name": "key-cloak-starter",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "KeyCloak Starter\n\nContact Support:\n Name: hieudoanm \n Email: hieumdoan@gmail.com",
+      "type": "text/plain"
+    }
+  }
+}

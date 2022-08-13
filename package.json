@@ -13,7 +13,7 @@
     "yarn": "1"
   },
   "scripts": {
-    "build:elasticsearch": "yarn workspace elasticsearch-starter build",
+    "build:elastic": "yarn workspace elastic-starter build",
     "build:express": "yarn workspace express-starter build",
     "build:graphql": "yarn workspace graphql-starter build",
     "build:key-cloak": "yarn workspace key-cloak-starter build",
@@ -24,7 +24,7 @@
     "build:solana-vault": "yarn workspace solana-vault-starter build",
     "build:next": "yarn workspace next-starter build",
     "build": "yarn build:graphql && yarn build:express && yarn build:key-cloak && yarn build:mongo && yarn build:postgres && yarn build:redis && yarn build:solana-vault && yarn build:next",
-    "dev:elasticsearch": "yarn workspace elasticsearch-starter dev",
+    "dev:elastic": "yarn workspace elastic-starter dev",
     "dev:express": "yarn workspace express-starter dev",
     "dev:graphql": "yarn workspace graphql-starter dev",
     "dev:key-cloak": "yarn workspace key-cloak-starter dev",
@@ -35,7 +35,7 @@
     "dev:solana-vault": "yarn workspace solana-vault-starter dev",
     "dev:next": "yarn workspace next-starter dev",
     "dev": "yarn dev:graphql && yarn dev:express && yarn dev:key-cloak && yarn dev:mongo && yarn dev:postgres && yarn dev:redis && yarn dev:solana-vault && yarn dev:next",
-    "lint:elasticsearch": "yarn workspace elasticsearch-starter lint",
+    "lint:elastic": "yarn workspace elastic-starter lint",
     "lint:express": "yarn workspace express-starter lint",
     "lint:graphql": "yarn workspace graphql-starter lint",
     "lint:key-cloak": "yarn workspace key-cloak-starter lint",
@@ -46,7 +46,7 @@
     "lint:solana-vault": "yarn workspace solana-vault-starter lint",
     "lint:next": "yarn workspace next-starter lint",
     "lint": "yarn lint:graphql && yarn lint:express && yarn lint:key-cloak && yarn lint:mongo && yarn lint:postgres && yarn lint:redis && yarn lint:solana-vault && yarn lint:next",
-    "test:elasticsearch": "yarn workspace elasticsearch-starter test",
+    "test:elastic": "yarn workspace elastic-starter test",
     "test:express": "yarn workspace express-starter test",
     "test:graphql": "yarn workspace graphql-starter test",
     "test:key-cloak": "yarn workspace key-cloak-starter test",
@@ -71,6 +71,7 @@
     "messages/*",
     "serverless/*",
     "services/*",
+    "services/express/*",
     "web/*"
   ]
 }

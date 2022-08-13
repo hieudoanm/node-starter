@@ -1,0 +1,95 @@
+---
+components:
+  examples: {}
+  headers: {}
+  parameters: {}
+  requestBodies: {}
+  responses: {}
+  schemas:
+    HelloWorldResponse:
+      properties:
+        hello:
+          type: 'string'
+      required:
+        - 'hello'
+      type: 'object'
+  securitySchemes: {}
+info:
+  title: 'express-starter'
+  version: '1.0.0'
+  description: 'Express Starter'
+  license:
+    name: 'MIT'
+  contact:
+    name: 'hieudoanm '
+    email: 'hieumdoan@gmail.com'
+openapi: '3.0.0'
+paths:
+  /hello:
+    get:
+      operationId: 'Get'
+      responses:
+        200:
+          description: 'Ok'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HelloWorldResponse'
+      tags:
+        - 'Hello World'
+      security: []
+      parameters: []
+    post:
+      operationId: 'Create'
+      responses:
+        200:
+          description: 'Ok'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HelloWorldResponse'
+      tags:
+        - 'Hello World'
+      security: []
+      parameters: []
+    put:
+      operationId: 'Update'
+      responses:
+        200:
+          description: 'Ok'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HelloWorldResponse'
+      tags:
+        - 'Hello World'
+      security: []
+      parameters: []
+    patch:
+      operationId: 'Patch'
+      responses:
+        200:
+          description: 'Ok'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HelloWorldResponse'
+      tags:
+        - 'Hello World'
+      security: []
+      parameters: []
+    delete:
+      operationId: 'Remove'
+      responses:
+        200:
+          description: 'Ok'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HelloWorldResponse'
+      tags:
+        - 'Hello World'
+      security: []
+      parameters: []
+servers:
+  - url: '/'

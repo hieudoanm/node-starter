@@ -1,0 +1,164 @@
+{
+  "item": [
+    {
+      "id": "74e4cada-f9bd-46a7-86b8-b73b1a797b0c",
+      "name": "wallet",
+      "item": [
+        {
+          "id": "19ddf2b2-3a7a-4b56-b49d-e5e3f472293e",
+          "name": "Get Wallet",
+          "request": {
+            "name": "Get Wallet",
+            "description": {},
+            "url": {
+              "path": ["wallet"],
+              "host": ["{{baseUrl}}"],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "72bdebd1-4556-4702-b12e-5be61cde3d20",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": ["wallet"],
+                  "host": ["{{baseUrl}}"],
+                  "query": [
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"publicKey\": \"consectetur do anim\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": []
+        },
+        {
+          "id": "f8c38f93-99b1-4688-9e2b-c50516651ad7",
+          "name": "Create Wallet",
+          "request": {
+            "name": "Create Wallet",
+            "description": {},
+            "url": {
+              "path": ["wallet"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "78c5762f-0beb-4454-8e30-3ad3e9e1dcfe",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": ["wallet"],
+                  "host": ["{{baseUrl}}"],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"publicKey\": \"consectetur do anim\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d2139f19-cf4f-4243-8f33-ff8b754ba142",
+    "name": "solana-vault-starter",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Solana - (Hashi) Vault Starter\n\nContact Support:\n Name: hieudoanm \n Email: hieumdoan@gmail.com",
+      "type": "text/plain"
+    }
+  }
+}
