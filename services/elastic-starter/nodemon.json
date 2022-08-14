@@ -5,10 +5,5 @@
   },
   "ext": "ts",
   "watch": ["src"],
-  "ignore": [
-    "src/routes.ts",
-    "docs/postman.json",
-    "docs/swagger.json",
-    "docs/swagger.yaml"
-  ]
+  "ignore": ["src/routes.ts"]
 }

@@ -5,5 +5,5 @@
   },
   "ext": "ts",
   "watch": ["src"],
-  "ignore": ["src/routes.ts", "src/swagger.json"]
+  "ignore": ["src/routes.ts"]
 }

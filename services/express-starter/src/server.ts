@@ -16,12 +16,12 @@ const PORT = normalizePort(process.env.PORT || '8080');
 app.set('port', PORT);
 
 // Create HTTP server.
-const server = http.createServer(app);
+const httpServer = http.createServer(app);
 
 const main = async () => {
-  server.listen(PORT);
-  server.on('listening', () => onListening(server));
-  server.on('error', (error: HttpError) => onError(error, PORT));
+  httpServer.listen(PORT);
+  httpServer.on('listening', () => onListening(httpServer));
+  httpServer.on('error', (error: HttpError) => onError(error, PORT));
 };
 
 main().catch((error: Error) => logger.error(error));

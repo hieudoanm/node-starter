@@ -71,7 +71,6 @@
     "messages/*",
     "serverless/*",
     "services/*",
-    "services/express/*",
     "web/*"
   ]
 }
