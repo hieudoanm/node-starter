@@ -11,7 +11,6 @@ services:
     container_name: mongo-service
     build:
       context: .
-      no_cache: true
     expose:
       - 8080
     ports:
@@ -19,7 +18,7 @@ services:
     environment:
       - PORT=8080
       - MONGO_URI=mongodb://mongo-instance:27017/test
-      - KEY_CLOAK_EXPRESS_HOST=http://key-cloak-instance:8080/realms/express
+      - KEY_CLOAK_STARTER_HOST=http://key-cloak-instance:8080/realms/express
     command: yarn dev
     depends_on:
       - mongo-instance

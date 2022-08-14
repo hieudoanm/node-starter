@@ -12,9 +12,9 @@ export const KEY_CLOAK_ADMIN_CLI_CLIENT_ID =
   process.env.KEY_CLOAK_ADMIN_CLI_CLIENT_ID || '';
 export const KEY_CLOAK_ADMIN_CLI_CLIENT_SECRET =
   process.env.KEY_CLOAK_ADMIN_CLI_CLIENT_SECRET || '';
-// KeyCloak Express Client
-export const KEY_CLOAK_EXPRESS_HOST = process.env.KEY_CLOAK_EXPRESS_HOST || '';
-export const KEY_CLOAK_EXPRESS_CLIENT_ID =
-  process.env.KEY_CLOAK_EXPRESS_CLIENT_ID || '';
-export const KEY_CLOAK_EXPRESS_CLIENT_SECRET =
-  process.env.KEY_CLOAK_EXPRESS_CLIENT_SECRET || '';
+// KeyCloak Starter Client
+export const KEY_CLOAK_STARTER_HOST = process.env.KEY_CLOAK_STARTER_HOST || '';
+export const KEY_CLOAK_STARTER_CLIENT_ID =
+  process.env.KEY_CLOAK_STARTER_CLIENT_ID || '';
+export const KEY_CLOAK_STARTER_CLIENT_SECRET =
+  process.env.KEY_CLOAK_STARTER_CLIENT_SECRET || '';

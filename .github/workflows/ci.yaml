@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - master
-      - 'hotfix/**'
-      - 'feature/**'
-      - 'renovate/**'
+      - hotfix/**
+      - feature/**
+      - renovate/**
 
 jobs:
   github-actions:
