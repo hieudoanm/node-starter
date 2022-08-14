@@ -1,5 +1,5 @@
 import { Request } from 'express';
-import { KEY_CLOAK_EXPRESS_HOST } from '../../configs';
+import { KEY_CLOAK_STARTER_HOST } from '../../configs';
 import { axiosGet } from '../../libs/axios';
 import logger from '../../libs/logger';
 
@@ -20,7 +20,7 @@ export const expressAuthentication = async (
     throw new Error('Missing Token');
   }
 
-  const url = `${KEY_CLOAK_EXPRESS_HOST}/protocol/openid-connect/userinfo`;
+  const url = `${KEY_CLOAK_STARTER_HOST}/protocol/openid-connect/userinfo`;
   const headers = { authorization };
   let userInfo;
   try {
