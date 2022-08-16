@@ -13,6 +13,8 @@ import {
 } from '@tsoa/runtime';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { RedisController } from './router/cache/cache.controller';
+// WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+import { HealthController } from './router/health/health.controller';
 import type { RequestHandler } from 'express';
 import * as express from 'express';
 
@@ -105,6 +107,30 @@ export function RegisterRoutes(app: express.Router) {
           controller,
           validatedArgs as any
         );
+        promiseHandler(controller, promise, response, undefined, next);
+      } catch (err) {
+        return next(err);
+      }
+    }
+  );
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  app.get(
+    '/health',
+    ...fetchMiddlewares<RequestHandler>(HealthController),
+    ...fetchMiddlewares<RequestHandler>(HealthController.prototype.get),
+
+    function HealthController_get(request: any, response: any, next: any) {
+      const args = {};
+
+      // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+      let validatedArgs: any[] = [];
+      try {
+        validatedArgs = getValidatedArgs(args, request, response);
+
+        const controller = new HealthController();
+
+        const promise = controller.get.apply(controller, validatedArgs as any);
         promiseHandler(controller, promise, response, undefined, next);
       } catch (err) {
         return next(err);

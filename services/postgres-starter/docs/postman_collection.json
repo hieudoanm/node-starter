@@ -1,11 +1,61 @@
 {
   "item": [
     {
-      "id": "0894430f-bce6-44cd-97e1-c5295a0dd62e",
+      "id": "9360829e-3f1d-4f7a-a997-7aac68f80e86",
+      "name": "Get",
+      "request": {
+        "name": "Get",
+        "description": {},
+        "url": {
+          "path": ["health"],
+          "host": ["{{baseUrl}}"],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "25f51b3f-c71a-4790-b0a2-b22afe4e267a",
+          "name": "Ok",
+          "originalRequest": {
+            "url": {
+              "path": ["health"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"status\": \"in consequat\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "617b5e06-ae97-4779-8ec2-207cc22bdb32",
       "name": "todos",
       "item": [
         {
-          "id": "49e58849-a076-4184-b6de-7cb4eb1da76e",
+          "id": "8da3bcf3-fe6d-4b3f-89eb-70a5760f6815",
           "name": "Get Todos",
           "request": {
             "name": "Get Todos",
@@ -27,7 +77,7 @@
           },
           "response": [
             {
-              "id": "1bfdef1e-c82d-4c34-b583-264788da4cde",
+              "id": "52ecdbb4-9d37-44ef-9c83-a7f21b3afad9",
               "name": "Ok",
               "originalRequest": {
                 "url": {
@@ -47,7 +97,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"status\": false,\n    \"todo\": \"dolor dolor \",\n    \"id\": \"qui et\"\n  },\n  {\n    \"status\": false,\n    \"todo\": \"aute amet voluptate\",\n    \"id\": \"in occaecat non sit ea\"\n  }\n]",
+              "body": "[\n  {\n    \"status\": true,\n    \"todo\": \"dolor Excepteur\",\n    \"id\": \"Excepteur ea\"\n  },\n  {\n    \"status\": true,\n    \"todo\": \"id ea dolor proident\",\n    \"id\": \"commodo velit\"\n  }\n]",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -55,7 +105,7 @@
           "event": []
         },
         {
-          "id": "e732b62d-07d5-47ea-a723-a5b1fbf5b293",
+          "id": "6bd274ae-fd3f-4656-bcb1-206e01fa8dfd",
           "name": "Create Todo",
           "request": {
             "name": "Create Todo",
@@ -90,7 +140,7 @@
           },
           "response": [
             {
-              "id": "176a20fa-5e6f-447f-868e-384dcfd1b1d6",
+              "id": "750c8e88-7f4a-474e-a14f-1c77dfa103f8",
               "name": "Ok",
               "originalRequest": {
                 "url": {
@@ -118,7 +168,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"status\": true,\n  \"todo\": \"aliqua\",\n  \"id\": \"ad\"\n}",
+              "body": "{\n  \"status\": true,\n  \"todo\": \"occaecat nulla labore\",\n  \"id\": \"proident deserunt ullamco Lorem\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -129,11 +179,11 @@
           }
         },
         {
-          "id": "68ce410f-e590-4840-9cb1-5cc0933158e8",
+          "id": "bd5c3a16-3858-4643-8d3c-4e9636072866",
           "name": "{id}",
           "item": [
             {
-              "id": "56d7a407-855c-412e-9330-46dbacc00eb3",
+              "id": "0a12872a-4ceb-49fb-ad0e-c95f8b042c94",
               "name": "Get Todo",
               "request": {
                 "name": "Get Todo",
@@ -163,7 +213,7 @@
               },
               "response": [
                 {
-                  "id": "b9dbda38-b4ba-4ea1-bc2f-3d50a4134039",
+                  "id": "1c68ad33-573d-4e1c-a788-17a64a4306f8",
                   "name": "Ok",
                   "originalRequest": {
                     "url": {
@@ -191,7 +241,7 @@
                       "value": "application/json"
                     }
                   ],
-                  "body": "{\n  \"status\": true,\n  \"todo\": \"aliqua\",\n  \"id\": \"ad\"\n}",
+                  "body": "{\n  \"status\": true,\n  \"todo\": \"occaecat nulla labore\",\n  \"id\": \"proident deserunt ullamco Lorem\"\n}",
                   "cookie": [],
                   "_postman_previewlanguage": "json"
                 }
@@ -199,7 +249,7 @@
               "event": []
             },
             {
-              "id": "256d0a36-7019-4b42-8dcb-784b560fbe84",
+              "id": "e82f6a86-9940-4e67-800b-c24e92fd98ec",
               "name": "Update Todo",
               "request": {
                 "name": "Update Todo",
@@ -242,7 +292,7 @@
               },
               "response": [
                 {
-                  "id": "6f231ba6-82fa-4789-a57b-c9267f63d919",
+                  "id": "4a3ee000-dabd-411b-bfdc-f6999441702d",
                   "name": "Ok",
                   "originalRequest": {
                     "url": {
@@ -278,7 +328,7 @@
                       "value": "application/json"
                     }
                   ],
-                  "body": "{\n  \"status\": true,\n  \"todo\": \"aliqua\",\n  \"id\": \"ad\"\n}",
+                  "body": "{\n  \"status\": true,\n  \"todo\": \"occaecat nulla labore\",\n  \"id\": \"proident deserunt ullamco Lorem\"\n}",
                   "cookie": [],
                   "_postman_previewlanguage": "json"
                 }
@@ -289,7 +339,7 @@
               }
             },
             {
-              "id": "d57f1691-c579-4bfd-aaff-89e34faf4579",
+              "id": "6cfdb803-796e-46cc-8f38-e0f8fa9b8571",
               "name": "Patch Todo",
               "request": {
                 "name": "Patch Todo",
@@ -332,7 +382,7 @@
               },
               "response": [
                 {
-                  "id": "a3606bb8-ace2-44ac-9941-cba5efff677d",
+                  "id": "0620daa8-4469-4ef6-94fc-8136074cf330",
                   "name": "Ok",
                   "originalRequest": {
                     "url": {
@@ -368,7 +418,7 @@
                       "value": "application/json"
                     }
                   ],
-                  "body": "{\n  \"status\": true,\n  \"todo\": \"aliqua\",\n  \"id\": \"ad\"\n}",
+                  "body": "{\n  \"status\": true,\n  \"todo\": \"occaecat nulla labore\",\n  \"id\": \"proident deserunt ullamco Lorem\"\n}",
                   "cookie": [],
                   "_postman_previewlanguage": "json"
                 }
@@ -379,7 +429,7 @@
               }
             },
             {
-              "id": "2a29fe7c-37a4-487e-bc77-ee7f89b1e02f",
+              "id": "99d9f02c-beca-4eb4-9639-8470798da20a",
               "name": "Delete Todo",
               "request": {
                 "name": "Delete Todo",
@@ -409,7 +459,7 @@
               },
               "response": [
                 {
-                  "id": "b0a291cd-6b69-4d5e-9040-98a8594dba1d",
+                  "id": "29e8fbc8-dbbd-4eb3-b2e3-016ece5e7c11",
                   "name": "Ok",
                   "originalRequest": {
                     "url": {
@@ -437,7 +487,7 @@
                       "value": "application/json"
                     }
                   ],
-                  "body": "{\n  \"status\": true,\n  \"todo\": \"aliqua\",\n  \"id\": \"ad\"\n}",
+                  "body": "{\n  \"status\": true,\n  \"todo\": \"occaecat nulla labore\",\n  \"id\": \"proident deserunt ullamco Lorem\"\n}",
                   "cookie": [],
                   "_postman_previewlanguage": "json"
                 }
@@ -460,7 +510,7 @@
     }
   ],
   "info": {
-    "_postman_id": "3b669e1b-c836-40ba-8d06-62529c8e5bad",
+    "_postman_id": "9c879026-27b5-4c12-b04e-70c8f68891fc",
     "name": "postgres-starter",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {

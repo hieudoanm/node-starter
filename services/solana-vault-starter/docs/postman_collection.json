@@ -1,11 +1,61 @@
 {
   "item": [
     {
-      "id": "74e4cada-f9bd-46a7-86b8-b73b1a797b0c",
+      "id": "c862b621-ce92-4517-9d7d-c0fad4548a04",
+      "name": "Get",
+      "request": {
+        "name": "Get",
+        "description": {},
+        "url": {
+          "path": ["health"],
+          "host": ["{{baseUrl}}"],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "48d904a8-b495-4271-b774-f17a659ee24e",
+          "name": "Ok",
+          "originalRequest": {
+            "url": {
+              "path": ["health"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"status\": \"ex in\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "fc6ffca4-4fd3-4171-b294-1451f7486fc2",
       "name": "wallet",
       "item": [
         {
-          "id": "19ddf2b2-3a7a-4b56-b49d-e5e3f472293e",
+          "id": "56ef9851-657b-4741-95d3-6b24c6ea5ea4",
           "name": "Get Wallet",
           "request": {
             "name": "Get Wallet",
@@ -34,7 +84,7 @@
           },
           "response": [
             {
-              "id": "72bdebd1-4556-4702-b12e-5be61cde3d20",
+              "id": "26dbf087-5193-420e-9933-aac2d246b284",
               "name": "Ok",
               "originalRequest": {
                 "url": {
@@ -59,7 +109,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"publicKey\": \"consectetur do anim\"\n}",
+              "body": "{\n  \"publicKey\": \"sint culpa sunt\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -67,7 +117,7 @@
           "event": []
         },
         {
-          "id": "f8c38f93-99b1-4688-9e2b-c50516651ad7",
+          "id": "5be7b62b-6938-4f49-9d11-1493b65ddf70",
           "name": "Create Wallet",
           "request": {
             "name": "Create Wallet",
@@ -102,7 +152,7 @@
           },
           "response": [
             {
-              "id": "78c5762f-0beb-4454-8e30-3ad3e9e1dcfe",
+              "id": "0b76910d-55dd-48af-a750-d874b6b4d425",
               "name": "Ok",
               "originalRequest": {
                 "url": {
@@ -130,7 +180,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"publicKey\": \"consectetur do anim\"\n}",
+              "body": "{\n  \"publicKey\": \"sint culpa sunt\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -153,7 +203,7 @@
     }
   ],
   "info": {
-    "_postman_id": "d2139f19-cf4f-4243-8f33-ff8b754ba142",
+    "_postman_id": "4e59aa1f-e0d0-4cdc-a2ba-a175944ccf1f",
     "name": "solana-vault-starter",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {

@@ -1,11 +1,11 @@
 {
   "item": [
     {
-      "id": "160c06b2-67e1-40ca-8e75-73c3c4b2741f",
+      "id": "0a7c3e62-25c0-479a-8c91-f20236473e23",
       "name": "cache",
       "item": [
         {
-          "id": "830f3135-be0a-4878-9026-ff878d3de759",
+          "id": "92ee05ac-17e2-421a-b10e-e055649272fb",
           "name": "Get Cache",
           "request": {
             "name": "Get Cache",
@@ -40,7 +40,7 @@
           },
           "response": [
             {
-              "id": "ce43617f-2ea8-4746-b60e-be3130de0147",
+              "id": "a0dca87c-7498-43c0-b29e-e8138ce47563",
               "name": "Ok",
               "originalRequest": {
                 "url": {
@@ -68,7 +68,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"value\": \"esse in id\",\n  \"key\": \"quis Ut\"\n}",
+              "body": "{\n  \"value\": \"in quis sit est\",\n  \"key\": \"sed ipsum cupidatat\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -79,7 +79,7 @@
           }
         },
         {
-          "id": "bb2f3e73-07ca-4ef6-b6b4-9c6bb237ffa4",
+          "id": "c7303a83-d96a-4ec1-ad09-20cde3608728",
           "name": "Set Cache",
           "request": {
             "name": "Set Cache",
@@ -114,7 +114,7 @@
           },
           "response": [
             {
-              "id": "8baf5278-f110-4b48-bb80-54bd1d3036fc",
+              "id": "43654091-f14d-4f4c-b20f-2cb2fed03f63",
               "name": "Ok",
               "originalRequest": {
                 "url": {
@@ -142,7 +142,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"value\": \"esse in id\",\n  \"key\": \"quis Ut\"\n}",
+              "body": "{\n  \"value\": \"in quis sit est\",\n  \"key\": \"sed ipsum cupidatat\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -151,6 +151,56 @@
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "851e393a-d299-420c-947b-ff419c2ff115",
+      "name": "Get",
+      "request": {
+        "name": "Get",
+        "description": {},
+        "url": {
+          "path": ["health"],
+          "host": ["{{baseUrl}}"],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "64c2542b-1ddc-48e4-b361-93bde63a85ca",
+          "name": "Ok",
+          "originalRequest": {
+            "url": {
+              "path": ["health"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"status\": \"dolor quis consequat ut\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
         }
       ],
       "event": []
@@ -165,7 +215,7 @@
     }
   ],
   "info": {
-    "_postman_id": "92c3dca1-3c21-47fc-a9d7-2978014fd90f",
+    "_postman_id": "ee7fa3a4-5475-4f62-8d09-5563f9b9548b",
     "name": "redis-starter",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
