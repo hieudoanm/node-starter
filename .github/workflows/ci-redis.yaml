@@ -1,9 +1,10 @@
-name: CI
+name: CI - Redis
 
 on:
   push:
     branches:
       - master
+      - develop
       - hotfix/**
       - feature/**
       - renovate/**
@@ -25,7 +26,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install Dependencies
         run: yarn install --network-timeout 86400000
+        working-directory: ./services/redis-starter
       - name: Build Production
         run: yarn build
+        working-directory: ./services/redis-starter
       - name: Unit Test
         run: yarn test
+        working-directory: ./services/redis-starter
