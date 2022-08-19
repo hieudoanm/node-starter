@@ -22,7 +22,7 @@
     "watch": "webpack --watch"
   },
   "dependencies": {
-    "kafkajs": "2.1.0"
+    "kafkajs": "2.2.0"
   },
   "devDependencies": {
     "@types/jest": "28.1.7",
