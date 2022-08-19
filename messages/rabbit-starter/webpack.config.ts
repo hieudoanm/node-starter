@@ -1,11 +1,11 @@
-// Generated using webpack-cli https://github.com/webpack/webpack-cli
+import path from 'path';
+import nodeExternals from 'webpack-node-externals';
 
-const path = require('path');
-const nodeExternals = require('webpack-node-externals');
+const mode =
+  process.env.NODE_ENV == 'production' ? 'production' : 'development';
 
-const isProduction = process.env.NODE_ENV == 'production';
-
-const config = {
+export default {
+  mode,
   target: 'node',
   entry: path.resolve(__dirname, 'src/server.ts'),
   externals: [
@@ -41,13 +41,4 @@ const config = {
   resolve: {
     extensions: ['.tsx', '.ts'],
   },
-};
-
-module.exports = () => {
-  if (isProduction) {
-    config.mode = 'production';
-  } else {
-    config.mode = 'development';
-  }
-  return config;
 };
