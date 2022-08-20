@@ -1,4 +1,4 @@
-name: CI - GraphQL
+name: CI - KeyCloak
 
 on:
   push:
@@ -26,10 +26,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install Dependencies
         run: yarn install --network-timeout 86400000
-        working-directory: ./services/graphql-starter
+        working-directory: ./services/keycloak-starter
       - name: Build Production
         run: yarn build
-        working-directory: ./services/graphql-starter
+        working-directory: ./services/keycloak-starter
       - name: Unit Test
         run: yarn test
-        working-directory: ./services/graphql-starter
+        working-directory: ./services/keycloak-starter

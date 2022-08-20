@@ -6,7 +6,7 @@
     "securityDefinitions": {
       "jwt": {
         "type": "oauth2",
-        "authorizationUrl": "http://key-cloak-instance:8080/realms/express",
+        "authorizationUrl": "http://keycloak-instance:8080/realms/express",
         "flow": "implicit",
         "scopes": {}
       }

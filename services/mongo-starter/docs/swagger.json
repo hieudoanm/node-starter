@@ -27,7 +27,7 @@
         "type": "oauth2",
         "flows": {
           "implicit": {
-            "authorizationUrl": "http://key-cloak-instance:8080/realms/express",
+            "authorizationUrl": "http://keycloak-instance:8080/realms/express",
             "scopes": {}
           }
         }

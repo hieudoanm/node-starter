@@ -47,7 +47,7 @@ jobs:
       - name: Install Docker
         run: sudo apt-get update && sudo apt-get install docker-ce
       - name: Docker Build
-        working-directory: ./services/key-cloak-starter
+        working-directory: ./services/keycloak-starter
         env:
           IMAGE_TAG: ${{ github.head_ref || github.ref_name }}.${{ steps.datetime.outputs.datetime }}.${{ steps.version.outputs.sha_short }}
-        run: docker build . --no-cache -t key-cloak:$IMAGE_TAG
+        run: docker build . --no-cache -t keycloak:$IMAGE_TAG

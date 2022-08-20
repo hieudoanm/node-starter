@@ -18,7 +18,7 @@ services:
     environment:
       - PORT=8080
       - MONGO_URI=mongodb://mongo-instance:27017/test
-      - KEY_CLOAK_STARTER_HOST=http://key-cloak-instance:8080/realms/express
+      - KEY_CLOAK_STARTER_HOST=http://keycloak-instance:8080/realms/express
     command: yarn dev
     depends_on:
       - mongo-instance

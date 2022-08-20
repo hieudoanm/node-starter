@@ -1,7 +1,7 @@
 {
-  "name": "graphql-starter",
+  "name": "apollo-starter",
   "version": "0.0.1",
-  "description": "GraphQL Starter",
+  "description": "Apollo Starter",
   "main": "dist/server.js",
   "repository": "git@github.com:hieudoanm/node-starter.git",
   "author": "hieudoanm <hieumdoan@gmail.com>",
@@ -42,6 +42,7 @@
     "@types/jest": "28.1.7",
     "@types/lodash": "4.14.184",
     "@types/node": "18.6.3",
+    "@types/webpack-node-externals": "2.5.3",
     "@typescript-eslint/eslint-plugin": "5.33.1",
     "@typescript-eslint/parser": "5.33.1",
     "@webpack-cli/generators": "2.5.0",

@@ -5,9 +5,9 @@ volumes:
     driver: local
 
 services:
-  key-cloak-postgre-instance:
+  keycloak-postgre-instance:
     image: postgres:latest
-    container_name: key-cloak-postgres-instance
+    container_name: keycloak-postgres-instance
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
@@ -17,18 +17,18 @@ services:
       POSTGRES_USER: keycloak-admin
       POSTGRES_PASSWORD: keycloak-password
 
-  key-cloak-instance:
+  keycloak-instance:
     image: quay.io/keycloak/keycloak:19.0.1
-    container_name: key-cloak-instance
+    container_name: keycloak-instance
     links:
-      - key-cloak-postgre-instance
+      - keycloak-postgre-instance
     expose:
       - 8080
     ports:
       - '8080:8080'
     environment:
       DB_VENDOR: postgres
-      DB_ADDR: key-cloak-postgres-instance
+      DB_ADDR: keycloak-postgres-instance
       DB_SCHEMA: public
       DB_DATABASE: keycloak
       DB_USER: keycloak-admin
@@ -38,10 +38,10 @@ services:
     command:
       - start-dev
     depends_on:
-      - key-cloak-postgre-instance
+      - keycloak-postgre-instance
 
-  key-cloak-service:
-    container_name: key-cloak-service
+  keycloak-service:
+    container_name: keycloak-service
     build:
       context: .
     expose:
@@ -50,13 +50,13 @@ services:
       - '8081:8080'
     environment:
       - PORT=8080
-      - KEY_CLOAK_ADMIN_HOST=http://key-cloak-instance:8080/admin/realms/express
-      - KEY_CLOAK_ADMIN_CLI_HOST=http://key-cloak-instance:8080/realms/master
+      - KEY_CLOAK_ADMIN_HOST=http://keycloak-instance:8080/admin/realms/express
+      - KEY_CLOAK_ADMIN_CLI_HOST=http://keycloak-instance:8080/realms/master
       - KEY_CLOAK_ADMIN_CLI_CLIENT_ID=admin-cli
       - KEY_CLOAK_ADMIN_CLI_CLIENT_SECRET=
-      - KEY_CLOAK_STARTER_HOST=http://key-cloak-instance:8080/realms/express
+      - KEY_CLOAK_STARTER_HOST=http://keycloak-instance:8080/realms/express
       - KEY_CLOAK_STARTER_CLIENT_ID=express-client
       - KEY_CLOAK_STARTER_CLIENT_SECRET=
     command: yarn dev
     depends_on:
-      - key-cloak-instance
+      - keycloak-instance

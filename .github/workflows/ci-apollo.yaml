@@ -1,4 +1,4 @@
-name: CI - KeyCloak
+name: CI - Apollo
 
 on:
   push:
@@ -26,10 +26,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install Dependencies
         run: yarn install --network-timeout 86400000
-        working-directory: ./services/key-cloak-starter
+        working-directory: ./graphql/apollo-starter
       - name: Build Production
         run: yarn build
-        working-directory: ./services/key-cloak-starter
+        working-directory: ./graphql/apollo-starter
       - name: Unit Test
         run: yarn test
-        working-directory: ./services/key-cloak-starter
+        working-directory: ./graphql/apollo-starter

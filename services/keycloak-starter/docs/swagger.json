@@ -184,7 +184,7 @@
     "securitySchemes": {}
   },
   "info": {
-    "title": "key-cloak-starter",
+    "title": "keycloak-starter",
     "version": "0.0.1",
     "description": "KeyCloak Starter",
     "license": {
