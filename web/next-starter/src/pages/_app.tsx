@@ -1,5 +1,6 @@
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import { SockerProvider } from '../contexts/SocketProvider';
 import '../styles/globals.scss';
 
 const App = ({ Component, pageProps }: AppProps) => {
@@ -8,7 +9,9 @@ const App = ({ Component, pageProps }: AppProps) => {
       <Head>
         <title>Next.js Starter</title>
       </Head>
-      <Component {...pageProps} />
+      <SockerProvider>
+        <Component {...pageProps} />
+      </SockerProvider>
     </>
   );
 };

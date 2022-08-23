@@ -7,7 +7,7 @@ if (NODE_ENV === 'development') {
 
 import http from 'http';
 import { HttpError } from 'http-errors';
-import { Server } from 'ws';
+import { Server } from 'socket.io';
 import app from './app';
 import logger from './libs/logger';
 import { normalizePort, onError, onListening } from './utils/server';
@@ -16,18 +16,28 @@ import { normalizePort, onError, onListening } from './utils/server';
 const PORT = normalizePort(process.env.PORT || '8080');
 app.set('port', PORT);
 
-const server = http.createServer(app);
+const httpServer = http.createServer(app);
 
 const main = async () => {
-  const wss = new Server({ server });
-  wss.on('connection', (ws) => {
-    logger.info('Client connected');
-    ws.on('close', () => logger.info('Client disconnected'));
+  const io = new Server(httpServer, {
+    cors: { origin: ['http://localhost:3000'], credentials: true },
   });
 
-  server.listen(PORT);
-  server.on('listening', () => onListening(server));
-  server.on('error', (error: HttpError) => onError(error, PORT));
+  io.on('connection', (webSocket) => {
+    const { id, connected } = webSocket;
+    logger.info({ id, connected }, 'Client connected');
+    webSocket.on('close', () => logger.info('Client disconnected'));
+
+    const oneSecond = 1000;
+    setInterval(() => {
+      const dateTime = new Date().toISOString();
+      webSocket.emit('date-time', dateTime);
+    }, oneSecond * 5);
+  });
+
+  httpServer.listen(PORT);
+  httpServer.on('listening', () => onListening(httpServer));
+  httpServer.on('error', (error: HttpError) => onError(error, PORT));
 };
 
 main().catch((error: Error) => logger.error(error));

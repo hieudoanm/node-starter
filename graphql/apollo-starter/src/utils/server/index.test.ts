@@ -1,4 +1,4 @@
-import { ApolloServer } from 'apollo-server-express';
+import { ApolloServer, gql } from 'apollo-server-express';
 import http from 'http';
 import { normalizePort, onListening } from '.';
 
@@ -19,7 +19,16 @@ describe('server utils', () => {
 
   describe('onListening', () => {
     it('should log message', () => {
-      const apolloServer = new ApolloServer({});
+      const apolloServer = new ApolloServer({
+        resolvers: { Query: { hello: () => 'world' } },
+        typeDefs: [
+          gql`
+            type Query {
+              hello: String
+            }
+          `,
+        ],
+      });
       const httpServer = http.createServer();
       onListening(apolloServer, httpServer);
     });
