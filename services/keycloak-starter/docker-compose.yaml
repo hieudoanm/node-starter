@@ -1,0 +1,62 @@
+version: '3.9'
+
+volumes:
+  postgres_data:
+    driver: local
+
+services:
+  keycloak-postgre-instance:
+    image: postgres:latest
+    container_name: keycloak-postgres-instance
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak-admin
+      POSTGRES_PASSWORD: keycloak-password
+
+  keycloak-instance:
+    image: quay.io/keycloak/keycloak:19.0.1
+    container_name: keycloak-instance
+    links:
+      - keycloak-postgre-instance
+    expose:
+      - 8080
+    ports:
+      - '8080:8080'
+    environment:
+      DB_VENDOR: postgres
+      DB_ADDR: keycloak-postgres-instance
+      DB_SCHEMA: public
+      DB_DATABASE: keycloak
+      DB_USER: keycloak-admin
+      DB_PASSWORD: keycloak-password
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    command:
+      - start-dev
+    depends_on:
+      - keycloak-postgre-instance
+
+  keycloak-service:
+    container_name: keycloak-service
+    build:
+      context: .
+    expose:
+      - 8080
+    ports:
+      - '8081:8080'
+    environment:
+      - PORT=8080
+      - KEY_CLOAK_ADMIN_HOST=http://keycloak-instance:8080/admin/realms/express
+      - KEY_CLOAK_ADMIN_CLI_HOST=http://keycloak-instance:8080/realms/master
+      - KEY_CLOAK_ADMIN_CLI_CLIENT_ID=admin-cli
+      - KEY_CLOAK_ADMIN_CLI_CLIENT_SECRET=
+      - KEY_CLOAK_STARTER_HOST=http://keycloak-instance:8080/realms/express
+      - KEY_CLOAK_STARTER_CLIENT_ID=express-client
+      - KEY_CLOAK_STARTER_CLIENT_SECRET=
+    command: yarn dev
+    depends_on:
+      - keycloak-instance

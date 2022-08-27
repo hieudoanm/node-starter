@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  elasticsearch-instance:
+    image: elastic:latest
+    container_name: elasticsearch-instance
+    ports:
+      - 9200:9200
+
+  kibana-instance:
+    image: kibana:latest
+    container_name: kibana-instance
+    ports:
+      - 5601:5601
+
+  elastic-service:
+    container_name: elastic-service
+    build:
+      context: .
+    expose:
+      - 8080
+    ports:
+      - '8080:8080'
+    environment:
+      - PORT=8080
+    command: yarn dev

@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  express-service:
+    container_name: express-service
+    build:
+      context: .
+    expose:
+      - 8080
+    ports:
+      - '8080:8080'
+    environment:
+      - PORT=8080
+    command: yarn dev

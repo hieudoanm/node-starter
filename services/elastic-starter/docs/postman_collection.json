@@ -1,0 +1,116 @@
+{
+  "item": [
+    {
+      "id": "38f5f5f4-71e7-41dd-8614-a5aebcdca63a",
+      "name": "products",
+      "item": [
+        {
+          "id": "f040de9b-5679-4ef2-b97b-e527c7576513",
+          "name": "Create Products",
+          "request": {
+            "name": "Create Products",
+            "description": {},
+            "url": {
+              "path": ["products"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "600556a9-879c-4607-9591-e3857fe5bde4",
+              "name": "No content",
+              "originalRequest": {
+                "url": {
+                  "path": ["products"],
+                  "host": ["{{baseUrl}}"],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": []
+        },
+        {
+          "id": "f01f29c0-11b3-4692-8e5b-7a4962c12537",
+          "name": "Search Products",
+          "request": {
+            "name": "Search Products",
+            "description": {},
+            "url": {
+              "path": ["products", "search"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "06eeecff-90ba-40c3-942d-9bf3cd88f0ad",
+              "name": "No content",
+              "originalRequest": {
+                "url": {
+                  "path": ["products", "search"],
+                  "host": ["{{baseUrl}}"],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": []
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "60bbda44-6f1f-4c5a-a456-613affb05465",
+    "name": "elastic-starter",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Elastic Starter\n\nContact Support:\n Name: hieudoanm \n Email: hieumdoan@gmail.com",
+      "type": "text/plain"
+    }
+  }
+}

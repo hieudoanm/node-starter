@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  mongo-instance:
+    image: mongo:latest
+    container_name: mongo-instance
+    ports:
+      - '27017:27017'
+
+  mongo-service:
+    container_name: mongo-service
+    build:
+      context: .
+    expose:
+      - 8080
+    ports:
+      - '8080:8080'
+    environment:
+      - PORT=8080
+      - MONGO_URI=mongodb://mongo-instance:27017/test
+      - KEY_CLOAK_STARTER_HOST=http://keycloak-instance:8080/realms/express
+    command: yarn dev
+    depends_on:
+      - mongo-instance
