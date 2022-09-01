@@ -1275,12 +1275,12 @@
     node-gyp "^8.2.0"
     read-package-json-fast "^2.0.1"
 
-"@nrwl/cli@14.6.1":
-  version "14.6.1"
-  resolved "https://registry.yarnpkg.com/@nrwl/cli/-/cli-14.6.1.tgz#1da38bd3f29b85cbe2254c6c87a182a99607ad76"
-  integrity sha512-iPs5LL+yI8ER8+XVOD+mqjuOW6nozwMvsik/FAQ0cfaD1dTGM4//i9BXZVdVIZYiRgN1keumjPSOo7vucJYU/g==
+"@nrwl/cli@14.6.3":
+  version "14.6.3"
+  resolved "https://registry.yarnpkg.com/@nrwl/cli/-/cli-14.6.3.tgz#4106cb70eb88760b099d3a95e9ee4939ed20ce5b"
+  integrity sha512-S+o59oswVCfzD/Txh94Vz+HoOl2ynJkuBiyuXjTved1PEpIM68SmFv6Wx8p8vYBbHLv2sL71pb0uqjFJJFovJw==
   dependencies:
-    nx "14.6.1"
+    nx "14.6.3"
 
 "@nrwl/nx-cloud@latest":
   version "14.3.0"
@@ -1293,12 +1293,12 @@
     strip-json-comments "^3.1.1"
     tar "6.1.11"
 
-"@nrwl/tao@14.6.1":
-  version "14.6.1"
-  resolved "https://registry.yarnpkg.com/@nrwl/tao/-/tao-14.6.1.tgz#88b9be0c4c47a2350e29df02f8ca89399b37b52d"
-  integrity sha512-dxeKotjrAIgByCaa8x1zMvoyZQH4MvCN3QZ2JqfFwRja8dJMGrsrfZcZu+3J+rStRzvVZHDa+joLuy1u7tXl+w==
+"@nrwl/tao@14.6.3":
+  version "14.6.3"
+  resolved "https://registry.yarnpkg.com/@nrwl/tao/-/tao-14.6.3.tgz#943fdd8da6840a3f98fe633beb756e6489d1b43b"
+  integrity sha512-iVLLcluU5WDSHCxB5so/eSeIY4JK+Cp8Yjh21MLZBkYSw/NIryk9lbHyXQPl37+JY94FRO1G87kvgk4AFly1pw==
   dependencies:
-    nx "14.6.1"
+    nx "14.6.3"
 
 "@parcel/watcher@2.0.4":
   version "2.0.4"
@@ -7965,13 +7965,13 @@ nwsapi@^2.2.0:
   resolved "https://registry.yarnpkg.com/nwsapi/-/nwsapi-2.2.1.tgz#10a9f268fbf4c461249ebcfe38e359aa36e2577c"
   integrity sha512-JYOWTeFoS0Z93587vRJgASD5Ut11fYl5NyihP3KrYBvMe1FRRs6RN7m20SA/16GM4P6hTnZjT+UmDOt38UeXNg==
 
-nx@14.6.1:
-  version "14.6.1"
-  resolved "https://registry.yarnpkg.com/nx/-/nx-14.6.1.tgz#57b1bd19c018cc125330e91a05523e6a081c2dce"
-  integrity sha512-dJH6A2ff7AO3hXYkjh7qRBZjCEvmjoJ5IQaoi7aEDcLQES5ujePmSS5TZK7NokrdrekDs3MYw3ecPZcVw7lCyg==
+nx@14.6.3:
+  version "14.6.3"
+  resolved "https://registry.yarnpkg.com/nx/-/nx-14.6.3.tgz#de702b6e0519be1d74130b83ab37537bc2773105"
+  integrity sha512-jdIFsyZDr1CyUzNifwNJ5dNrRRgSHy2gE1zIxcxVQuLUzDHLwOs/oHAGisyXKJsTaxVRr4Yd2lWGudeU8ZEhyg==
   dependencies:
-    "@nrwl/cli" "14.6.1"
-    "@nrwl/tao" "14.6.1"
+    "@nrwl/cli" "14.6.3"
+    "@nrwl/tao" "14.6.3"
     "@parcel/watcher" "2.0.4"
     chalk "4.1.0"
     chokidar "^3.5.1"
@@ -9307,10 +9307,10 @@ saslprep@^1.0.3:
   dependencies:
     sparse-bitfield "^3.0.3"
 
-sass@1.54.7:
-  version "1.54.7"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.54.7.tgz#a93fb1690472b161fab8f4ab34a66a0f3000c478"
-  integrity sha512-3q7MQz7sCpVG6TLhUfZwGOcd2/sm2ghYN2JEdRjNiW04ILdvahdo9GuAs+bxsxZ3hDCKv+wUT5w0iFWGU0CxlA==
+sass@1.54.8:
+  version "1.54.8"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.54.8.tgz#4adef0dd86ea2b1e4074f551eeda4fc5f812a996"
+  integrity sha512-ib4JhLRRgbg6QVy6bsv5uJxnJMTS2soVcCp9Y88Extyy13A8vV0G1fAwujOzmNkFQbR3LvedudAMbtuNRPbQww==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
     immutable "^4.0.0"
