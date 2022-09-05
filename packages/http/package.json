@@ -1,5 +1,5 @@
 {
-  "name": "@turtle/axios",
+  "name": "@turtle/http",
   "version": "1.0.0",
   "description": "Retryable Axios",
   "main": "dist/index.js",
