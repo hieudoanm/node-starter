@@ -1,9 +1,15 @@
 version: '3.9'
 
+volumes:
+  vault_data:
+    driver: local
+
 services:
   vault-instance:
     image: vault:latest
     container_name: vault-instance
+    volumes:
+      - vault_data:/vault/file
     ports:
       - '8200:8200'
     environment:
@@ -19,5 +25,4 @@ services:
       - '8080:8080'
     environment:
       - PORT=8080
-      - KEY_CLOAK_STARTER_HOST=http://keycloak-instance:8080/realms/express
     command: yarn dev

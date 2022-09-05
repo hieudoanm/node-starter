@@ -11,23 +11,33 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node-version: [16.x]
-        os: [ubuntu-latest]
-        working-directory:
-          - ./graphql/apollo-starter
-          - ./messages/kafka-starter
-          - ./messages/rabbit-starter
-          - ./services/elastic-starter
-          - ./services/express-starter
-          - ./services/keycloak-starter
-          - ./services/mongo-starter
-          - ./services/postgres-starter
-          - ./services/redis-starter
-          - ./services/socket-starter
-          - ./services/solana-vault-starter
-          - ./web/next-starter
-    name: Node.js ${{ matrix.node-version }} ${{ matrix.os }} - ${{ matrix.working-directory }}
-    runs-on: ${{ matrix.os }}
+        node:
+          - name: Node.js 16
+            version: 16.x
+        os:
+          - name: Ubuntu
+            version: ubuntu-latest
+        project:
+          - name: Elastic
+            working-directory: ./databases/elastic-starter
+          - name: MongoDB
+            working-directory: ./databases/mongo-starter
+          - name: PostgreSQL
+            working-directory: ./databases/postgres-starter
+          - name: Redis
+            working-directory: ./databases/redis-starter
+          - name: Apollo
+            working-directory: ./graphql/apollo-starter
+          - name: Express
+            working-directory: ./services/express-starter
+          - name: KeyCloak
+            working-directory: ./services/keycloak-starter
+          - name: Socket.io
+            working-directory: ./services/socket-starter
+          - name: Solana
+            working-directory: ./services/solana-vault-starter
+    name: ${{ matrix.os.name }} - ${{ matrix.node.name }} - ${{ matrix.project.name }}
+    runs-on: ${{ matrix.os.version }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -58,7 +68,7 @@ jobs:
       - name: Install Docker
         run: sudo apt-get update && sudo apt-get install docker-ce
       - name: Docker Build
-        working-directory: ${{ matrix.working-directory }}
+        working-directory: ${{ matrix.project.working-directory }}
         env:
           IMAGE_TAG: ${{ github.head_ref || github.ref_name }}.${{ steps.datetime.outputs.datetime }}.${{ steps.version.outputs.sha_short }}
         run: docker build . --no-cache -t apollo:$IMAGE_TAG

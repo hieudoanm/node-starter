@@ -22,8 +22,7 @@
     "build:redis": "yarn workspace redis-starter build",
     "build:socket": "yarn workspace socket-starter build",
     "build:solana-vault": "yarn workspace solana-vault-starter build",
-    "build:next": "yarn workspace next-starter build",
-    "build": "yarn build:apollo && yarn build:express && yarn build:keycloak && yarn build:mongo && yarn build:postgres && yarn build:redis && yarn build:solana-vault && yarn build:next",
+    "build": "yarn build:apollo && yarn build:express && yarn build:keycloak && yarn build:mongo && yarn build:postgres && yarn build:redis && yarn build:solana-vault",
     "dev:apollo": "yarn workspace apollo-starter dev",
     "dev:elastic": "yarn workspace elastic-starter dev",
     "dev:express": "yarn workspace express-starter dev",
@@ -33,8 +32,7 @@
     "dev:redis": "yarn workspace redis-starter dev",
     "dev:socket": "yarn workspace socket-starter dev",
     "dev:solana-vault": "yarn workspace solana-vault-starter dev",
-    "dev:next": "yarn workspace next-starter dev",
-    "dev": "yarn dev:apollo && yarn dev:express && yarn dev:keycloak && yarn dev:mongo && yarn dev:postgres && yarn dev:redis && yarn dev:solana-vault && yarn dev:next",
+    "dev": "yarn dev:apollo && yarn dev:express && yarn dev:keycloak && yarn dev:mongo && yarn dev:postgres && yarn dev:redis && yarn dev:solana-vault",
     "lint:apollo": "yarn workspace apollo-starter lint",
     "lint:elastic": "yarn workspace elastic-starter lint",
     "lint:express": "yarn workspace express-starter lint",
@@ -44,8 +42,7 @@
     "lint:redis": "yarn workspace redis-starter lint",
     "lint:socket": "yarn workspace socket-starter lint",
     "lint:solana-vault": "yarn workspace solana-vault-starter lint",
-    "lint:next": "yarn workspace next-starter lint",
-    "lint": "yarn lint:apollo && yarn lint:express && yarn lint:keycloak && yarn lint:mongo && yarn lint:postgres && yarn lint:redis && yarn lint:solana-vault && yarn lint:next",
+    "lint": "yarn lint:apollo && yarn lint:express && yarn lint:keycloak && yarn lint:mongo && yarn lint:postgres && yarn lint:redis && yarn lint:solana-vault",
     "test:apollo": "yarn workspace apollo-starter test",
     "test:elastic": "yarn workspace elastic-starter test",
     "test:express": "yarn workspace express-starter test",
@@ -55,8 +52,7 @@
     "test:redis": "yarn workspace redis-starter test",
     "test:socket": "yarn workspace socket-starter test",
     "test:solana-vault": "yarn workspace solana-vault-starter test",
-    "test:next": "yarn workspace next-starter test",
-    "test": "yarn test:apollo && yarn test:express && yarn test:keycloak && yarn test:mongo && yarn test:postgres && yarn test:redis && yarn test:solana-vault && yarn test:next",
+    "test": "yarn test:apollo && yarn test:express && yarn test:keycloak && yarn test:mongo && yarn test:postgres && yarn test:redis && yarn test:solana-vault",
     "graph": "nx graph"
   },
   "devDependencies": {
@@ -68,10 +64,10 @@
     "pretty-quick": "3.1.3"
   },
   "workspaces": [
+    "databases/*",
     "graphql/*",
     "messages/*",
     "serverless/*",
-    "services/*",
-    "web/*"
+    "services/*"
   ]
 }
