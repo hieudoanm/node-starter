@@ -1,7 +1,7 @@
 {
-  "name": "solana-vault-starter",
+  "name": "solana-starter",
   "version": "0.0.1",
-  "description": "Solana - (Hashi) Vault Starter",
+  "description": "Solana Starter",
   "main": "dist/server.js",
   "repository": "git@github.com:hieudoanm/node-starter.git",
   "author": "hieudoanm <hieumdoan@gmail.com>",

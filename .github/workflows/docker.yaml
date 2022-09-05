@@ -18,13 +18,17 @@ jobs:
           - name: Ubuntu
             version: ubuntu-latest
         project:
-          - name: Elastic
+          - name: Contract - Hedera
+            working-directory: ./contracts/hedera-starter
+          - name: Contract - Solana
+            working-directory: ./contracts/solana-starter
+          - name: Database - Elastic
             working-directory: ./databases/elastic-starter
-          - name: MongoDB
+          - name: Database - MongoDB
             working-directory: ./databases/mongo-starter
-          - name: PostgreSQL
+          - name: Database - PostgreSQL
             working-directory: ./databases/postgres-starter
-          - name: Redis
+          - name: Database - Redis
             working-directory: ./databases/redis-starter
           - name: Apollo
             working-directory: ./graphql/apollo-starter
@@ -34,8 +38,6 @@ jobs:
             working-directory: ./services/keycloak-starter
           - name: Socket.io
             working-directory: ./services/socket-starter
-          - name: Solana
-            working-directory: ./services/solana-vault-starter
     name: ${{ matrix.os.name }} - ${{ matrix.node.name }} - ${{ matrix.project.name }}
     runs-on: ${{ matrix.os.version }}
     steps:

@@ -1,5 +1,5 @@
 import { generateKeypair, getKeypairFromSecretKey } from '../../libs/solana';
-import { getVaultSecret, setVaultSecret } from '../../libs/vault';
+import { getVaultSecret, setVaultSecret } from '../../clients/vault';
 import { Wallet, WalletResponse } from './wallet.types';
 
 export const getWallet = async (path: string): Promise<WalletResponse> => {

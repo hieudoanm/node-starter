@@ -1,5 +1,5 @@
 import { VAULT_ENDPOINT, VAULT_TOKEN } from '../../configs';
-import { axiosGet, axiosPost } from '../axios';
+import { axiosGet, axiosPost } from '../../libs/axios';
 
 export const getVaultSecret = async <T>(path: string): Promise<T> => {
   try {

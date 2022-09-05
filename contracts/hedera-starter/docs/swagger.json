@@ -10,18 +10,21 @@
         "properties": {
           "publicKey": {
             "type": "string"
+          },
+          "accountId": {
+            "type": "string"
           }
         },
-        "required": ["publicKey"],
+        "required": ["publicKey", "accountId"],
         "type": "object"
       }
     },
     "securitySchemes": {}
   },
   "info": {
-    "title": "solana-vault-starter",
+    "title": "hedera-starter",
     "version": "0.0.1",
-    "description": "Solana - (Hashi) Vault Starter",
+    "description": "Hedera Starter",
     "license": {
       "name": "MIT"
     },

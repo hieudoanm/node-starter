@@ -1,4 +1,14 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-yarn lint && yarn pretty-quick --staged
+yarn lint:apollo
+yarn lint:elastic
+yarn lint:express
+yarn lint:hedera
+yarn lint:keycloak
+yarn lint:mongo
+yarn lint:postgres
+yarn lint:redis
+yarn lint:socket
+yarn lint:solana
+yarn pretty-quick --staged

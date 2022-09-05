@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "c862b621-ce92-4517-9d7d-c0fad4548a04",
+      "id": "58c0f237-6af9-4e50-bbe6-4a546ac8e3e4",
       "name": "Get",
       "request": {
         "name": "Get",
@@ -23,7 +23,7 @@
       },
       "response": [
         {
-          "id": "48d904a8-b495-4271-b774-f17a659ee24e",
+          "id": "75cbd584-1cff-4a44-a359-30b9a3d12381",
           "name": "Ok",
           "originalRequest": {
             "url": {
@@ -43,7 +43,7 @@
               "value": "application/json"
             }
           ],
-          "body": "{\n  \"status\": \"ex in\"\n}",
+          "body": "{\n  \"status\": \"consequat ut eu elit\"\n}",
           "cookie": [],
           "_postman_previewlanguage": "json"
         }
@@ -51,11 +51,11 @@
       "event": []
     },
     {
-      "id": "fc6ffca4-4fd3-4171-b294-1451f7486fc2",
+      "id": "683e6b6a-136c-4630-985e-ea380bf5b753",
       "name": "wallet",
       "item": [
         {
-          "id": "56ef9851-657b-4741-95d3-6b24c6ea5ea4",
+          "id": "8a4bd152-1bed-46bb-8962-e7258319d646",
           "name": "Get Wallet",
           "request": {
             "name": "Get Wallet",
@@ -84,7 +84,7 @@
           },
           "response": [
             {
-              "id": "26dbf087-5193-420e-9933-aac2d246b284",
+              "id": "842f14f1-2089-4ca2-acfb-7c63ec6558ce",
               "name": "Ok",
               "originalRequest": {
                 "url": {
@@ -109,7 +109,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"publicKey\": \"sint culpa sunt\"\n}",
+              "body": "{\n  \"publicKey\": \"cillum sunt\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -117,7 +117,7 @@
           "event": []
         },
         {
-          "id": "5be7b62b-6938-4f49-9d11-1493b65ddf70",
+          "id": "6565dfb4-e8db-433c-96ed-7c6612ee0545",
           "name": "Create Wallet",
           "request": {
             "name": "Create Wallet",
@@ -152,7 +152,7 @@
           },
           "response": [
             {
-              "id": "0b76910d-55dd-48af-a750-d874b6b4d425",
+              "id": "6a8fdc1e-b87d-4679-858d-02b5c1279781",
               "name": "Ok",
               "originalRequest": {
                 "url": {
@@ -180,7 +180,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"publicKey\": \"sint culpa sunt\"\n}",
+              "body": "{\n  \"publicKey\": \"cillum sunt\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -203,11 +203,11 @@
     }
   ],
   "info": {
-    "_postman_id": "4e59aa1f-e0d0-4cdc-a2ba-a175944ccf1f",
-    "name": "solana-vault-starter",
+    "_postman_id": "f5ae268b-ed35-4af1-a6e8-93a8a4d61f61",
+    "name": "solana-starter",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
-      "content": "Solana - (Hashi) Vault Starter\n\nContact Support:\n Name: hieudoanm \n Email: hieumdoan@gmail.com",
+      "content": "Solana Starter\n\nContact Support:\n Name: hieudoanm \n Email: hieumdoan@gmail.com",
       "type": "text/plain"
     }
   }
