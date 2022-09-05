@@ -1,0 +1,36 @@
+{
+  "name": "@turtle/axios",
+  "version": "1.0.0",
+  "description": "Retryable Axios",
+  "main": "dist/index.js",
+  "repository": "git@github.com:hieudoanm/node-starter.git",
+  "author": "hieudoanm <hieumdoan@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">= 14",
+    "npm": ">= 8",
+    "yarn": "1"
+  },
+  "scripts": {
+    "build": "webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "lint": "eslint . --fix --ext .ts",
+    "watch": "webpack --watch"
+  },
+  "dependencies": {
+    "axios": "^0.27.2"
+  },
+  "devDependencies": {
+    "@types/node": "18.7.14",
+    "@typescript-eslint/eslint-plugin": "5.36.1",
+    "@typescript-eslint/parser": "5.36.1",
+    "eslint": "8.23.0",
+    "ts-loader": "^9.3.1",
+    "ts-node": "10.9.1",
+    "typescript": "^4.8.2",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}

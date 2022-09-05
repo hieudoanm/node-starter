@@ -68,6 +68,7 @@
     "databases/*",
     "graphql/*",
     "messages/*",
+    "packages/*",
     "serverless/*",
     "services/*"
   ]
