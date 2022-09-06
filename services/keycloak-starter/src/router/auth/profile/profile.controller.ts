@@ -1,7 +1,7 @@
 import { CookieOptions, Request as ExpressRequest } from 'express';
 import { Body, Controller, Post, Request, Route, Tags } from 'tsoa';
 import { NODE_ENV } from '../../../configs';
-import { KeyCloakTokenResponse } from '../../../libs/key-cloak/key-cloak.types';
+import { KeyCloakTokenResponse } from '../../../libs/keycloak/keycloak.types';
 import { refreshAccessToken, signIn, signOut, signUp } from './profile.service';
 import {
   RefreshTokenResponse,

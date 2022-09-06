@@ -4,7 +4,7 @@ class Http {
   public async get<T>(
     url: string,
     config: AxiosRequestConfig = {},
-    { max = 4, time = 0 }: { max: number; time: number }
+    { max = 4, time = 1 }: { max?: number; time?: number } = { max: 4, time: 1 }
   ): Promise<T> {
     try {
       const response = await axios.get<T>(url, config);
@@ -12,10 +12,10 @@ class Http {
     } catch (error) {
       console.error('AxiosError', error as AxiosError<T>);
       const axiosErrorMessage =
-        (error as AxiosError).stack ||
         (error as AxiosError).message ||
+        (error as AxiosError).stack ||
         'AxiosError';
-      if (time > max) throw new Error(axiosErrorMessage);
+      if (time >= max) throw new Error(axiosErrorMessage);
       return this.get<T>(url, config, { max, time: time + 1 });
     }
   }
@@ -24,7 +24,7 @@ class Http {
     url: string,
     data: D = {} as D,
     config: AxiosRequestConfig = {},
-    { max = 4, time = 0 }: { max: number; time: number }
+    { max = 4, time = 1 }: { max?: number; time?: number } = { max: 4, time: 1 }
   ): Promise<T> {
     try {
       const response = await axios.post<T>(url, data, config);
@@ -32,10 +32,10 @@ class Http {
     } catch (error) {
       console.error('AxiosError', error as AxiosError<T>);
       const axiosErrorMessage =
-        (error as AxiosError).stack ||
         (error as AxiosError).message ||
+        (error as AxiosError).stack ||
         'AxiosError';
-      if (time > max) throw new Error(axiosErrorMessage);
+      if (time >= max) throw new Error(axiosErrorMessage);
       return this.post<T, D>(url, data, config, { max, time: time + 1 });
     }
   }
@@ -44,7 +44,7 @@ class Http {
     url: string,
     data: D = {} as D,
     config: AxiosRequestConfig = {},
-    { max = 4, time = 0 }: { max: number; time: number }
+    { max = 4, time = 1 }: { max?: number; time?: number } = { max: 4, time: 1 }
   ): Promise<T> {
     try {
       const response = await axios.put<T>(url, data, config);
@@ -52,10 +52,10 @@ class Http {
     } catch (error) {
       console.error('AxiosError', error as AxiosError<T>);
       const axiosErrorMessage =
-        (error as AxiosError).stack ||
         (error as AxiosError).message ||
+        (error as AxiosError).stack ||
         'AxiosError';
-      if (time > max) throw new Error(axiosErrorMessage);
+      if (time >= max) throw new Error(axiosErrorMessage);
       return this.put<T, D>(url, data, config, { max, time: time + 1 });
     }
   }
@@ -64,7 +64,7 @@ class Http {
     url: string,
     data: D = {} as D,
     config: AxiosRequestConfig = {},
-    { max = 4, time = 0 }: { max: number; time: number }
+    { max = 4, time = 1 }: { max?: number; time?: number } = { max: 4, time: 1 }
   ): Promise<T> {
     try {
       const response = await axios.patch<T>(url, data, config);
@@ -72,10 +72,10 @@ class Http {
     } catch (error) {
       console.error('AxiosError', error as AxiosError<T>);
       const axiosErrorMessage =
-        (error as AxiosError).stack ||
         (error as AxiosError).message ||
+        (error as AxiosError).stack ||
         'AxiosError';
-      if (time > max) throw new Error(axiosErrorMessage);
+      if (time >= max) throw new Error(axiosErrorMessage);
       return this.patch<T, D>(url, data, config, { max, time: time + 1 });
     }
   }
@@ -83,7 +83,7 @@ class Http {
   public async delete<T>(
     url: string,
     config: AxiosRequestConfig = {},
-    { max = 4, time = 0 }: { max: number; time: number }
+    { max = 4, time = 1 }: { max?: number; time?: number } = { max: 4, time: 1 }
   ): Promise<T> {
     try {
       const response = await axios.delete<T>(url, config);
@@ -91,10 +91,10 @@ class Http {
     } catch (error) {
       console.error('AxiosError', error as AxiosError<T>);
       const axiosErrorMessage =
-        (error as AxiosError).stack ||
         (error as AxiosError).message ||
+        (error as AxiosError).stack ||
         'AxiosError';
-      if (time > max) throw new Error(axiosErrorMessage);
+      if (time >= max) throw new Error(axiosErrorMessage);
       return this.delete<T>(url, config, { max, time: time + 1 });
     }
   }

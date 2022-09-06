@@ -1,6 +1,6 @@
 {
   "name": "@turtle/vault",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "HashiCorp Vault",
   "main": "dist/index.js",
   "repository": "git@github.com:hieudoanm/node-starter.git",
@@ -17,6 +17,10 @@
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
     "lint": "eslint . --fix --ext .ts",
+    "postinstall": "yarn build",
+    "postpack": "yarn build",
+    "prepack": "yarn build",
+    "prepare": "yarn build",
     "watch": "webpack --watch"
   },
   "dependencies": {

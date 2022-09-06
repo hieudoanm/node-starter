@@ -1,12 +1,12 @@
+import http from '@turtle/http';
 import isNil from 'lodash/isNil';
 import {
-  KEY_CLOAK_ADMIN_CLI_HOST,
   KEY_CLOAK_ADMIN_CLI_CLIENT_ID,
   KEY_CLOAK_ADMIN_CLI_CLIENT_SECRET,
+  KEY_CLOAK_ADMIN_CLI_HOST,
 } from '../../configs';
 import { CONTENT_TYPE, GRANT_TYPE } from '../../constants';
-import { axiosPost } from '../axios';
-import { KeyCloakTokenRequest, KeyCloakTokenResponse } from './key-cloak.types';
+import { KeyCloakTokenRequest, KeyCloakTokenResponse } from './keycloak.types';
 
 export const getToken = async ({
   url,
@@ -25,7 +25,7 @@ export const getToken = async ({
   if (!isNil(password)) params.append('password', password);
   if (!isNil(refreshToken)) params.append('refresh_token', refreshToken);
   const headers = { 'content-type': CONTENT_TYPE.APPLICATION_URLENCODED };
-  return axiosPost<KeyCloakTokenResponse, URLSearchParams>(url, params, {
+  return http.post<KeyCloakTokenResponse, URLSearchParams>(url, params, {
     headers,
     withCredentials: true,
   });

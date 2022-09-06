@@ -1,6 +1,6 @@
+import http from '@turtle/http';
 import { Request } from 'express';
 import { KEY_CLOAK_STARTER_HOST } from '../../configs';
-import { axiosGet } from '../../libs/axios';
 import logger from '../../libs/logger';
 
 export const expressAuthentication = async (
@@ -24,7 +24,7 @@ export const expressAuthentication = async (
   const headers = { authorization };
   let userInfo;
   try {
-    userInfo = await axiosGet<{ email: string }>(url, { headers });
+    userInfo = await http.get<{ email: string }>(url, { headers });
   } catch (error) {
     throw new Error((error as Error).message || 'Unauthorized');
   }

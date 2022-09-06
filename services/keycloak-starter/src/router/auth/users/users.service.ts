@@ -1,7 +1,7 @@
+import http from '@turtle/http';
 import { KEY_CLOAK_ADMIN_HOST } from '../../../configs';
-import { axiosGet } from '../../../libs/axios';
-import { getAdminToken, getAuthorization } from '../../../libs/key-cloak';
-import { KeyCloakTokenResponse } from '../../../libs/key-cloak/key-cloak.types';
+import { getAdminToken, getAuthorization } from '../../../libs/keycloak';
+import { KeyCloakTokenResponse } from '../../../libs/keycloak/keycloak.types';
 import { User } from './users.types';
 
 export const getUser = async (
@@ -16,7 +16,7 @@ export const getUser = async (
   urlSearchParams.set('exact', 'true');
   const getUserURL = `${KEY_CLOAK_ADMIN_HOST}/users?${urlSearchParams.toString()}`;
   const headers = { authorization: adminAuthorization };
-  const users = await axiosGet<User[]>(getUserURL, { headers });
+  const users = await http.get<User[]>(getUserURL, { headers });
   if (users.length === 1) {
     return { user: users[0] };
   }

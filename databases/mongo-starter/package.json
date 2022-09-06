@@ -28,7 +28,7 @@
     "watch": "webpack --watch"
   },
   "dependencies": {
-    "axios": "0.27.2",
+    "@turtle/http": "0.0.1",
     "compression": "1.7.4",
     "cookie-parser": "1.4.6",
     "cors": "2.8.5",
