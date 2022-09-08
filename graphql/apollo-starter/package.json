@@ -24,6 +24,7 @@
     "watch": "webpack --watch"
   },
   "dependencies": {
+    "@turtle/logger": "0.0.1",
     "apollo-server": "3.10.2",
     "apollo-server-express": "3.10.2",
     "compression": "1.7.4",
@@ -32,8 +33,7 @@
     "graphql": "16.6.0",
     "graphql-depth-limit": "1.1.0",
     "helmet": "6.0.0",
-    "lodash": "4.17.21",
-    "pino": "8.5.0"
+    "lodash": "4.17.21"
   },
   "devDependencies": {
     "@types/compression": "1.7.2",

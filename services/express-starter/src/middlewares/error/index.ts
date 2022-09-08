@@ -1,6 +1,6 @@
-import { Request, Response, NextFunction } from 'express';
+import logger from '@turtle/logger';
+import { NextFunction, Request, Response } from 'express';
 import { ValidateError } from 'tsoa';
-import logger from '../../libs/logger';
 
 export const errorHandler = (
   error: Error | ValidateError | undefined,

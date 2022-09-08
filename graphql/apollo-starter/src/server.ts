@@ -3,6 +3,7 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 console.log('NODE_ENV', NODE_ENV);
 NODE_ENV === 'development' && dotenv.config();
 
+import logger from '@turtle/logger';
 import {
   ApolloServerPluginDrainHttpServer,
   ApolloServerPluginLandingPageGraphQLPlayground,
@@ -14,7 +15,6 @@ import http from 'http';
 import { HttpError } from 'http-errors';
 import app from './app';
 import { resolvers, typeDefs } from './graphql';
-import logger from './libs/logger';
 import { normalizePort, onError, onListening } from './utils/server';
 
 // Get port from environment and store in Express.

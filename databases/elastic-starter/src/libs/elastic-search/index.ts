@@ -1,5 +1,5 @@
+import logger from '@turtle/logger';
 import { Client } from 'elasticsearch';
-import logger from '../logger';
 
 let client: Client | null = null;
 
@@ -93,7 +93,7 @@ export const deleteItemFromIndex = (
   });
 };
 
-export const search = (index: string, type: string, body: any) => {
+export const search = <T>(index: string, type: string, body: T) => {
   const esClient = getClient();
   return new Promise((resolve, reject) => {
     esClient.search({ index, type, body }, (error, response) => {

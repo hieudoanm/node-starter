@@ -3,11 +3,11 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 console.log('NODE_ENV', NODE_ENV);
 NODE_ENV === 'development' && dotenv.config();
 
+import logger from '@turtle/logger';
 import http from 'http';
 import { HttpError } from 'http-errors';
 import { Server } from 'socket.io';
 import app from './app';
-import logger from './libs/logger';
 import { normalizePort, onError, onListening } from './utils/server';
 
 // Get port from environment and store in Express.

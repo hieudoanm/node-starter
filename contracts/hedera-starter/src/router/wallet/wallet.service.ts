@@ -1,5 +1,5 @@
+import logger from '@turtle/logger';
 import { createAccount } from '../../libs/hedera';
-import logger from '../../libs/logger';
 import vault from '../../libs/vault';
 import { Wallet, WalletResponse } from './wallet.types';
 

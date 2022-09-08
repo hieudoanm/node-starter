@@ -1,7 +1,7 @@
 import http from '@turtle/http';
+import logger from '@turtle/logger';
 import { Request } from 'express';
 import { KEY_CLOAK_STARTER_HOST } from '../../configs';
-import logger from '../../libs/logger';
 
 export const expressAuthentication = async (
   request: Request,

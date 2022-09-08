@@ -1,7 +1,7 @@
+import logger from '@turtle/logger';
 import { ApolloServer } from 'apollo-server-express';
 import http from 'http';
 import { HttpError } from 'http-errors';
-import logger from '../../libs/logger';
 
 export const normalizePort = (val: string): string | number | boolean => {
   const portOrPipe = parseInt(val, 10);

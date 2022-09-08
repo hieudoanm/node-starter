@@ -8,4 +8,12 @@ describe('logger', () => {
   it('error', () => {
     logger.error('error');
   });
+
+  it('debug', () => {
+    logger.debug('debug');
+  });
+
+  it('warn', () => {
+    logger.warn('warn');
+  });
 });

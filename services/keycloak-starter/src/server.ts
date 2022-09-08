@@ -3,10 +3,10 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 console.log('NODE_ENV', NODE_ENV);
 NODE_ENV === 'development' && dotenv.config();
 
+import logger from '@turtle/logger';
 import http from 'http';
 import { HttpError } from 'http-errors';
 import app from './app';
-import logger from './libs/logger';
 
 const normalizePort = (val: string): string | number | boolean => {
   const portOrPipe = parseInt(val, 10);
