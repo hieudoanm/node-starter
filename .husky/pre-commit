@@ -8,7 +8,6 @@ yarn lint:hedera
 yarn lint:keycloak
 yarn lint:mongo
 yarn lint:postgres
-yarn lint:redis
 yarn lint:socket
 yarn lint:solana
 yarn pretty-quick --staged

@@ -15,7 +15,7 @@
   },
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "webpack --mode=production --node-env=production",
+    "build": "tsc",
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
     "lint": "eslint . --fix --ext .ts",

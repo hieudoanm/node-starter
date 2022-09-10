@@ -4,13 +4,17 @@
 
 [Node.js Best Practices](https://github.com/goldbergyoni/nodebestpractices)
 
-## Packages
+## Packages (5)
 
-- http (axios)
-- logger (pino)
-- vault (axios)
+- clients
+  - elasticsearch
+  - vault (axios)
+  - redis
+- libraries
+  - http (axios)
+  - logger (pino)
 
-## Templates
+## Templates (12)
 
 - Contracts
   - Hedera
@@ -19,7 +23,6 @@
   - ElasticSearch
   - MongoDB
   - PostgreSQL
-  - Redis
 - GraphQL
   - Apollo
 - Messages

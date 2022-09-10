@@ -4,7 +4,7 @@ import { CacheResponse } from './cache.types';
 
 @Tags('Cache')
 @Route('cache')
-export class RedisController extends Controller {
+export class CacheController extends Controller {
   @Post('get')
   public async getCache(
     @Body() { key }: { key: string }

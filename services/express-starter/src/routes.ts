@@ -12,6 +12,8 @@ import {
   fetchMiddlewares,
 } from '@tsoa/runtime';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+import { CacheController } from './router/cache/cache.controller';
+// WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { HealthController } from './router/health/health.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { HelloController } from './router/hello/hello.controller';
@@ -21,6 +23,18 @@ import * as express from 'express';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 
 const models: TsoaRoute.Models = {
+  CacheResponse: {
+    dataType: 'refAlias',
+    type: {
+      dataType: 'nestedObjectLiteral',
+      nestedProperties: {
+        value: { dataType: 'string', required: true },
+        key: { dataType: 'string', required: true },
+      },
+      validators: {},
+    },
+  },
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
   HelloWorldResponse: {
     dataType: 'refAlias',
     type: {
@@ -40,6 +54,77 @@ export function RegisterRoutes(app: express.Router) {
   //  NOTE: If you do not see routes for all of your controllers in this file, then you might not have informed tsoa of where to look
   //      Please look into the "controllerPathGlobs" config option described in the readme: https://github.com/lukeautry/tsoa
   // ###########################################################################################################
+  app.post(
+    '/cache/get',
+    ...fetchMiddlewares<RequestHandler>(CacheController),
+    ...fetchMiddlewares<RequestHandler>(CacheController.prototype.getCache),
+
+    function CacheController_getCache(request: any, response: any, next: any) {
+      const args = {
+        undefined: {
+          in: 'body',
+          required: true,
+          dataType: 'nestedObjectLiteral',
+          nestedProperties: { key: { dataType: 'string', required: true } },
+        },
+      };
+
+      // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+      let validatedArgs: any[] = [];
+      try {
+        validatedArgs = getValidatedArgs(args, request, response);
+
+        const controller = new CacheController();
+
+        const promise = controller.getCache.apply(
+          controller,
+          validatedArgs as any
+        );
+        promiseHandler(controller, promise, response, undefined, next);
+      } catch (err) {
+        return next(err);
+      }
+    }
+  );
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  app.post(
+    '/cache/set',
+    ...fetchMiddlewares<RequestHandler>(CacheController),
+    ...fetchMiddlewares<RequestHandler>(CacheController.prototype.setCache),
+
+    function CacheController_setCache(request: any, response: any, next: any) {
+      const args = {
+        undefined: {
+          in: 'body',
+          required: true,
+          dataType: 'nestedObjectLiteral',
+          nestedProperties: {
+            value: { dataType: 'string', required: true },
+            key: { dataType: 'string', required: true },
+          },
+        },
+      };
+
+      // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+      let validatedArgs: any[] = [];
+      try {
+        validatedArgs = getValidatedArgs(args, request, response);
+
+        const controller = new CacheController();
+
+        const promise = controller.setCache.apply(
+          controller,
+          validatedArgs as any
+        );
+        promiseHandler(controller, promise, response, undefined, next);
+      } catch (err) {
+        return next(err);
+      }
+    }
+  );
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
   app.get(
     '/health',
     ...fetchMiddlewares<RequestHandler>(HealthController),

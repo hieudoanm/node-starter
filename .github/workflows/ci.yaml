@@ -31,8 +31,6 @@ jobs:
             working-directory: ./databases/mongo-starter
           - name: Database - PostgreSQL
             working-directory: ./databases/postgres-starter
-          - name: Database - Redis
-            working-directory: ./databases/redis-starter
           - name: Apollo
             working-directory: ./graphql/apollo-starter
           - name: Express

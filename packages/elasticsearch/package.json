@@ -26,7 +26,7 @@
     "watch": "webpack --watch"
   },
   "dependencies": {
-    "elasticsearch": "16.7.3"
+    "@elastic/elasticsearch": "8.4.0"
   },
   "devDependencies": {
     "@types/node": "18.7.14",

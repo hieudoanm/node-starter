@@ -1,6 +1,14 @@
 version: '3.9'
 
 services:
+  redis-instance:
+    image: redis:latest
+    container_name: redis-instance
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - 6379:6379
+
   express-service:
     container_name: express-service
     build:
@@ -8,7 +16,8 @@ services:
     expose:
       - 8080
     ports:
-      - '8080:8080'
+      - 8080:8080
     environment:
       - PORT=8080
+      - REDIS_URL=redis://redis-instance:6379
     command: yarn dev

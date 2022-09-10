@@ -8,6 +8,7 @@ import http from 'http';
 import { HttpError } from 'http-errors';
 import app from './app';
 import { normalizePort, onError, onListening } from './utils/server';
+import redisClient from './clients/redis';
 
 // Get port from environment and store in Express.
 const PORT = normalizePort(process.env.PORT || '8080');
@@ -17,6 +18,7 @@ app.set('port', PORT);
 const httpServer = http.createServer(app);
 
 const main = async () => {
+  await redisClient.connect();
   httpServer.listen(PORT);
   httpServer.on('listening', () => onListening(httpServer));
   httpServer.on('error', (error: HttpError) => onError(error, PORT));
