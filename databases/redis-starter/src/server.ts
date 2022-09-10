@@ -7,7 +7,7 @@ import logger from '@turtle/logger';
 import http from 'http';
 import { HttpError } from 'http-errors';
 import app from './app';
-import redisClient from './libs/redis';
+import redisClient from './clients/redis';
 
 const normalizePort = (val: string): string | number | boolean => {
   const portOrPipe = parseInt(val, 10);
