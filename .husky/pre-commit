@@ -6,7 +6,6 @@ yarn lint:elastic
 yarn lint:express
 yarn lint:hedera
 yarn lint:keycloak
-yarn lint:mongo
 yarn lint:postgres
 yarn lint:socket
 yarn lint:solana

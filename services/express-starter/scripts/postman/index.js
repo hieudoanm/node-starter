@@ -20,12 +20,10 @@ const main = async () => {
     console.log('swagger file path', swaggerFilePath);
     const swaggerString = readFileSync(swaggerFilePath, 'utf-8');
     const swaggerJson = JSON.parse(swaggerString);
-    console.log('swagger.json', swaggerJson);
     const postmanResult = await convertSync({
       type: 'json',
       data: { ...swaggerJson, swagger: '2.0' },
     });
-    console.log('postman result', postmanResult);
     const { result, output = [] } = postmanResult;
     if (!result) return;
     for (const collection of output) {

@@ -1,5 +1,4 @@
 import path from 'path';
-import nodeExternals from 'webpack-node-externals';
 
 const mode =
   process.env.NODE_ENV == 'production' ? 'production' : 'development';
@@ -7,16 +6,10 @@ const mode =
 export default {
   mode,
   target: 'node',
-  entry: path.resolve(__dirname, 'src/server.ts'),
-  externals: [
-    nodeExternals(),
-    nodeExternals({
-      modulesDir: path.resolve(__dirname, '../../node_modules'),
-    }),
-  ],
+  entry: path.resolve(__dirname, 'src/index.ts'),
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'server.js',
+    filename: 'index.js',
   },
   plugins: [
     // Add your plugins here
@@ -39,6 +32,6 @@ export default {
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts'],
+    extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
   },
 };

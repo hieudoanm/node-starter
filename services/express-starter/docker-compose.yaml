@@ -1,6 +1,12 @@
 version: '3.9'
 
 services:
+  mongo-instance:
+    image: mongo:latest
+    container_name: mongo-instance
+    ports:
+      - 27017:27017
+
   redis-instance:
     image: redis:latest
     container_name: redis-instance
@@ -19,5 +25,6 @@ services:
       - 8080:8080
     environment:
       - PORT=8080
+      - MONGO_URL=mongodb://mongo-instance:27017/starter
       - REDIS_URL=redis://redis-instance:6379
     command: yarn dev

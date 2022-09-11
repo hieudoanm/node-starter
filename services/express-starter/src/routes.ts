@@ -12,34 +12,86 @@ import {
   fetchMiddlewares,
 } from '@tsoa/runtime';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { CacheController } from './router/cache/cache.controller';
-// WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { HealthController } from './router/health/health.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { HelloController } from './router/hello/hello.controller';
+// WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+import { CacheController } from './router/todos/todos.controller';
 import type { RequestHandler } from 'express';
 import * as express from 'express';
 
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 
 const models: TsoaRoute.Models = {
-  CacheResponse: {
-    dataType: 'refAlias',
-    type: {
-      dataType: 'nestedObjectLiteral',
-      nestedProperties: {
-        value: { dataType: 'string', required: true },
-        key: { dataType: 'string', required: true },
-      },
-      validators: {},
-    },
-  },
-  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
   HelloWorldResponse: {
     dataType: 'refAlias',
     type: {
       dataType: 'nestedObjectLiteral',
       nestedProperties: { hello: { dataType: 'string', required: true } },
+      validators: {},
+    },
+  },
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  Todo: {
+    dataType: 'refAlias',
+    type: {
+      dataType: 'nestedObjectLiteral',
+      nestedProperties: {
+        completed: { dataType: 'boolean' },
+        description: { dataType: 'string' },
+        title: { dataType: 'string' },
+        id: { dataType: 'string' },
+      },
+      validators: {},
+    },
+  },
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  CreateResponse: {
+    dataType: 'refAlias',
+    type: {
+      dataType: 'nestedObjectLiteral',
+      nestedProperties: {
+        acknowledged: { dataType: 'boolean', required: true },
+      },
+      validators: {},
+    },
+  },
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  TodoRequestBody: {
+    dataType: 'refAlias',
+    type: {
+      dataType: 'nestedObjectLiteral',
+      nestedProperties: {
+        completed: { dataType: 'boolean' },
+        description: { dataType: 'string' },
+        title: { dataType: 'string' },
+      },
+      validators: {},
+    },
+  },
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  UpdateResponse: {
+    dataType: 'refAlias',
+    type: {
+      dataType: 'nestedObjectLiteral',
+      nestedProperties: {
+        upsertedCount: { dataType: 'double', required: true },
+        modifiedCount: { dataType: 'double', required: true },
+        matchedCount: { dataType: 'double', required: true },
+        acknowledged: { dataType: 'double', required: true },
+      },
+      validators: {},
+    },
+  },
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  DeleteResponse: {
+    dataType: 'refAlias',
+    type: {
+      dataType: 'nestedObjectLiteral',
+      nestedProperties: {
+        deletedCount: { dataType: 'double', required: true },
+        acknowledged: { dataType: 'boolean', required: true },
+      },
       validators: {},
     },
   },
@@ -54,77 +106,6 @@ export function RegisterRoutes(app: express.Router) {
   //  NOTE: If you do not see routes for all of your controllers in this file, then you might not have informed tsoa of where to look
   //      Please look into the "controllerPathGlobs" config option described in the readme: https://github.com/lukeautry/tsoa
   // ###########################################################################################################
-  app.post(
-    '/cache/get',
-    ...fetchMiddlewares<RequestHandler>(CacheController),
-    ...fetchMiddlewares<RequestHandler>(CacheController.prototype.getCache),
-
-    function CacheController_getCache(request: any, response: any, next: any) {
-      const args = {
-        undefined: {
-          in: 'body',
-          required: true,
-          dataType: 'nestedObjectLiteral',
-          nestedProperties: { key: { dataType: 'string', required: true } },
-        },
-      };
-
-      // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-
-      let validatedArgs: any[] = [];
-      try {
-        validatedArgs = getValidatedArgs(args, request, response);
-
-        const controller = new CacheController();
-
-        const promise = controller.getCache.apply(
-          controller,
-          validatedArgs as any
-        );
-        promiseHandler(controller, promise, response, undefined, next);
-      } catch (err) {
-        return next(err);
-      }
-    }
-  );
-  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-  app.post(
-    '/cache/set',
-    ...fetchMiddlewares<RequestHandler>(CacheController),
-    ...fetchMiddlewares<RequestHandler>(CacheController.prototype.setCache),
-
-    function CacheController_setCache(request: any, response: any, next: any) {
-      const args = {
-        undefined: {
-          in: 'body',
-          required: true,
-          dataType: 'nestedObjectLiteral',
-          nestedProperties: {
-            value: { dataType: 'string', required: true },
-            key: { dataType: 'string', required: true },
-          },
-        },
-      };
-
-      // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-
-      let validatedArgs: any[] = [];
-      try {
-        validatedArgs = getValidatedArgs(args, request, response);
-
-        const controller = new CacheController();
-
-        const promise = controller.setCache.apply(
-          controller,
-          validatedArgs as any
-        );
-        promiseHandler(controller, promise, response, undefined, next);
-      } catch (err) {
-        return next(err);
-      }
-    }
-  );
-  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
   app.get(
     '/health',
     ...fetchMiddlewares<RequestHandler>(HealthController),
@@ -271,6 +252,207 @@ export function RegisterRoutes(app: express.Router) {
         const controller = new HelloController();
 
         const promise = controller.remove.apply(
+          controller,
+          validatedArgs as any
+        );
+        promiseHandler(controller, promise, response, undefined, next);
+      } catch (err) {
+        return next(err);
+      }
+    }
+  );
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  app.get(
+    '/todos',
+    ...fetchMiddlewares<RequestHandler>(CacheController),
+    ...fetchMiddlewares<RequestHandler>(CacheController.prototype.getTodos),
+
+    function CacheController_getTodos(request: any, response: any, next: any) {
+      const args = {};
+
+      // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+      let validatedArgs: any[] = [];
+      try {
+        validatedArgs = getValidatedArgs(args, request, response);
+
+        const controller = new CacheController();
+
+        const promise = controller.getTodos.apply(
+          controller,
+          validatedArgs as any
+        );
+        promiseHandler(controller, promise, response, undefined, next);
+      } catch (err) {
+        return next(err);
+      }
+    }
+  );
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  app.post(
+    '/todos',
+    ...fetchMiddlewares<RequestHandler>(CacheController),
+    ...fetchMiddlewares<RequestHandler>(CacheController.prototype.createTodo),
+
+    function CacheController_createTodo(
+      request: any,
+      response: any,
+      next: any
+    ) {
+      const args = {
+        todo: {
+          in: 'body',
+          name: 'todo',
+          required: true,
+          ref: 'TodoRequestBody',
+        },
+      };
+
+      // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+      let validatedArgs: any[] = [];
+      try {
+        validatedArgs = getValidatedArgs(args, request, response);
+
+        const controller = new CacheController();
+
+        const promise = controller.createTodo.apply(
+          controller,
+          validatedArgs as any
+        );
+        promiseHandler(controller, promise, response, undefined, next);
+      } catch (err) {
+        return next(err);
+      }
+    }
+  );
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  app.get(
+    '/todos/:id',
+    ...fetchMiddlewares<RequestHandler>(CacheController),
+    ...fetchMiddlewares<RequestHandler>(CacheController.prototype.getTodo),
+
+    function CacheController_getTodo(request: any, response: any, next: any) {
+      const args = {
+        id: { in: 'path', name: 'id', required: true, dataType: 'string' },
+      };
+
+      // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+      let validatedArgs: any[] = [];
+      try {
+        validatedArgs = getValidatedArgs(args, request, response);
+
+        const controller = new CacheController();
+
+        const promise = controller.getTodo.apply(
+          controller,
+          validatedArgs as any
+        );
+        promiseHandler(controller, promise, response, undefined, next);
+      } catch (err) {
+        return next(err);
+      }
+    }
+  );
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  app.patch(
+    '/todos/:id',
+    ...fetchMiddlewares<RequestHandler>(CacheController),
+    ...fetchMiddlewares<RequestHandler>(CacheController.prototype.updateTodo),
+
+    function CacheController_updateTodo(
+      request: any,
+      response: any,
+      next: any
+    ) {
+      const args = {
+        id: { in: 'path', name: 'id', required: true, dataType: 'string' },
+        todo: {
+          in: 'body',
+          name: 'todo',
+          required: true,
+          ref: 'TodoRequestBody',
+        },
+      };
+
+      // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+      let validatedArgs: any[] = [];
+      try {
+        validatedArgs = getValidatedArgs(args, request, response);
+
+        const controller = new CacheController();
+
+        const promise = controller.updateTodo.apply(
+          controller,
+          validatedArgs as any
+        );
+        promiseHandler(controller, promise, response, undefined, next);
+      } catch (err) {
+        return next(err);
+      }
+    }
+  );
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  app.put(
+    '/todos/:id',
+    ...fetchMiddlewares<RequestHandler>(CacheController),
+    ...fetchMiddlewares<RequestHandler>(CacheController.prototype.patchTodo),
+
+    function CacheController_patchTodo(request: any, response: any, next: any) {
+      const args = {
+        id: { in: 'path', name: 'id', required: true, dataType: 'string' },
+        todo: {
+          in: 'body',
+          name: 'todo',
+          required: true,
+          ref: 'TodoRequestBody',
+        },
+      };
+
+      // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+      let validatedArgs: any[] = [];
+      try {
+        validatedArgs = getValidatedArgs(args, request, response);
+
+        const controller = new CacheController();
+
+        const promise = controller.patchTodo.apply(
+          controller,
+          validatedArgs as any
+        );
+        promiseHandler(controller, promise, response, undefined, next);
+      } catch (err) {
+        return next(err);
+      }
+    }
+  );
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  app.delete(
+    '/todos/:id',
+    ...fetchMiddlewares<RequestHandler>(CacheController),
+    ...fetchMiddlewares<RequestHandler>(CacheController.prototype.deleteTodo),
+
+    function CacheController_deleteTodo(
+      request: any,
+      response: any,
+      next: any
+    ) {
+      const args = {
+        id: { in: 'path', name: 'id', required: true, dataType: 'string' },
+      };
+
+      // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+      let validatedArgs: any[] = [];
+      try {
+        validatedArgs = getValidatedArgs(args, request, response);
+
+        const controller = new CacheController();
+
+        const promise = controller.deleteTodo.apply(
           controller,
           validatedArgs as any
         );

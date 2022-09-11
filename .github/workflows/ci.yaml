@@ -27,8 +27,6 @@ jobs:
             working-directory: ./contracts/solana-starter
           - name: Database - Elastic
             working-directory: ./databases/elastic-starter
-          - name: Database - MongoDB
-            working-directory: ./databases/mongo-starter
           - name: Database - PostgreSQL
             working-directory: ./databases/postgres-starter
           - name: Apollo
