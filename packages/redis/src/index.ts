@@ -26,7 +26,7 @@ export class RedisClient {
   }
 
   public async get<T = string>(key: string): Promise<T> {
-    const valueString = this.client.get(key);
+    const valueString = await this.client.get(key);
     try {
       return JSON.parse(valueString);
     } catch (error) {

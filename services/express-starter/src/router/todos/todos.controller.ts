@@ -35,9 +35,9 @@ export class CacheController extends Controller {
 
   @Post()
   public async createTodo(
-    @Body() todo: TodoRequestBody
+    @Body() { title = '', description = '', completed = false }: TodoRequestBody
   ): Promise<CreateResponse> {
-    return createTodo(todo);
+    return createTodo({ title, description, completed });
   }
 
   @Get(':id')

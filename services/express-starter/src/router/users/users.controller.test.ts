@@ -1,4 +1,4 @@
-import { HelloController } from './hello.controller';
+import { HelloController } from './users.controller';
 
 describe('Hello Controller', () => {
   const helloController = new HelloController();

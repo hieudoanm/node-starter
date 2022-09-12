@@ -4,33 +4,33 @@
 
 [Node.js Best Practices](https://github.com/goldbergyoni/nodebestpractices)
 
-## Packages (5)
+## Packages (6)
 
 - clients
   - elasticsearch
-  - vault (axios)
+  - mongo
   - redis
+  - vault (axios)
 - libraries
   - http (axios)
   - logger (pino)
 
-## Templates (12)
+## Templates (11)
 
-- Contracts
-  - Hedera
-  - Solana
-- Databases
-  - ElasticSearch
-  - MongoDB
-  - PostgreSQL
-- GraphQL
-  - Apollo
-- Messages
-  - Kafka
-  - RabbitMQ
-- Serverless
-  - AWS Lambda
-- Services
-  - Express
-  - KeyCloak
-  - Socket
+1. Contracts
+   1. Hedera
+   2. Solana
+2. Databases
+   1. ElasticSearch
+   2. PostgreSQL
+3. GraphQL
+   1. Apollo
+4. Messages
+   1. Kafka
+   2. RabbitMQ
+5. Serverless
+   1. AWS Lambda
+6. Services
+   1. Express
+   2. KeyCloak
+   3. Socket

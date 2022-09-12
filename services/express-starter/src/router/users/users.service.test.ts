@@ -1,4 +1,4 @@
-import { get, create, update, patch, remove } from './hello.service';
+import { get, create, update, patch, remove } from './users.service';
 
 describe('Hello Service', () => {
   it('get', () => {
