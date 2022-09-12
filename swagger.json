@@ -6,15 +6,6 @@
     "requestBodies": {},
     "responses": {},
     "schemas": {
-      "HelloWorldResponse": {
-        "properties": {
-          "hello": {
-            "type": "string"
-          }
-        },
-        "required": ["hello"],
-        "type": "object"
-      },
       "Todo": {
         "properties": {
           "completed": {
@@ -94,6 +85,15 @@
         },
         "required": ["deletedCount", "acknowledged"],
         "type": "object"
+      },
+      "HelloWorldResponse": {
+        "properties": {
+          "hello": {
+            "type": "string"
+          }
+        },
+        "required": ["hello"],
+        "type": "object"
       }
     },
     "securitySchemes": {}
@@ -134,98 +134,6 @@
           }
         },
         "tags": ["Health"],
-        "security": [],
-        "parameters": []
-      }
-    },
-    "/hello": {
-      "get": {
-        "operationId": "Get",
-        "responses": {
-          "200": {
-            "description": "Ok",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HelloWorldResponse"
-                }
-              }
-            }
-          }
-        },
-        "tags": ["Hello World"],
-        "security": [],
-        "parameters": []
-      },
-      "post": {
-        "operationId": "Create",
-        "responses": {
-          "200": {
-            "description": "Ok",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HelloWorldResponse"
-                }
-              }
-            }
-          }
-        },
-        "tags": ["Hello World"],
-        "security": [],
-        "parameters": []
-      },
-      "put": {
-        "operationId": "Update",
-        "responses": {
-          "200": {
-            "description": "Ok",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HelloWorldResponse"
-                }
-              }
-            }
-          }
-        },
-        "tags": ["Hello World"],
-        "security": [],
-        "parameters": []
-      },
-      "patch": {
-        "operationId": "Patch",
-        "responses": {
-          "200": {
-            "description": "Ok",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HelloWorldResponse"
-                }
-              }
-            }
-          }
-        },
-        "tags": ["Hello World"],
-        "security": [],
-        "parameters": []
-      },
-      "delete": {
-        "operationId": "Remove",
-        "responses": {
-          "200": {
-            "description": "Ok",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HelloWorldResponse"
-                }
-              }
-            }
-          }
-        },
-        "tags": ["Hello World"],
         "security": [],
         "parameters": []
       }
@@ -409,6 +317,106 @@
             }
           }
         ]
+      }
+    },
+    "/users/info": {
+      "get": {
+        "operationId": "GetUserInfo",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HelloWorldResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Users"],
+        "security": [],
+        "parameters": []
+      }
+    },
+    "/users/sign-up": {
+      "post": {
+        "operationId": "SignUp",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HelloWorldResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Users"],
+        "security": [],
+        "parameters": []
+      }
+    },
+    "/users/sign-in": {
+      "post": {
+        "operationId": "SignIn",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HelloWorldResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Users"],
+        "security": [],
+        "parameters": []
+      }
+    },
+    "/users/refresh-token": {
+      "post": {
+        "operationId": "RefreshToken",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HelloWorldResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Users"],
+        "security": [],
+        "parameters": []
+      }
+    },
+    "/users/sign-out": {
+      "post": {
+        "operationId": "SignOut",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HelloWorldResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Users"],
+        "security": [],
+        "parameters": []
       }
     }
   },
