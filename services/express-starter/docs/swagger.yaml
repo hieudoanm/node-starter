@@ -64,12 +64,97 @@ components:
         - 'deletedCount'
         - 'acknowledged'
       type: 'object'
-    HelloWorldResponse:
+    KeyCloakUserInfoResponse:
       properties:
-        hello:
+        email:
+          type: 'string'
+        preferred_username:
+          type: 'string'
+        email_verified:
+          type: 'boolean'
+        sub:
           type: 'string'
       required:
-        - 'hello'
+        - 'email'
+        - 'preferred_username'
+        - 'email_verified'
+        - 'sub'
+      type: 'object'
+    KeyCloakAddUserResponse:
+      properties:
+        requiredActions:
+          items:
+            type: 'string'
+          type: 'array'
+        lastName:
+          type: 'string'
+        groups:
+          items:
+            type: 'string'
+          type: 'array'
+        firstName:
+          type: 'string'
+        enabled:
+          type: 'boolean'
+        emailVerified:
+          type: 'boolean'
+        email:
+          type: 'string'
+      required:
+        - 'requiredActions'
+        - 'lastName'
+        - 'groups'
+        - 'firstName'
+        - 'enabled'
+        - 'emailVerified'
+        - 'email'
+      type: 'object'
+    SignUpRequest:
+      properties:
+        password:
+          type: 'string'
+        username:
+          type: 'string'
+      required:
+        - 'password'
+        - 'username'
+      type: 'object'
+    KeyCloakTokenResponse:
+      properties:
+        scope:
+          type: 'string'
+        session_state:
+          type: 'string'
+        token_type:
+          type: 'string'
+        refresh_token:
+          type: 'string'
+        refresh_expires_in:
+          type: 'number'
+          format: 'double'
+        expires_in:
+          type: 'number'
+          format: 'double'
+        access_token:
+          type: 'string'
+      required:
+        - 'scope'
+        - 'session_state'
+        - 'token_type'
+        - 'refresh_token'
+        - 'refresh_expires_in'
+        - 'expires_in'
+        - 'access_token'
+      type: 'object'
+    SignInRequest:
+      properties:
+        password:
+          type: 'string'
+        username:
+          type: 'string'
+      required:
+        - 'password'
+        - 'username'
       type: 'object'
   securitySchemes: {}
 info:
@@ -231,7 +316,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HelloWorldResponse'
+                $ref: '#/components/schemas/KeyCloakUserInfoResponse'
       tags:
         - 'Users'
       security: []
@@ -245,11 +330,17 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HelloWorldResponse'
+                $ref: '#/components/schemas/KeyCloakAddUserResponse'
       tags:
         - 'Users'
       security: []
       parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignUpRequest'
   /users/sign-in:
     post:
       operationId: 'SignIn'
@@ -259,11 +350,17 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HelloWorldResponse'
+                $ref: '#/components/schemas/KeyCloakTokenResponse'
       tags:
         - 'Users'
       security: []
       parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignInRequest'
   /users/refresh-token:
     post:
       operationId: 'RefreshToken'
@@ -273,7 +370,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HelloWorldResponse'
+                $ref: '#/components/schemas/KeyCloakTokenResponse'
       tags:
         - 'Users'
       security: []
@@ -282,15 +379,37 @@ paths:
     post:
       operationId: 'SignOut'
       responses:
-        200:
-          description: 'Ok'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HelloWorldResponse'
+        204:
+          description: 'No content'
       tags:
         - 'Users'
       security: []
       parameters: []
+  /users/{id}/password:
+    patch:
+      operationId: 'ChangePassword'
+      responses:
+        204:
+          description: 'No content'
+      tags:
+        - 'Users'
+      security: []
+      parameters:
+        - in: 'path'
+          name: 'id'
+          required: true
+          schema:
+            type: 'string'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                password:
+                  type: 'string'
+              required:
+                - 'password'
+              type: 'object'
 servers:
   - url: '/'

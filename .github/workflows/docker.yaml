@@ -30,8 +30,6 @@ jobs:
             working-directory: ./graphql/apollo-starter
           - name: Express
             working-directory: ./services/express-starter
-          - name: KeyCloak
-            working-directory: ./services/keycloak-starter
           - name: Socket.io
             working-directory: ./services/socket-starter
     name: ${{ matrix.os.name }} - ${{ matrix.node.name }} - ${{ matrix.project.name }}

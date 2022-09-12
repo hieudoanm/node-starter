@@ -4,18 +4,19 @@
 
 [Node.js Best Practices](https://github.com/goldbergyoni/nodebestpractices)
 
-## Packages (6)
+## Packages (7)
 
-- clients
-  - elasticsearch
-  - mongo
-  - redis
-  - vault (axios)
-- libraries
-  - http (axios)
-  - logger (pino)
+1. clients
+   1. elasticsearch
+   2. keycloak (axios)
+   3. mongo
+   4. redis
+   5. vault (axios)
+2. libraries
+   1. http (axios)
+   2. logger (pino)
 
-## Templates (11)
+## Templates (10)
 
 1. Contracts
    1. Hedera
@@ -32,5 +33,4 @@
    1. AWS Lambda
 6. Services
    1. Express
-   2. KeyCloak
-   3. Socket
+   2. Socket

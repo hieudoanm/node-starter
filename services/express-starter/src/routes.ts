@@ -87,11 +87,82 @@ const models: TsoaRoute.Models = {
     },
   },
   // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-  HelloWorldResponse: {
+  KeyCloakUserInfoResponse: {
     dataType: 'refAlias',
     type: {
       dataType: 'nestedObjectLiteral',
-      nestedProperties: { hello: { dataType: 'string', required: true } },
+      nestedProperties: {
+        email: { dataType: 'string', required: true },
+        preferred_username: { dataType: 'string', required: true },
+        email_verified: { dataType: 'boolean', required: true },
+        sub: { dataType: 'string', required: true },
+      },
+      validators: {},
+    },
+  },
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  KeyCloakAddUserResponse: {
+    dataType: 'refAlias',
+    type: {
+      dataType: 'nestedObjectLiteral',
+      nestedProperties: {
+        requiredActions: {
+          dataType: 'array',
+          array: { dataType: 'string' },
+          required: true,
+        },
+        lastName: { dataType: 'string', required: true },
+        groups: {
+          dataType: 'array',
+          array: { dataType: 'string' },
+          required: true,
+        },
+        firstName: { dataType: 'string', required: true },
+        enabled: { dataType: 'boolean', required: true },
+        emailVerified: { dataType: 'boolean', required: true },
+        email: { dataType: 'string', required: true },
+      },
+      validators: {},
+    },
+  },
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  SignUpRequest: {
+    dataType: 'refAlias',
+    type: {
+      dataType: 'nestedObjectLiteral',
+      nestedProperties: {
+        password: { dataType: 'string', required: true },
+        username: { dataType: 'string', required: true },
+      },
+      validators: {},
+    },
+  },
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  KeyCloakTokenResponse: {
+    dataType: 'refAlias',
+    type: {
+      dataType: 'nestedObjectLiteral',
+      nestedProperties: {
+        scope: { dataType: 'string', required: true },
+        session_state: { dataType: 'string', required: true },
+        token_type: { dataType: 'string', required: true },
+        refresh_token: { dataType: 'string', required: true },
+        refresh_expires_in: { dataType: 'double', required: true },
+        expires_in: { dataType: 'double', required: true },
+        access_token: { dataType: 'string', required: true },
+      },
+      validators: {},
+    },
+  },
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  SignInRequest: {
+    dataType: 'refAlias',
+    type: {
+      dataType: 'nestedObjectLiteral',
+      nestedProperties: {
+        password: { dataType: 'string', required: true },
+        username: { dataType: 'string', required: true },
+      },
       validators: {},
     },
   },
@@ -336,7 +407,14 @@ export function RegisterRoutes(app: express.Router) {
       response: any,
       next: any
     ) {
-      const args = {};
+      const args = {
+        request: {
+          in: 'request',
+          name: 'request',
+          required: true,
+          dataType: 'object',
+        },
+      };
 
       // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 
@@ -363,7 +441,9 @@ export function RegisterRoutes(app: express.Router) {
     ...fetchMiddlewares<RequestHandler>(HelloController.prototype.signUp),
 
     function HelloController_signUp(request: any, response: any, next: any) {
-      const args = {};
+      const args = {
+        undefined: { in: 'body', required: true, ref: 'SignUpRequest' },
+      };
 
       // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 
@@ -390,7 +470,9 @@ export function RegisterRoutes(app: express.Router) {
     ...fetchMiddlewares<RequestHandler>(HelloController.prototype.signIn),
 
     function HelloController_signIn(request: any, response: any, next: any) {
-      const args = {};
+      const args = {
+        undefined: { in: 'body', required: true, ref: 'SignInRequest' },
+      };
 
       // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 
@@ -421,7 +503,14 @@ export function RegisterRoutes(app: express.Router) {
       response: any,
       next: any
     ) {
-      const args = {};
+      const args = {
+        request: {
+          in: 'request',
+          name: 'request',
+          required: true,
+          dataType: 'object',
+        },
+      };
 
       // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 
@@ -448,7 +537,14 @@ export function RegisterRoutes(app: express.Router) {
     ...fetchMiddlewares<RequestHandler>(HelloController.prototype.signOut),
 
     function HelloController_signOut(request: any, response: any, next: any) {
-      const args = {};
+      const args = {
+        request: {
+          in: 'request',
+          name: 'request',
+          required: true,
+          dataType: 'object',
+        },
+      };
 
       // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 
@@ -459,6 +555,49 @@ export function RegisterRoutes(app: express.Router) {
         const controller = new HelloController();
 
         const promise = controller.signOut.apply(
+          controller,
+          validatedArgs as any
+        );
+        promiseHandler(controller, promise, response, undefined, next);
+      } catch (err) {
+        return next(err);
+      }
+    }
+  );
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  app.patch(
+    '/users/:id/password',
+    ...fetchMiddlewares<RequestHandler>(HelloController),
+    ...fetchMiddlewares<RequestHandler>(
+      HelloController.prototype.changePassword
+    ),
+
+    function HelloController_changePassword(
+      request: any,
+      response: any,
+      next: any
+    ) {
+      const args = {
+        id: { in: 'path', name: 'id', required: true, dataType: 'string' },
+        undefined: {
+          in: 'body',
+          required: true,
+          dataType: 'nestedObjectLiteral',
+          nestedProperties: {
+            password: { dataType: 'string', required: true },
+          },
+        },
+      };
+
+      // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+      let validatedArgs: any[] = [];
+      try {
+        validatedArgs = getValidatedArgs(args, request, response);
+
+        const controller = new HelloController();
+
+        const promise = controller.changePassword.apply(
           controller,
           validatedArgs as any
         );
