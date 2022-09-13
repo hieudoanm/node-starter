@@ -19,6 +19,9 @@
           },
           "id": {
             "type": "string"
+          },
+          "userId": {
+            "type": "string"
           }
         },
         "type": "object"
@@ -34,16 +37,17 @@
       },
       "TodoRequestBody": {
         "properties": {
-          "completed": {
-            "type": "boolean"
-          },
           "description": {
             "type": "string"
+          },
+          "completed": {
+            "type": "boolean"
           },
           "title": {
             "type": "string"
           }
         },
+        "required": ["title"],
         "type": "object"
       },
       "UpdateResponse": {
@@ -207,7 +211,20 @@
         "type": "object"
       }
     },
-    "securitySchemes": {}
+    "securitySchemes": {
+      "tsoa_auth": {
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "http://swagger.io/api/oauth/dialog",
+            "scopes": {
+              "write:pets": "modify things",
+              "read:pets": "read things"
+            }
+          }
+        }
+      }
+    }
   },
   "info": {
     "title": "express-starter",
@@ -268,7 +285,11 @@
           }
         },
         "tags": ["Todos"],
-        "security": [],
+        "security": [
+          {
+            "jwt": []
+          }
+        ],
         "parameters": []
       },
       "post": {
@@ -286,7 +307,11 @@
           }
         },
         "tags": ["Todos"],
-        "security": [],
+        "security": [
+          {
+            "jwt": []
+          }
+        ],
         "parameters": [],
         "requestBody": {
           "required": true,
@@ -316,7 +341,11 @@
           }
         },
         "tags": ["Todos"],
-        "security": [],
+        "security": [
+          {
+            "jwt": []
+          }
+        ],
         "parameters": [
           {
             "in": "path",
@@ -343,7 +372,11 @@
           }
         },
         "tags": ["Todos"],
-        "security": [],
+        "security": [
+          {
+            "jwt": []
+          }
+        ],
         "parameters": [
           {
             "in": "path",
@@ -380,7 +413,11 @@
           }
         },
         "tags": ["Todos"],
-        "security": [],
+        "security": [
+          {
+            "jwt": []
+          }
+        ],
         "parameters": [
           {
             "in": "path",
@@ -417,7 +454,11 @@
           }
         },
         "tags": ["Todos"],
-        "security": [],
+        "security": [
+          {
+            "jwt": []
+          }
+        ],
         "parameters": [
           {
             "in": "path",
