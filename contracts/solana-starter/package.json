@@ -28,7 +28,7 @@
     "watch": "webpack --watch"
   },
   "dependencies": {
-    "@solana/web3.js": "1.61.0",
+    "@solana/web3.js": "1.61.1",
     "@turtle/logger": "0.0.1",
     "@turtle/vault": "0.0.1",
     "compression": "1.7.4",
