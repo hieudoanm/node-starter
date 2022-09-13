@@ -1,3 +1,4 @@
+import infoger from '@turtle/logger';
 import {
   generateKeypair,
   getKeypairFromSecretKey,
@@ -5,20 +6,20 @@ import {
 
 const main = async () => {
   const { publicKey, secretKey } = generateKeypair();
-  console.log({ publicKey, secretKey });
+  infoger.info({ publicKey, secretKey });
 
-  console.log('publicKey', publicKey);
-  console.log('publicKey', publicKey.toString());
-  console.log('publicKey', publicKey.toJSON());
+  infoger.info('publicKey', publicKey);
+  infoger.info('publicKey', publicKey.toString());
+  infoger.info('publicKey', publicKey.toJSON());
 
-  console.log('secretKey', secretKey);
-  console.log('secretKey', secretKey.toString());
+  infoger.info('secretKey', secretKey);
+  infoger.info('secretKey', secretKey.toString());
 
   const keypair = getKeypairFromSecretKey(secretKey.toString());
 
-  console.log(keypair);
+  infoger.info(keypair);
 
   process.exit(0);
 };
 
-main().catch((error) => console.error(error));
+main().catch((error) => infoger.error(error));

@@ -12,25 +12,33 @@ import {
 const COLLECTION_NAME = 'todos';
 const REDIS_KEY = 'todos';
 
-export const getTodos = async (): Promise<Todo[]> => {
-  const cacheTodos = await redisClient.get<Todo[]>(REDIS_KEY);
+export const getTodos = async (userId: string): Promise<Todo[]> => {
+  const redisKey = `${REDIS_KEY}-${userId}`;
+  const cacheTodos = await redisClient.get<Todo[]>(redisKey);
   if (cacheTodos) {
     return cacheTodos;
   }
-  const todos = await mongoClient.findMany<Todo>(COLLECTION_NAME);
-  await redisClient.set<Todo[]>(REDIS_KEY, todos);
+  const todos = await mongoClient.findMany<Todo>(COLLECTION_NAME, { userId });
+  await redisClient.set<Todo[]>(redisKey, todos);
   return todos;
 };
 
-export const createTodo = async (todo: Todo): Promise<CreateResponse> => {
+export const createTodo = async (
+  userId: string,
+  todo: Todo
+): Promise<CreateResponse> => {
   todo.id = v4();
-  const { acknowledged } = await mongoClient.insertOne(COLLECTION_NAME, todo);
-  await redisClient.delete(REDIS_KEY);
+  const { acknowledged } = await mongoClient.insertOne(COLLECTION_NAME, {
+    ...todo,
+    userId,
+  });
+  const redisKey = `${REDIS_KEY}-${userId}`;
+  await redisClient.delete(redisKey);
   return { acknowledged };
 };
 
-export const getTodo = async (id: string): Promise<Todo> => {
-  const todo = await mongoClient.findOne<Todo>(COLLECTION_NAME, { id });
+export const getTodo = async (userId: string, id: string): Promise<Todo> => {
+  const todo = await mongoClient.findOne<Todo>(COLLECTION_NAME, { userId, id });
   if (todo === null) {
     throw new Error(`${COLLECTION_NAME} Not Found`);
   }
@@ -38,20 +46,26 @@ export const getTodo = async (id: string): Promise<Todo> => {
 };
 
 export const updateTodo = async (
+  userId: string,
   id: string,
   todo: TodoRequestBody
 ): Promise<UpdateResponse> => {
   const { acknowledged, matchedCount, modifiedCount, upsertedCount } =
-    await mongoClient.updateOne<Todo>(COLLECTION_NAME, { id }, todo);
-  await redisClient.delete(REDIS_KEY);
+    await mongoClient.updateOne<Todo>(COLLECTION_NAME, { userId, id }, todo);
+  const redisKey = `${REDIS_KEY}-${userId}`;
+  await redisClient.delete(redisKey);
   return { acknowledged, matchedCount, modifiedCount, upsertedCount };
 };
 
-export const deleteTodo = async (id: string): Promise<DeleteResponse> => {
+export const deleteTodo = async (
+  userId: string,
+  id: string
+): Promise<DeleteResponse> => {
   const { acknowledged, deletedCount } = await mongoClient.deleteOne<Todo>(
     COLLECTION_NAME,
-    { id }
+    { userId, id }
   );
-  await redisClient.delete(REDIS_KEY);
+  const redisKey = `${REDIS_KEY}-${userId}`;
+  await redisClient.delete(redisKey);
   return { acknowledged, deletedCount };
 };

@@ -14,9 +14,12 @@ import {
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { HealthController } from './router/health/health.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { CacheController } from './router/todos/todos.controller';
+import { TodosController } from './router/todos/todos.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { HelloController } from './router/users/users.controller';
+import { expressAuthentication } from './middlewares/guards/authentication';
+// @ts-ignore - no great way to install types from subpackage
+const promiseAny = require('promise.any');
 import type { RequestHandler } from 'express';
 import * as express from 'express';
 
@@ -32,6 +35,7 @@ const models: TsoaRoute.Models = {
         description: { dataType: 'string' },
         title: { dataType: 'string' },
         id: { dataType: 'string' },
+        userId: { dataType: 'string' },
       },
       validators: {},
     },
@@ -53,9 +57,9 @@ const models: TsoaRoute.Models = {
     type: {
       dataType: 'nestedObjectLiteral',
       nestedProperties: {
-        completed: { dataType: 'boolean' },
         description: { dataType: 'string' },
-        title: { dataType: 'string' },
+        completed: { dataType: 'boolean' },
+        title: { dataType: 'string', required: true },
       },
       validators: {},
     },
@@ -203,11 +207,19 @@ export function RegisterRoutes(app: express.Router) {
   // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
   app.get(
     '/todos',
-    ...fetchMiddlewares<RequestHandler>(CacheController),
-    ...fetchMiddlewares<RequestHandler>(CacheController.prototype.getTodos),
+    authenticateMiddleware([{ jwt: [] }]),
+    ...fetchMiddlewares<RequestHandler>(TodosController),
+    ...fetchMiddlewares<RequestHandler>(TodosController.prototype.getTodos),
 
-    function CacheController_getTodos(request: any, response: any, next: any) {
-      const args = {};
+    function TodosController_getTodos(request: any, response: any, next: any) {
+      const args = {
+        request: {
+          in: 'request',
+          name: 'request',
+          required: true,
+          dataType: 'object',
+        },
+      };
 
       // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 
@@ -215,7 +227,7 @@ export function RegisterRoutes(app: express.Router) {
       try {
         validatedArgs = getValidatedArgs(args, request, response);
 
-        const controller = new CacheController();
+        const controller = new TodosController();
 
         const promise = controller.getTodos.apply(
           controller,
@@ -230,15 +242,22 @@ export function RegisterRoutes(app: express.Router) {
   // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
   app.post(
     '/todos',
-    ...fetchMiddlewares<RequestHandler>(CacheController),
-    ...fetchMiddlewares<RequestHandler>(CacheController.prototype.createTodo),
+    authenticateMiddleware([{ jwt: [] }]),
+    ...fetchMiddlewares<RequestHandler>(TodosController),
+    ...fetchMiddlewares<RequestHandler>(TodosController.prototype.createTodo),
 
-    function CacheController_createTodo(
+    function TodosController_createTodo(
       request: any,
       response: any,
       next: any
     ) {
       const args = {
+        request: {
+          in: 'request',
+          name: 'request',
+          required: true,
+          dataType: 'object',
+        },
         undefined: { in: 'body', required: true, ref: 'TodoRequestBody' },
       };
 
@@ -248,7 +267,7 @@ export function RegisterRoutes(app: express.Router) {
       try {
         validatedArgs = getValidatedArgs(args, request, response);
 
-        const controller = new CacheController();
+        const controller = new TodosController();
 
         const promise = controller.createTodo.apply(
           controller,
@@ -263,11 +282,18 @@ export function RegisterRoutes(app: express.Router) {
   // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
   app.get(
     '/todos/:id',
-    ...fetchMiddlewares<RequestHandler>(CacheController),
-    ...fetchMiddlewares<RequestHandler>(CacheController.prototype.getTodo),
+    authenticateMiddleware([{ jwt: [] }]),
+    ...fetchMiddlewares<RequestHandler>(TodosController),
+    ...fetchMiddlewares<RequestHandler>(TodosController.prototype.getTodo),
 
-    function CacheController_getTodo(request: any, response: any, next: any) {
+    function TodosController_getTodo(request: any, response: any, next: any) {
       const args = {
+        request: {
+          in: 'request',
+          name: 'request',
+          required: true,
+          dataType: 'object',
+        },
         id: { in: 'path', name: 'id', required: true, dataType: 'string' },
       };
 
@@ -277,7 +303,7 @@ export function RegisterRoutes(app: express.Router) {
       try {
         validatedArgs = getValidatedArgs(args, request, response);
 
-        const controller = new CacheController();
+        const controller = new TodosController();
 
         const promise = controller.getTodo.apply(
           controller,
@@ -292,15 +318,22 @@ export function RegisterRoutes(app: express.Router) {
   // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
   app.patch(
     '/todos/:id',
-    ...fetchMiddlewares<RequestHandler>(CacheController),
-    ...fetchMiddlewares<RequestHandler>(CacheController.prototype.updateTodo),
+    authenticateMiddleware([{ jwt: [] }]),
+    ...fetchMiddlewares<RequestHandler>(TodosController),
+    ...fetchMiddlewares<RequestHandler>(TodosController.prototype.updateTodo),
 
-    function CacheController_updateTodo(
+    function TodosController_updateTodo(
       request: any,
       response: any,
       next: any
     ) {
       const args = {
+        request: {
+          in: 'request',
+          name: 'request',
+          required: true,
+          dataType: 'object',
+        },
         id: { in: 'path', name: 'id', required: true, dataType: 'string' },
         todo: {
           in: 'body',
@@ -316,7 +349,7 @@ export function RegisterRoutes(app: express.Router) {
       try {
         validatedArgs = getValidatedArgs(args, request, response);
 
-        const controller = new CacheController();
+        const controller = new TodosController();
 
         const promise = controller.updateTodo.apply(
           controller,
@@ -331,11 +364,18 @@ export function RegisterRoutes(app: express.Router) {
   // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
   app.put(
     '/todos/:id',
-    ...fetchMiddlewares<RequestHandler>(CacheController),
-    ...fetchMiddlewares<RequestHandler>(CacheController.prototype.patchTodo),
+    authenticateMiddleware([{ jwt: [] }]),
+    ...fetchMiddlewares<RequestHandler>(TodosController),
+    ...fetchMiddlewares<RequestHandler>(TodosController.prototype.patchTodo),
 
-    function CacheController_patchTodo(request: any, response: any, next: any) {
+    function TodosController_patchTodo(request: any, response: any, next: any) {
       const args = {
+        request: {
+          in: 'request',
+          name: 'request',
+          required: true,
+          dataType: 'object',
+        },
         id: { in: 'path', name: 'id', required: true, dataType: 'string' },
         todo: {
           in: 'body',
@@ -351,7 +391,7 @@ export function RegisterRoutes(app: express.Router) {
       try {
         validatedArgs = getValidatedArgs(args, request, response);
 
-        const controller = new CacheController();
+        const controller = new TodosController();
 
         const promise = controller.patchTodo.apply(
           controller,
@@ -366,15 +406,22 @@ export function RegisterRoutes(app: express.Router) {
   // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
   app.delete(
     '/todos/:id',
-    ...fetchMiddlewares<RequestHandler>(CacheController),
-    ...fetchMiddlewares<RequestHandler>(CacheController.prototype.deleteTodo),
+    authenticateMiddleware([{ jwt: [] }]),
+    ...fetchMiddlewares<RequestHandler>(TodosController),
+    ...fetchMiddlewares<RequestHandler>(TodosController.prototype.deleteTodo),
 
-    function CacheController_deleteTodo(
+    function TodosController_deleteTodo(
       request: any,
       response: any,
       next: any
     ) {
       const args = {
+        request: {
+          in: 'request',
+          name: 'request',
+          required: true,
+          dataType: 'object',
+        },
         id: { in: 'path', name: 'id', required: true, dataType: 'string' },
       };
 
@@ -384,7 +431,7 @@ export function RegisterRoutes(app: express.Router) {
       try {
         validatedArgs = getValidatedArgs(args, request, response);
 
-        const controller = new CacheController();
+        const controller = new TodosController();
 
         const promise = controller.deleteTodo.apply(
           controller,
@@ -610,6 +657,72 @@ export function RegisterRoutes(app: express.Router) {
   // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 
   // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+  function authenticateMiddleware(security: TsoaRoute.Security[] = []) {
+    return async function runAuthenticationMiddleware(
+      request: any,
+      _response: any,
+      next: any
+    ) {
+      // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+      // keep track of failed auth attempts so we can hand back the most
+      // recent one.  This behavior was previously existing so preserving it
+      // here
+      const failedAttempts: any[] = [];
+      const pushAndRethrow = (error: any) => {
+        failedAttempts.push(error);
+        throw error;
+      };
+
+      const secMethodOrPromises: Promise<any>[] = [];
+      for (const secMethod of security) {
+        if (Object.keys(secMethod).length > 1) {
+          const secMethodAndPromises: Promise<any>[] = [];
+
+          for (const name in secMethod) {
+            secMethodAndPromises.push(
+              expressAuthentication(request, name, secMethod[name]).catch(
+                pushAndRethrow
+              )
+            );
+          }
+
+          // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+          secMethodOrPromises.push(
+            Promise.all(secMethodAndPromises).then((users) => {
+              return users[0];
+            })
+          );
+        } else {
+          for (const name in secMethod) {
+            secMethodOrPromises.push(
+              expressAuthentication(request, name, secMethod[name]).catch(
+                pushAndRethrow
+              )
+            );
+          }
+        }
+      }
+
+      // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+      try {
+        request['user'] = await promiseAny(secMethodOrPromises);
+        next();
+      } catch (err) {
+        // Show most recent error as response
+        const error = failedAttempts.pop();
+        error.status = error.status || 401;
+        next(error);
+      }
+
+      // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    };
+  }
 
   // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 

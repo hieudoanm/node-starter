@@ -16,6 +16,8 @@ components:
           type: 'string'
         id:
           type: 'string'
+        userId:
+          type: 'string'
       type: 'object'
     CreateResponse:
       properties:
@@ -26,12 +28,14 @@ components:
       type: 'object'
     TodoRequestBody:
       properties:
-        completed:
-          type: 'boolean'
         description:
           type: 'string'
+        completed:
+          type: 'boolean'
         title:
           type: 'string'
+      required:
+        - 'title'
       type: 'object'
     UpdateResponse:
       properties:
@@ -156,7 +160,15 @@ components:
         - 'password'
         - 'username'
       type: 'object'
-  securitySchemes: {}
+  securitySchemes:
+    tsoa_auth:
+      type: 'oauth2'
+      flows:
+        implicit:
+          authorizationUrl: 'http://swagger.io/api/oauth/dialog'
+          scopes:
+            write:pets: 'modify things'
+            read:pets: 'read things'
 info:
   title: 'express-starter'
   version: '1.0.0'
@@ -201,7 +213,8 @@ paths:
                 type: 'array'
       tags:
         - 'Todos'
-      security: []
+      security:
+        - jwt: []
       parameters: []
     post:
       operationId: 'CreateTodo'
@@ -214,7 +227,8 @@ paths:
                 $ref: '#/components/schemas/CreateResponse'
       tags:
         - 'Todos'
-      security: []
+      security:
+        - jwt: []
       parameters: []
       requestBody:
         required: true
@@ -234,7 +248,8 @@ paths:
                 $ref: '#/components/schemas/Todo'
       tags:
         - 'Todos'
-      security: []
+      security:
+        - jwt: []
       parameters:
         - in: 'path'
           name: 'id'
@@ -252,7 +267,8 @@ paths:
                 $ref: '#/components/schemas/UpdateResponse'
       tags:
         - 'Todos'
-      security: []
+      security:
+        - jwt: []
       parameters:
         - in: 'path'
           name: 'id'
@@ -276,7 +292,8 @@ paths:
                 $ref: '#/components/schemas/UpdateResponse'
       tags:
         - 'Todos'
-      security: []
+      security:
+        - jwt: []
       parameters:
         - in: 'path'
           name: 'id'
@@ -300,7 +317,8 @@ paths:
                 $ref: '#/components/schemas/DeleteResponse'
       tags:
         - 'Todos'
-      security: []
+      security:
+        - jwt: []
       parameters:
         - in: 'path'
           name: 'id'

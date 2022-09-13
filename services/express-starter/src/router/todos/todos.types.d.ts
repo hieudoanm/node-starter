@@ -1,4 +1,5 @@
 export type Todo = {
+  userId?: string;
   id?: string;
   title?: string;
   description?: string;
@@ -6,9 +7,9 @@ export type Todo = {
 };
 
 export type TodoRequestBody = {
-  title?: string;
-  description?: string;
+  title: string;
   completed?: boolean;
+  description?: string;
 };
 
 export type CreateResponse = {
