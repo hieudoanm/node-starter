@@ -1,7 +1,7 @@
 import compression from 'compression';
 import express, { json, urlencoded } from 'express';
 import helmet from 'helmet';
-import { NODE_ENV } from './configs';
+import { NODE_ENV } from './environments';
 
 const isProduction = NODE_ENV === 'production';
 

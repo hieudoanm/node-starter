@@ -1,5 +1,5 @@
 import { DatabaseClient } from '@turtle/mongo';
-import { MONGO_URL } from '../../configs';
+import { MONGO_URL } from '../../environments';
 
 const mongoClient = new DatabaseClient({
   url: MONGO_URL,

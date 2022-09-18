@@ -8,7 +8,7 @@ import {
   TransactionReceipt,
   TransactionResponse,
 } from '@hashgraph/sdk';
-import { TREASURY_ACCOUNT_ID, TREASURY_PRIVATE_KEY } from '../../configs';
+import { TREASURY_ACCOUNT_ID, TREASURY_PRIVATE_KEY } from '../../environments';
 import { Wallet } from '../../router/wallet/wallet.types';
 
 let client: Client | null = null;

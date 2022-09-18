@@ -7,7 +7,7 @@ import {
   KEYCLOAK_REALM_CLIENT_SECRET,
   KEYCLOAK_REALM_HOST,
   KEYCLOAK_REDIRECT_URI,
-} from '../../configs';
+} from '../../environments';
 
 const keyCloakClient: KeyCloakClient = new KeyCloakClient({
   host: KEYCLOAK_REALM_HOST,
