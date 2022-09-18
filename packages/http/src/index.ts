@@ -10,11 +10,13 @@ class Http {
       const response = await axios.get<T>(url, config);
       return response.data;
     } catch (error) {
-      console.error('AxiosError', error as AxiosError<T>);
-      const axiosErrorMessage =
-        (error as AxiosError).message ||
-        (error as AxiosError).stack ||
-        'AxiosError';
+      let axiosErrorMessage = (error as Error).message;
+      if (error instanceof AxiosError) {
+        axiosErrorMessage =
+          (error as AxiosError).message ||
+          (error as AxiosError).stack ||
+          'AxiosError';
+      }
       if (time >= max) throw new Error(axiosErrorMessage);
       return this.get<T>(url, config, { max, time: time + 1 });
     }
@@ -30,11 +32,13 @@ class Http {
       const response = await axios.post<T>(url, data, config);
       return response.data;
     } catch (error) {
-      console.error('AxiosError', error as AxiosError<T>);
-      const axiosErrorMessage =
-        (error as AxiosError).message ||
-        (error as AxiosError).stack ||
-        'AxiosError';
+      let axiosErrorMessage = (error as Error).message;
+      if (error instanceof AxiosError) {
+        axiosErrorMessage =
+          (error as AxiosError).message ||
+          (error as AxiosError).stack ||
+          'AxiosError';
+      }
       if (time >= max) throw new Error(axiosErrorMessage);
       return this.post<T, D>(url, data, config, { max, time: time + 1 });
     }
@@ -50,11 +54,13 @@ class Http {
       const response = await axios.put<T>(url, data, config);
       return response.data;
     } catch (error) {
-      console.error('AxiosError', error as AxiosError<T>);
-      const axiosErrorMessage =
-        (error as AxiosError).message ||
-        (error as AxiosError).stack ||
-        'AxiosError';
+      let axiosErrorMessage = (error as Error).message;
+      if (error instanceof AxiosError) {
+        axiosErrorMessage =
+          (error as AxiosError).message ||
+          (error as AxiosError).stack ||
+          'AxiosError';
+      }
       if (time >= max) throw new Error(axiosErrorMessage);
       return this.put<T, D>(url, data, config, { max, time: time + 1 });
     }
@@ -70,11 +76,13 @@ class Http {
       const response = await axios.patch<T>(url, data, config);
       return response.data;
     } catch (error) {
-      console.error('AxiosError', error as AxiosError<T>);
-      const axiosErrorMessage =
-        (error as AxiosError).message ||
-        (error as AxiosError).stack ||
-        'AxiosError';
+      let axiosErrorMessage = (error as Error).message;
+      if (error instanceof AxiosError) {
+        axiosErrorMessage =
+          (error as AxiosError).message ||
+          (error as AxiosError).stack ||
+          'AxiosError';
+      }
       if (time >= max) throw new Error(axiosErrorMessage);
       return this.patch<T, D>(url, data, config, { max, time: time + 1 });
     }
@@ -89,11 +97,13 @@ class Http {
       const response = await axios.delete<T>(url, config);
       return response.data;
     } catch (error) {
-      console.error('AxiosError', error as AxiosError<T>);
-      const axiosErrorMessage =
-        (error as AxiosError).message ||
-        (error as AxiosError).stack ||
-        'AxiosError';
+      let axiosErrorMessage = (error as Error).message;
+      if (error instanceof AxiosError) {
+        axiosErrorMessage =
+          (error as AxiosError).message ||
+          (error as AxiosError).stack ||
+          'AxiosError';
+      }
       if (time >= max) throw new Error(axiosErrorMessage);
       return this.delete<T>(url, config, { max, time: time + 1 });
     }
