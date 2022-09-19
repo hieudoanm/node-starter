@@ -29,6 +29,10 @@ jobs:
             working-directory: ./databases/elastic-starter
           - name: Database - PostgreSQL
             working-directory: ./databases/postgres-starter
+          - name: Kafka - Producer
+            working-directory: ./messages/kafka-starter/producer
+          - name: Kafka - Consumer
+            working-directory: ./messages/kafka-starter/consumer
           - name: Apollo
             working-directory: ./graphql/apollo-starter
           - name: Express

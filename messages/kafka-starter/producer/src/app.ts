@@ -4,9 +4,9 @@ import cors from 'cors';
 import morgan from 'morgan';
 import express, { json, urlencoded } from 'express';
 import helmet from 'helmet';
-import { errorHandler } from './middlewares/error';
-import { notFoundHandler } from './middlewares/not-found';
 import { RegisterRoutes } from './routes';
+import { notFoundHandler } from './middlewares/not-found';
+import { errorHandler } from './middlewares/error';
 
 const app = express();
 app.use(json());

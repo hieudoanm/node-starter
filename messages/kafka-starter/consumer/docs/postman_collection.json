@@ -1,0 +1,71 @@
+{
+  "item": [
+    {
+      "id": "2126dbba-2e91-411f-a2ed-61fdd467706a",
+      "name": "Get",
+      "request": {
+        "name": "Get",
+        "description": {},
+        "url": {
+          "path": ["health"],
+          "host": ["{{baseUrl}}"],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "d09c7b77-cd3d-4bc4-b87b-f8c5752eece1",
+          "name": "Ok",
+          "originalRequest": {
+            "url": {
+              "path": ["health"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"status\": \"velit ut et amet\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8fd7b9fc-bf8f-4b41-9d23-712a5eb2336e",
+    "name": "kafka-consumer",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Kafka Consumer\n\nContact Support:\n Name: hieudoanm \n Email: hieumdoan@gmail.com",
+      "type": "text/plain"
+    }
+  }
+}

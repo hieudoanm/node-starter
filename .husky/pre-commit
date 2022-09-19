@@ -5,6 +5,8 @@ yarn lint:apollo
 yarn lint:elastic
 yarn lint:express
 yarn lint:hedera
+yarn lint:kafka:consumer
+yarn lint:kafka:producer
 yarn lint:postgres
 yarn lint:socket
 yarn lint:solana

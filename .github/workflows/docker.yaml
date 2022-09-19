@@ -19,18 +19,31 @@ jobs:
             version: ubuntu-latest
         project:
           - name: Contract - Hedera
+            image-name: hedera-starter
             working-directory: ./contracts/hedera-starter
           - name: Contract - Solana
+            image-name: solana-starter
             working-directory: ./contracts/solana-starter
           - name: Database - Elastic
+            image-name: elastic-starter
             working-directory: ./databases/elastic-starter
           - name: Database - PostgreSQL
+            image-name: postgres-starter
             working-directory: ./databases/postgres-starter
+          - name: Kafka - Producer
+            image-name: kafka-producer-starter
+            working-directory: ./messages/kafka-starter/producer
+          - name: Kafka - Consumer
+            image-name: kafka-consumer-starter
+            working-directory: ./messages/kafka-starter/consumer
           - name: Apollo
+            image-name: apollo-starter
             working-directory: ./graphql/apollo-starter
           - name: Express
+            image-name: express-starter
             working-directory: ./services/express-starter
           - name: Socket.io
+            image-name: socket-starter
             working-directory: ./services/socket-starter
     name: ${{ matrix.os.name }} - ${{ matrix.node.name }} - ${{ matrix.project.name }}
     runs-on: ${{ matrix.os.version }}
@@ -67,4 +80,4 @@ jobs:
         working-directory: ${{ matrix.project.working-directory }}
         env:
           IMAGE_TAG: ${{ github.head_ref || github.ref_name }}.${{ steps.datetime.outputs.datetime }}.${{ steps.version.outputs.sha_short }}
-        run: docker build . --no-cache -t apollo:$IMAGE_TAG
+        run: docker build . --no-cache -t ${{ matrix.project.image-name }}:$IMAGE_TAG
