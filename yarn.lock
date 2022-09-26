@@ -5205,10 +5205,10 @@ interpret@^2.2.0:
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-2.2.0.tgz#1a78a0b5965c40a5416d007ad6f50ad27c417df9"
   integrity sha512-Ju0Bz/cEia55xDwUWEa8+olFpCiQoypjnQySseKtmjNrnps3P+xfpUmGr90T7yjlVJmOtybRvPXhKMbHr+fWnw==
 
-ioredis@2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/ioredis/-/ioredis-2.2.0.tgz#7b3db7346bc4d165a5ed7ed18c7a754e2dacf0c8"
-  integrity sha512-JZJcbBpIILEvEVXwa0tyxBHQAON53gfCrc1ybcVeduSQ6YD6Kwz69pVnRUw0V/GaqOxfww82tFhRSDotuW6U1A==
+ioredis@2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/ioredis/-/ioredis-2.5.0.tgz#fb6fdf0a1a7e0974614c67b6e5e11308a8cf95b9"
+  integrity sha512-2jcmF1oVbNf8z+BJ8OmlwKsT+tqOJsJJuTh8qAX5Hwo0424E92A3qu9qcWM9vRhP0R4gCrJ9Y72QZwuVj8weMw==
   dependencies:
     bluebird "^3.3.4"
     cluster-key-slot "^1.0.6"
