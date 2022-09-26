@@ -1,0 +1,71 @@
+{
+  "item": [
+    {
+      "id": "590d958a-9de3-443d-8f36-ec36456f54fc",
+      "name": "Get",
+      "request": {
+        "name": "Get",
+        "description": {},
+        "url": {
+          "path": ["health"],
+          "host": ["{{baseUrl}}"],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "500911ff-0594-4d03-8656-95582fce560e",
+          "name": "Ok",
+          "originalRequest": {
+            "url": {
+              "path": ["health"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"status\": \"eu dolore in commodo\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a7d412b7-83f0-41ae-b346-605862ec48c9",
+    "name": "rabbit-consumer",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RabbitMQ Consumer\n\nContact Support:\n Name: hieudoanm \n Email: hieumdoan@gmail.com",
+      "type": "text/plain"
+    }
+  }
+}
