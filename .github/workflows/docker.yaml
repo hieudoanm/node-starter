@@ -36,6 +36,12 @@ jobs:
           - name: Kafka - Consumer
             image-name: kafka-consumer-starter
             working-directory: ./messages/kafka-starter/consumer
+          - name: Redis - Producer
+            image-name: redis-producer-starter
+            working-directory: ./messages/redis-starter/producer
+          - name: Redis - Consumer
+            image-name: redis-consumer-starter
+            working-directory: ./messages/redis-starter/consumer
           - name: Apollo
             image-name: apollo-starter
             working-directory: ./graphql/apollo-starter

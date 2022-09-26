@@ -1,0 +1,141 @@
+{
+  "item": [
+    {
+      "id": "01a1aed7-2693-4d85-a2e7-1665099651d2",
+      "name": "Get",
+      "request": {
+        "name": "Get",
+        "description": {},
+        "url": {
+          "path": ["health"],
+          "host": ["{{baseUrl}}"],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "b87d047b-0fa0-4a90-aa84-cc322dc07830",
+          "name": "Ok",
+          "originalRequest": {
+            "url": {
+              "path": ["health"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"status\": \"irure in Excepteur\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "21239cef-497f-4fb5-a8f5-f1685bb6a0d0",
+      "name": "Produce",
+      "request": {
+        "name": "Produce",
+        "description": {},
+        "url": {
+          "path": ["messages", "produce"],
+          "host": ["{{baseUrl}}"],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"message\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "7efb5c50-1b35-4f94-8af3-6d9a424a3dbe",
+          "name": "No content",
+          "originalRequest": {
+            "url": {
+              "path": ["messages", "produce"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "No Content",
+          "code": 204,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "54514df2-6729-4e15-93e7-af5fb533f3a5",
+    "name": "redis-producer",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Redis Producer\n\nContact Support:\n Name: hieudoanm \n Email: hieumdoan@gmail.com",
+      "type": "text/plain"
+    }
+  }
+}

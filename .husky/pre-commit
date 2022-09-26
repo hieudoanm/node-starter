@@ -8,6 +8,8 @@ yarn lint:hedera
 yarn lint:kafka:consumer
 yarn lint:kafka:producer
 yarn lint:postgres
+yarn lint:redis:consumer
+yarn lint:redis:producer
 yarn lint:socket
 yarn lint:solana
 yarn pretty-quick --staged
