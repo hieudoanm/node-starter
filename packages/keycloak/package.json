@@ -26,7 +26,7 @@
     "watch": "webpack --watch"
   },
   "dependencies": {
-    "axios": "0.27.2"
+    "@hieudoanm/axios": "0.0.1"
   },
   "devDependencies": {
     "@types/node": "18.7.14",

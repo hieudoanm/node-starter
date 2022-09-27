@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 const NODE_ENV = process.env.NODE_ENV || 'development';
 NODE_ENV === 'development' && dotenv.config();
 
-import logger from '@turtle/logger';
+import logger from '@hieudoanm/pino';
 import http from 'http';
 import { HttpError } from 'http-errors';
 import { Server } from 'socket.io';
@@ -22,7 +22,7 @@ const main = async () => {
 
   io.on('connection', (webSocket) => {
     const { id, connected } = webSocket;
-    logger.info({ id, connected }, 'Client connected');
+    logger.info('Client connected', { id, connected });
     webSocket.on('close', () => logger.info('Client disconnected'));
 
     const oneSecond = 1000;
@@ -37,7 +37,7 @@ const main = async () => {
   httpServer.on('error', (error: HttpError) => onError(error, PORT));
 };
 
-main().catch((error: Error) => logger.error(error));
+main().catch((error: Error) => logger.error('Error', error));
 
 process.on('unhandledRejection', (reason: string) => {
   // I just caught an unhandled promise rejection,
@@ -48,6 +48,6 @@ process.on('unhandledRejection', (reason: string) => {
 
 process.on('uncaughtException', (error: Error) => {
   // I just received an error that was never handled, time to handle it and then decide whether a restart is needed
-  logger.error(error);
+  logger.error('Error', error);
   process.exit(1);
 });

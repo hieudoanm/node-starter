@@ -1,4 +1,4 @@
-import logger from '@turtle/logger';
+import logger from '@hieudoanm/pino';
 import { ApolloServer } from 'apollo-server-express';
 import http from 'http';
 import { HttpError } from 'http-errors';

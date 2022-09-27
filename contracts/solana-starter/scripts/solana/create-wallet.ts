@@ -1,4 +1,4 @@
-import infoger from '@turtle/logger';
+import infoger from '@hieudoanm/pino';
 import {
   generateKeypair,
   getKeypairFromSecretKey,
@@ -6,7 +6,7 @@ import {
 
 const main = async () => {
   const { publicKey, secretKey } = generateKeypair();
-  infoger.info({ publicKey, secretKey });
+  infoger.info('keypair', { publicKey, secretKey });
 
   infoger.info('publicKey', publicKey);
   infoger.info('publicKey', publicKey.toString());
@@ -17,7 +17,7 @@ const main = async () => {
 
   const keypair = getKeypairFromSecretKey(secretKey.toString());
 
-  infoger.info(keypair);
+  infoger.info('keypair', keypair);
 
   process.exit(0);
 };

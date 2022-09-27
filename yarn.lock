@@ -590,6 +590,21 @@
     protobufjs "^6.11.3"
     utf8 "^3.0.0"
 
+"@hieudoanm/axios@0.0.1":
+  version "0.0.1"
+  resolved "https://npm.pkg.github.com/download/@hieudoanm/axios/0.0.1/5ebe73df318415c350510d4b908acde6308abb2c#5ebe73df318415c350510d4b908acde6308abb2c"
+  integrity sha512-tgwyDgQw11ZXcSZg/A74StY9zuh4aVaCLey8NoOl+VZiXKoAR06R7aWF61lqS0RCjKRKd663JoAB+i8EtWpWrQ==
+  dependencies:
+    axios "0.27.2"
+
+"@hieudoanm/pino@0.0.1":
+  version "0.0.1"
+  resolved "https://npm.pkg.github.com/download/@hieudoanm/pino/0.0.1/74ba57878d1155e230fc03a6b60cca5c70da0a9d#74ba57878d1155e230fc03a6b60cca5c70da0a9d"
+  integrity sha512-uGjwX/1DBM7Km9tjFVEyNUAPqBYGHIfxDSjnAKcaS7eFJZyHX8uQ6qK/u5OC+DioX8YM5iBZXmxMPYg9YwmfZA==
+  dependencies:
+    pino "8.6.0"
+    pino-pretty "9.1.0"
+
 "@humanwhocodes/config-array@^0.10.5":
   version "0.10.5"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.10.5.tgz#bb679745224745fff1e9a41961c1d45a49f81c04"

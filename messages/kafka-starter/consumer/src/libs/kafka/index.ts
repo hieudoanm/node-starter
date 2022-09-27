@@ -1,4 +1,4 @@
-import logger from '@turtle/logger';
+import logger from '@hieudoanm/pino';
 import { Kafka, SASLOptions } from 'kafkajs';
 import configs from '../../environments';
 

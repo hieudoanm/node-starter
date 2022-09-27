@@ -1,4 +1,4 @@
-import logger from '@turtle/logger';
+import logger from '@hieudoanm/pino';
 import { NextFunction, Request, Response } from 'express';
 import { ValidateError } from 'tsoa';
 
@@ -9,7 +9,7 @@ export const errorHandler = (
   next: NextFunction
 ): Response | void => {
   if (error instanceof ValidateError) {
-    logger.error(error, 'ValidateError');
+    logger.error('ValidateError', error);
     return response.status(422).json({
       message: 'Validation Failed',
       details: error.fields,
@@ -17,14 +17,14 @@ export const errorHandler = (
   }
 
   if (error instanceof Error) {
-    logger.error(error, 'Error');
+    logger.error('Error', error);
     return response.status(500).json({
       message: error.message || 'Internal Server Error',
     });
   }
 
   if (error) {
-    logger.error(error, 'FallbackError');
+    logger.error('FallbackError', error);
     return response.status(500).json({
       message: 'Internal Server Error',
     });
