@@ -13,8 +13,8 @@
   "devDependencies": {
     "@types/aws-lambda": "8.10.106",
     "@types/node": "18.6.5",
-    "@typescript-eslint/eslint-plugin": "5.38.0",
-    "@typescript-eslint/parser": "5.38.0",
+    "@typescript-eslint/eslint-plugin": "5.38.1",
+    "@typescript-eslint/parser": "5.38.1",
     "eslint": "8.24.0",
     "typescript": "4.8.3"
   }
