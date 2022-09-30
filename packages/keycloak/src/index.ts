@@ -1,4 +1,4 @@
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
 
 enum ContentTypes {
   APPLICATION_URLENCODED = 'application/x-www-form-urlencoded',
@@ -111,17 +111,10 @@ export class KeyCloakClient {
     const headers = { 'content-type': ContentTypes.APPLICATION_URLENCODED };
     const url = `${host}/protocol/openid-connect/token`;
 
-    try {
-      const { data } = await axios.post<KeyCloakTokenResponse>(url, params, {
-        headers,
-      });
-      return data;
-    } catch (error) {
-      if (error instanceof AxiosError) {
-        console.error('AxiosError', error);
-      }
-      throw error;
-    }
+    const { data } = await axios.post<KeyCloakTokenResponse>(url, params, {
+      headers,
+    });
+    return data;
   }
 
   public async addUser({
@@ -151,19 +144,12 @@ export class KeyCloakClient {
       credentials: [{ type: 'password', value: password, temporary: false }],
     };
     const headers = { authorization };
-    try {
-      const { data: responseData } = await axios.post<KeyCloakAddUserResponse>(
-        url,
-        data,
-        { headers }
-      );
-      return responseData;
-    } catch (error) {
-      if (error instanceof AxiosError) {
-        console.error('AxiosError', error);
-      }
-      throw error;
-    }
+    const { data: responseData } = await axios.post<KeyCloakAddUserResponse>(
+      url,
+      data,
+      { headers }
+    );
+    return responseData;
   }
 
   public async getUserInfo(
@@ -171,19 +157,12 @@ export class KeyCloakClient {
   ): Promise<KeyCloakUserInfoResponse> {
     const url = `${this.host}/protocol/openid-connect/userinfo`;
     const headers = { authorization };
-    try {
-      const { data } = await axios.post<KeyCloakUserInfoResponse>(
-        url,
-        {},
-        { headers }
-      );
-      return data;
-    } catch (error) {
-      if (error instanceof AxiosError) {
-        console.error('AxiosError', error);
-      }
-      throw error;
-    }
+    const { data } = await axios.post<KeyCloakUserInfoResponse>(
+      url,
+      {},
+      { headers }
+    );
+    return data;
   }
 
   public async getUserToken({
@@ -193,40 +172,26 @@ export class KeyCloakClient {
     username: string;
     password: string;
   }): Promise<KeyCloakTokenResponse> {
-    try {
-      return this.getToken({
-        host: this.host,
-        clientId: this.clientId,
-        clientSecret: this.clientSecret,
-        grantType: GrantTypes.PASSWORD,
-        username,
-        password,
-      });
-    } catch (error) {
-      if (error instanceof AxiosError) {
-        console.error('AxiosError', error);
-      }
-      throw error;
-    }
+    return this.getToken({
+      host: this.host,
+      clientId: this.clientId,
+      clientSecret: this.clientSecret,
+      grantType: GrantTypes.PASSWORD,
+      username,
+      password,
+    });
   }
 
   public async refreshToken(
     refreshToken: string
   ): Promise<KeyCloakTokenResponse> {
-    try {
-      return this.getToken({
-        host: this.host,
-        clientId: this.clientId,
-        clientSecret: this.clientSecret,
-        grantType: GrantTypes.REFRESH_TOKEN,
-        refreshToken: refreshToken,
-      });
-    } catch (error) {
-      if (error instanceof AxiosError) {
-        console.error('AxiosError', error);
-      }
-      throw error;
-    }
+    return this.getToken({
+      host: this.host,
+      clientId: this.clientId,
+      clientSecret: this.clientSecret,
+      grantType: GrantTypes.REFRESH_TOKEN,
+      refreshToken: refreshToken,
+    });
   }
 
   public async logOut({
@@ -245,15 +210,7 @@ export class KeyCloakClient {
     const contentType = ContentTypes.APPLICATION_URLENCODED;
     const headers = { authorization, 'content-type': contentType };
     const url = `${this.host}/protocol/openid-connect/logout`;
-
-    try {
-      await axios.post(url, params, { headers });
-    } catch (error) {
-      if (error instanceof AxiosError) {
-        console.error('AxiosError', error);
-      }
-      throw error;
-    }
+    await axios.post(url, params, { headers });
   }
 
   public async resetPassword({
@@ -275,14 +232,6 @@ export class KeyCloakClient {
     const resetPasswordUrl = `${this.adminHost}/users/${userId}/reset-password`;
     const data = { type: 'password', temporary: false, value: newPassword };
     const headers = { authorization: authorization };
-
-    try {
-      axios.put(resetPasswordUrl, data, { headers });
-    } catch (error) {
-      if (error instanceof AxiosError) {
-        console.error('AxiosError', error);
-      }
-      throw error;
-    }
+    await axios.put(resetPasswordUrl, data, { headers });
   }
 }

@@ -597,6 +597,18 @@
   dependencies:
     axios "0.27.2"
 
+"@hieudoanm/express@0.0.1":
+  version "0.0.1"
+  resolved "https://npm.pkg.github.com/download/@hieudoanm/express/0.0.1/1f8cd46dd2c733eb7e8e556bbc5b9feef96d036a#1f8cd46dd2c733eb7e8e556bbc5b9feef96d036a"
+  integrity sha512-NaPqk5jMXWZ4nvFQT8oEBf6AXEl5WRvPo8EXKUslX7YTdZrynrBbvHMmsoh/m1MZmjm1PA+cfGUvBI2jWIhZ6g==
+  dependencies:
+    compression "1.7.4"
+    cookie-parser "1.4.6"
+    cors "2.8.5"
+    express "4.18.1"
+    helmet "6.0.0"
+    morgan "1.10.0"
+
 "@hieudoanm/pino@0.0.1":
   version "0.0.1"
   resolved "https://npm.pkg.github.com/download/@hieudoanm/pino/0.0.1/74ba57878d1155e230fc03a6b60cca5c70da0a9d#74ba57878d1155e230fc03a6b60cca5c70da0a9d"
@@ -604,6 +616,13 @@
   dependencies:
     pino "8.6.0"
     pino-pretty "9.1.0"
+
+"@hieudoanm/vault@0.0.1":
+  version "0.0.1"
+  resolved "https://npm.pkg.github.com/download/@hieudoanm/vault/0.0.1/73d9f3ac59d594967f271cb274c6c5c2f9fa54bf#73d9f3ac59d594967f271cb274c6c5c2f9fa54bf"
+  integrity sha512-QTeM5J7cVPuMHsS8+7BBsRorwm/e8bp2U0o/dl2fBdaWYwmFpGrLZj2ClT2//vvqMkamxwSryzXqTUBCJQ4OEQ==
+  dependencies:
+    "@hieudoanm/axios" "0.0.1"
 
 "@humanwhocodes/config-array@^0.10.5":
   version "0.10.5"

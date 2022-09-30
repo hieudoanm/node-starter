@@ -28,16 +28,12 @@
     "watch": "webpack --watch"
   },
   "dependencies": {
-    "@solana/web3.js": "1.63.1",
+    "@hieudoanm/express": "0.0.1",
     "@hieudoanm/pino": "0.0.1",
-    "@turtle/vault": "0.0.1",
-    "compression": "1.7.4",
-    "cookie-parser": "1.4.6",
-    "cors": "2.8.5",
+    "@hieudoanm/vault": "0.0.1",
+    "@solana/web3.js": "1.63.1",
     "csurf": "1.11.0",
     "dotenv": "16.0.2",
-    "express": "4.18.1",
-    "helmet": "6.0.0",
     "tsoa": "4.1.3"
   },
   "devDependencies": {
