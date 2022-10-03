@@ -455,7 +455,7 @@
   resolved "https://registry.yarnpkg.com/@ethersproject/logger/-/logger-5.7.0.tgz#6ce9ae168e74fecf287be17062b590852c311892"
   integrity sha512-0odtFdXu/XHtjQXJYA3u9G0G8btm0ND5Cu8M7i5vhEcE8/HmF4Lbdqanwyv4uQTr2tx6b7fQRmgLrsnpQlmnig==
 
-"@ethersproject/rlp@^5.6.1":
+"@ethersproject/rlp@^5.7.0":
   version "5.7.0"
   resolved "https://registry.yarnpkg.com/@ethersproject/rlp/-/rlp-5.7.0.tgz#de39e4d5918b9d74d46de93af80b7685a9c21304"
   integrity sha512-rBxzX2vK8mVF7b0Tol44t5Tb8gomOHkj5guL+HhzQ1yBh/ydjGnpw6at+X6Iw0Kp3OzzzkcKp8N9r0W4kYSs9w==
@@ -533,7 +533,7 @@
   dependencies:
     tslib "^2.4.0"
 
-"@grpc/grpc-js@^1.6.7":
+"@grpc/grpc-js@^1.7.0":
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/@grpc/grpc-js/-/grpc-js-1.7.1.tgz#cfac092e61eac6fe0f80d22943f98e1ba45f02a2"
   integrity sha512-GVtMU4oh/TeKkWGzXUEsyZtyvSUIT1z49RtGH1UnEGeL+sLuxKl8QH3KZTlSB329R1sWJmesm5hQ5CxXdYH9dg==
@@ -572,17 +572,17 @@
     long "^4.0.0"
     protobufjs "^6.11.3"
 
-"@hashgraph/sdk@2.18.2":
-  version "2.18.2"
-  resolved "https://registry.yarnpkg.com/@hashgraph/sdk/-/sdk-2.18.2.tgz#7a108f2cda1223740fa9558d04fa45d4e1787556"
-  integrity sha512-7kdZvudylOp8LqvHciQgN+o3TqxpCboO04BbZTmua+xWVwURKWzD6TicXp1+41HZFX10rkmhNxlqOgf8TLi9zQ==
+"@hashgraph/sdk@2.18.3":
+  version "2.18.3"
+  resolved "https://registry.yarnpkg.com/@hashgraph/sdk/-/sdk-2.18.3.tgz#1e017009ae3f2de051a5cf4139e32ce0442f8de2"
+  integrity sha512-sWJXo8DPT0PFk1ENpy42bYyuKxk9lPFq4V/2EFUqvMgmaQ6nlVxTUxIY87gDC5doNs4cNJXzGiNyv3Z30U0Vng==
   dependencies:
-    "@ethersproject/rlp" "^5.6.1"
-    "@grpc/grpc-js" "^1.6.7"
+    "@ethersproject/rlp" "^5.7.0"
+    "@grpc/grpc-js" "^1.7.0"
     "@hashgraph/cryptography" "^1.4.1"
     "@hashgraph/proto" "2.10.0"
     axios "^0.27.2"
-    bignumber.js "^9.0.2"
+    bignumber.js "^9.1.0"
     crypto-js "^4.1.1"
     js-base64 "^3.7.2"
     js-logger "^1.6.1"
@@ -2643,7 +2643,7 @@ bigint-buffer@^1.1.5:
   dependencies:
     bindings "^1.3.0"
 
-bignumber.js@^9.0.2:
+bignumber.js@^9.0.2, bignumber.js@^9.1.0:
   version "9.1.0"
   resolved "https://registry.yarnpkg.com/bignumber.js/-/bignumber.js-9.1.0.tgz#8d340146107fe3a6cb8d40699643c302e8773b62"
   integrity sha512-4LwHK4nfDOraBCtst+wOWIHbu1vhvAPJK8g8nROd4iuc3PSEjWif/qwbkh8jwCJz6yDBvtU4KPynETgrfh7y3A==
