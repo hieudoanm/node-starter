@@ -20,7 +20,7 @@ services:
 
   keycloak-instance:
     restart: unless-stopped
-    image: quay.io/keycloak/keycloak:19.0.2
+    image: quay.io/keycloak/keycloak:19.0.3
     container_name: keycloak-instance
     links:
       - postgres-instance
