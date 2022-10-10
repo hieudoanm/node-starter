@@ -1,6 +1,5 @@
 import { Request } from 'express';
-import jwt, { JwtPayload } from 'jsonwebtoken';
-import { readFileSync } from 'fs';
+import jwt from '../../../libs/jwt';
 
 export const expressAuthentication = (
   request: Request,
@@ -18,9 +17,8 @@ export const expressAuthentication = (
     }
 
     try {
-      const cert = readFileSync('./certs/public.pem');
       const token = authorization.replace('Bearer ', '');
-      const decoded: JwtPayload = jwt.verify(token, cert) as JwtPayload;
+      const decoded = jwt.verify(token);
       for (const scope of scopes) {
         if (!decoded.scopes.includes(scope)) {
           reject(new Error('JWT does not contain required scope.'));
