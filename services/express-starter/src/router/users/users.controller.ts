@@ -10,7 +10,6 @@ import {
   Tags,
 } from '@hieudoanm/express';
 import { Request as ExpressRequest } from 'express';
-import get from 'lodash/get';
 import {
   changePassword,
   getUserInfo,
@@ -42,19 +41,16 @@ export class HelloController extends Controller {
 
   @Post('refresh-token')
   public async refreshToken(@Request() request: ExpressRequest) {
-    const refreshTokenString: string = get(
-      request,
-      'headers.refresh_token',
-      ''
-    );
+    const refreshTokenString: string =
+      request.headers['refresh_token']?.toString() || '';
     return refreshToken(refreshTokenString);
   }
 
   @Post('sign-out')
   public async signOut(@Request() request: ExpressRequest) {
     const authorization = request.headers.authorization || '';
-    const refreshToken: string = get(request, 'headers.refresh_token', '');
-
+    const refreshToken: string =
+      request.headers['refresh_token']?.toString() || '';
     return signOut({ authorization, refreshToken });
   }
 

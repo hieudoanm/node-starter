@@ -13,7 +13,6 @@ import {
   Tags,
 } from '@hieudoanm/express';
 import { Request as ExRequest } from 'express';
-import get from 'lodash/get';
 import {
   createTodo,
   deleteTodo,
@@ -29,65 +28,69 @@ import {
   UpdateResponse,
 } from './todos.types';
 
+type UserRequest = { user?: { userId?: string } };
+
 @Tags('Todos')
 @Route('todos')
 export class TodosController extends Controller {
   @Security('jwt')
   @Get()
-  public async getTodos(@Request() request: ExRequest): Promise<Todo[]> {
-    const userId: string = get(request, 'user.userId', '');
+  public async getTodos(
+    @Request() request: ExRequest & UserRequest
+  ): Promise<Todo[]> {
+    const userId: string = request.user?.userId || '';
     return getTodos(userId);
   }
 
   @Security('jwt')
   @Post()
   public async createTodo(
-    @Request() request: ExRequest,
+    @Request() request: ExRequest & UserRequest,
     @Body() { title = '', description = '', completed = false }: TodoRequestBody
   ): Promise<CreateResponse> {
-    const userId: string = get(request, 'user.userId', '');
+    const userId: string = request.user?.userId || '';
     return createTodo(userId, { title, description, completed });
   }
 
   @Security('jwt')
   @Get(':id')
   public async getTodo(
-    @Request() request: ExRequest,
+    @Request() request: ExRequest & UserRequest,
     @Path('id') id: string
   ): Promise<Todo> {
-    const userId: string = get(request, 'user.userId', '');
+    const userId: string = request.user?.userId || '';
     return getTodo(userId, id);
   }
 
   @Security('jwt')
   @Patch(':id')
   public async updateTodo(
-    @Request() request: ExRequest,
+    @Request() request: ExRequest & UserRequest,
     @Path('id') id: string,
     @Body() todo: TodoRequestBody
   ): Promise<UpdateResponse> {
-    const userId: string = get(request, 'user.userId', '');
+    const userId: string = request.user?.userId || '';
     return updateTodo(userId, id, todo);
   }
 
   @Security('jwt')
   @Put(':id')
   public async patchTodo(
-    @Request() request: ExRequest,
+    @Request() request: ExRequest & UserRequest,
     @Path('id') id: string,
     @Body() todo: TodoRequestBody
   ): Promise<UpdateResponse> {
-    const userId: string = get(request, 'user.userId', '');
+    const userId: string = request.user?.userId || '';
     return updateTodo(userId, id, todo);
   }
 
   @Security('jwt')
   @Delete(':id')
   public async deleteTodo(
-    @Request() request: ExRequest,
+    @Request() request: ExRequest & UserRequest,
     @Path('id') id: string
   ): Promise<DeleteResponse> {
-    const userId: string = get(request, 'user.userId', '');
+    const userId: string = request.user?.userId || '';
     return deleteTodo(userId, id);
   }
 }
