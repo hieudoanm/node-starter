@@ -1,5 +1,5 @@
 {
-  "name": "apollo-starter",
+  "name": "@starter/apollo",
   "version": "0.0.1",
   "description": "Apollo Starter",
   "main": "dist/server.js",
@@ -24,15 +24,10 @@
     "watch": "webpack --watch"
   },
   "dependencies": {
+    "@hieudoanm/apollo": "^0.0.1",
+    "@hieudoanm/express": "^0.0.1",
     "@hieudoanm/pino": "0.0.1",
-    "apollo-server": "3.10.3",
-    "apollo-server-express": "3.10.3",
-    "compression": "1.7.4",
     "dotenv": "16.0.2",
-    "express": "4.18.2",
-    "graphql": "16.6.0",
-    "graphql-depth-limit": "1.1.0",
-    "helmet": "6.0.0",
     "lodash": "4.17.21"
   },
   "devDependencies": {

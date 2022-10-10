@@ -2,49 +2,40 @@ import dotenv from 'dotenv';
 const NODE_ENV = process.env.NODE_ENV || 'development';
 NODE_ENV === 'development' && dotenv.config();
 
+import apollo from '@hieudoanm/apollo';
+import { normalizePort, onError, onListening } from '@hieudoanm/express';
 import logger from '@hieudoanm/pino';
-import {
-  ApolloServerPluginDrainHttpServer,
-  ApolloServerPluginLandingPageGraphQLPlayground,
-  ApolloServerPluginLandingPageProductionDefault,
-} from 'apollo-server-core';
-import { ApolloServer } from 'apollo-server-express';
-import depthLimit from 'graphql-depth-limit';
 import http from 'http';
 import { HttpError } from 'http-errors';
 import app from './app';
 import { resolvers, typeDefs } from './graphql';
-import { normalizePort, onError, onListening } from './utils/server';
+
+const environment = process.env.NODE_ENV || 'development';
 
 // Get port from environment and store in Express.
-const PORT = normalizePort(process.env.PORT || '5000');
-app.set('port', PORT);
+const port = normalizePort(process.env.PORT || '5000');
+app.set('port', port);
 
 // Create HTTP server.
 const httpServer = http.createServer(app);
 
 const main = async () => {
-  const landingPage =
-    NODE_ENV === 'production'
-      ? ApolloServerPluginLandingPageProductionDefault()
-      : ApolloServerPluginLandingPageGraphQLPlayground();
-
-  const apolloServer = new ApolloServer({
-    typeDefs,
-    resolvers,
-    cache: 'bounded',
-    csrfPrevention: true,
-    validationRules: [depthLimit(10)],
-    introspection: NODE_ENV === 'development',
-    plugins: [landingPage, ApolloServerPluginDrainHttpServer({ httpServer })],
-  });
-
+  // Apollo Server
+  const apolloServer = apollo({ environment, httpServer, typeDefs, resolvers });
   await apolloServer.start();
   apolloServer.applyMiddleware({ app });
-
-  httpServer.listen({ port: PORT });
-  httpServer.on('listening', () => onListening(apolloServer, httpServer));
-  httpServer.on('error', (error: HttpError) => onError(error, PORT));
+  logger.info(`GraphQL Path: ${apolloServer.graphqlPath}`);
+  // HTTP Server
+  httpServer.listen({ port });
+  httpServer.on('listening', () => {
+    const message = onListening(httpServer);
+    logger.info(message);
+  });
+  httpServer.on('error', (error: HttpError) => {
+    const message = onError(error, port);
+    logger.info(message);
+    process.exit(1);
+  });
 };
 
 main().catch((error: Error) => logger.error('Error', error));
