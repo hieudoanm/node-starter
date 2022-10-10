@@ -636,6 +636,13 @@
   dependencies:
     jsonwebtoken "8.5.1"
 
+"@hieudoanm/mongodb@0.0.1":
+  version "0.0.1"
+  resolved "https://npm.pkg.github.com/download/@hieudoanm/mongodb/0.0.1/dfbc2666bf53d382965712fd3701e7a2f6bb9330#dfbc2666bf53d382965712fd3701e7a2f6bb9330"
+  integrity sha512-6DrodceE2HonlHlZRbUKEYK7zK2THoPVk31xiBlpwtyMRTMXppaX29u00hv7uTF0ZFmBzejPOAcz8YNMPOMxNg==
+  dependencies:
+    mongodb "4.10.0"
+
 "@hieudoanm/pino@0.0.1":
   version "0.0.1"
   resolved "https://npm.pkg.github.com/download/@hieudoanm/pino/0.0.1/b2fcfc2aca62ec8b80fb5520d31896944dd2ce1b#b2fcfc2aca62ec8b80fb5520d31896944dd2ce1b"

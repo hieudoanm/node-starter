@@ -1,9 +1,6 @@
-import { DatabaseClient } from '@turtle/mongo';
+import MongoClient from '@hieudoanm/mongodb';
 import { MONGO_URL } from '../../environments';
 
-const mongoClient = new DatabaseClient({
-  url: MONGO_URL,
-  databaseName: 'starter',
-});
+const mongoClient = new MongoClient(MONGO_URL, 'starter');
 
 export default mongoClient;
