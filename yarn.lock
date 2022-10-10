@@ -590,7 +590,7 @@
     protobufjs "^6.11.3"
     utf8 "^3.0.0"
 
-"@hieudoanm/apollo@^0.0.1":
+"@hieudoanm/apollo@0.0.1":
   version "0.0.1"
   resolved "https://npm.pkg.github.com/download/@hieudoanm/apollo/0.0.1/90615052a45ff11f0da79d838c8af5ef4e271aeb#90615052a45ff11f0da79d838c8af5ef4e271aeb"
   integrity sha512-ltAPLz0YfXjU3okoTgVmmjPwzwInBM32HCGAnUHVO7/O4LFNxDthJvunAka5Vl7FRtzvhXYn+m3+7LWZ4OVcQA==
@@ -609,6 +609,14 @@
   dependencies:
     axios "1.1.2"
 
+"@hieudoanm/dotenv@0.0.1":
+  version "0.0.1"
+  resolved "https://npm.pkg.github.com/download/@hieudoanm/dotenv/0.0.1/852707b2b91ca89885d4d3f1f5a97931d69910a3#852707b2b91ca89885d4d3f1f5a97931d69910a3"
+  integrity sha512-jK1oRwoqEjJEvsv3GKRoBouT/5dbEqWqOl7ONyonxZarXpRt6mLqBuloP9nI/4EgIvvDnZwd0b3tw5zZ9GuAiA==
+  dependencies:
+    dotenv "16.0.3"
+    dotenv-expand "9.0.0"
+
 "@hieudoanm/elasticsearch@0.0.1":
   version "0.0.1"
   resolved "https://npm.pkg.github.com/download/@hieudoanm/elasticsearch/0.0.1/b5f8bb7e3c121dd1d92f0aef8ed405a7af2b975f#b5f8bb7e3c121dd1d92f0aef8ed405a7af2b975f"
@@ -616,7 +624,7 @@
   dependencies:
     "@elastic/elasticsearch" "8.4.0"
 
-"@hieudoanm/express@0.0.1", "@hieudoanm/express@^0.0.1":
+"@hieudoanm/express@0.0.1":
   version "0.0.1"
   resolved "https://npm.pkg.github.com/download/@hieudoanm/express/0.0.1/9bbaae6f0c4d1cee14227a637ff742bb630f3b77#9bbaae6f0c4d1cee14227a637ff742bb630f3b77"
   integrity sha512-ZOpmYqfFsQE3piDyF2oHFX67trO0fWT6wFKO8dRO+uFZu00ilIK57/fN0t/o4vd4ZbKEGnUwGaC6OU31pw3Jiw==
@@ -3693,10 +3701,15 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
-dotenv@16.0.2:
-  version "16.0.2"
-  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.0.2.tgz#0b0f8652c016a3858ef795024508cddc4bffc5bf"
-  integrity sha512-JvpYKUmzQhYoIFgK2MOnF3bciIZoItIIoryihy0rIA+H4Jy0FmgyKYAHCTN98P5ybGSJcIFbh6QKeJdtZd1qhA==
+dotenv-expand@9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv-expand/-/dotenv-expand-9.0.0.tgz#1fd37e2cd63ea0b5f7389fb87256efc38b035b26"
+  integrity sha512-uW8Hrhp5ammm9x7kBLR6jDfujgaDarNA02tprvZdyrJ7MpdzD1KyrIHG4l+YoC2fJ2UcdFdNWNWIjt+sexBHJw==
+
+dotenv@16.0.3:
+  version "16.0.3"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.0.3.tgz#115aec42bac5053db3c456db30cc243a5a836a07"
+  integrity sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==
 
 dotenv@~10.0.0:
   version "10.0.0"

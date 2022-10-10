@@ -28,10 +28,10 @@
     "watch": "webpack --watch"
   },
   "dependencies": {
+    "@hieudoanm/dotenv": "0.0.1",
     "@hieudoanm/elasticsearch": "0.0.1",
     "@hieudoanm/express": "0.0.1",
-    "@hieudoanm/pino": "0.0.1",
-    "dotenv": "16.0.2"
+    "@hieudoanm/pino": "0.0.1"
   },
   "devDependencies": {
     "@types/compression": "1.7.2",

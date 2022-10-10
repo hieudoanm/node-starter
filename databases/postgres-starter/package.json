@@ -28,10 +28,10 @@
     "watch": "webpack --watch"
   },
   "dependencies": {
+    "@hieudoanm/dotenv": "0.0.1",
     "@hieudoanm/express": "0.0.1",
     "@hieudoanm/pino": "0.0.1",
     "@prisma/client": "4.4.0",
-    "dotenv": "16.0.2",
     "uuid": "9.0.0"
   },
   "devDependencies": {

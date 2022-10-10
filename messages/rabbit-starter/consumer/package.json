@@ -28,6 +28,7 @@
     "watch": "webpack --watch"
   },
   "dependencies": {
+    "@hieudoanm/dotenv": "0.0.1",
     "@hieudoanm/express": "0.0.1",
     "@hieudoanm/pino": "0.0.1",
     "amqplib": "0.10.3"

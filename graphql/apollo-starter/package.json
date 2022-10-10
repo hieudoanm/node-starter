@@ -24,10 +24,10 @@
     "watch": "webpack --watch"
   },
   "dependencies": {
-    "@hieudoanm/apollo": "^0.0.1",
-    "@hieudoanm/express": "^0.0.1",
+    "@hieudoanm/dotenv": "0.0.1",
+    "@hieudoanm/apollo": "0.0.1",
+    "@hieudoanm/express": "0.0.1",
     "@hieudoanm/pino": "0.0.1",
-    "dotenv": "16.0.2",
     "lodash": "4.17.21"
   },
   "devDependencies": {
