@@ -1,11 +1,61 @@
 {
   "item": [
     {
-      "id": "229fe51e-4999-4496-b087-857fc67827c4",
+      "id": "e3ff43cb-3551-4484-a4fd-e3b302819a9d",
+      "name": "Get",
+      "request": {
+        "name": "Get",
+        "description": {},
+        "url": {
+          "path": ["health"],
+          "host": ["{{baseUrl}}"],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "85fe1bfb-0daa-484e-8cb0-3cfe3f0e863d",
+          "name": "Ok",
+          "originalRequest": {
+            "url": {
+              "path": ["health"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"status\": \"sint sunt\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "6ae2d047-32b1-4cf6-91d1-02e07e02a599",
       "name": "products",
       "item": [
         {
-          "id": "42bdb344-bffd-4f45-a862-322dfc958a71",
+          "id": "98b43b5e-cf1b-4014-9ee3-e18aca5b1eef",
           "name": "Create Products",
           "request": {
             "name": "Create Products",
@@ -21,7 +71,7 @@
           },
           "response": [
             {
-              "id": "226464cc-6318-4fff-95ec-31947cff7691",
+              "id": "0c313c00-a5cc-467e-ac4d-31ff3869d869",
               "name": "No content",
               "originalRequest": {
                 "url": {
@@ -49,7 +99,7 @@
           "event": []
         },
         {
-          "id": "c83eb931-6b64-46e1-9855-1e8db2bd9083",
+          "id": "64043f3b-69b6-4b90-99b4-604c9629f8a3",
           "name": "Search Products",
           "request": {
             "name": "Search Products",
@@ -65,7 +115,7 @@
           },
           "response": [
             {
-              "id": "16cd41ad-b9e2-4dd9-a88c-cb74a191c323",
+              "id": "9896b8a4-c592-4dcd-b55f-0095c8d2a0b0",
               "name": "No content",
               "originalRequest": {
                 "url": {
@@ -105,7 +155,7 @@
     }
   ],
   "info": {
-    "_postman_id": "c8603e26-51e1-4881-a121-4d73de528b48",
+    "_postman_id": "07f7ee38-844c-436c-8a75-49856faf4153",
     "name": "@starter/elastic",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
