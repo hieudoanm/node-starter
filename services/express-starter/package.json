@@ -31,9 +31,9 @@
     "@hieudoanm/express": "0.0.1",
     "@hieudoanm/jwt": "0.0.1",
     "@hieudoanm/pino": "0.0.1",
+    "@hieudoanm/redis": "0.0.1",
     "@turtle/keycloak": "0.0.1",
     "@turtle/mongo": "0.0.1",
-    "@turtle/redis": "0.0.1",
     "dotenv": "16.0.2",
     "uuid": "9.0.0"
   },

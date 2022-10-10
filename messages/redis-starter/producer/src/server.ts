@@ -7,6 +7,7 @@ import logger from '@hieudoanm/pino';
 import http from 'http';
 import { HttpError } from 'http-errors';
 import app from './app';
+import { redis } from './libs/redis';
 
 // Get port from environment and store in Express.
 const port = normalizePort(process.env.PORT || '4000');
@@ -16,6 +17,7 @@ app.set('port', port);
 const httpServer = http.createServer(app);
 
 const main = async () => {
+  await redis.connect();
   // HTTP Server
   httpServer.listen(port);
   httpServer.on('listening', () => {

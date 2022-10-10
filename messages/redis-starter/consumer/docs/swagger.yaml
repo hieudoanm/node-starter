@@ -10,7 +10,7 @@ components:
 info:
   title: 'redis-consumer'
   version: '0.0.1'
-  description: 'Redis Producer'
+  description: 'Redis Consumer'
   license:
     name: 'MIT'
   contact:

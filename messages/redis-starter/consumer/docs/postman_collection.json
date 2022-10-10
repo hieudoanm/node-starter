@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "082ab5b1-f0b7-43d2-a908-cb7731c8b630",
+      "id": "2f6e50c6-05a0-4ea2-9f17-1b6d4c64a30d",
       "name": "Get",
       "request": {
         "name": "Get",
@@ -23,7 +23,7 @@
       },
       "response": [
         {
-          "id": "fedd5ce1-d159-4fa2-b658-5a94ec654a1c",
+          "id": "91c382d7-7d90-48d5-bf11-7a91ed9b392c",
           "name": "Ok",
           "originalRequest": {
             "url": {
@@ -43,7 +43,7 @@
               "value": "application/json"
             }
           ],
-          "body": "{\n  \"status\": \"est tempor laboris anim eu\"\n}",
+          "body": "{\n  \"status\": \"fug\"\n}",
           "cookie": [],
           "_postman_previewlanguage": "json"
         }
@@ -60,11 +60,11 @@
     }
   ],
   "info": {
-    "_postman_id": "5322a9c0-0d54-404c-97a0-468fdd4718ae",
+    "_postman_id": "48dc9683-48a9-41af-a7c2-fcd3924d871b",
     "name": "redis-consumer",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
-      "content": "Redis Producer\n\nContact Support:\n Name: hieudoanm \n Email: hieumdoan@gmail.com",
+      "content": "Redis Consumer\n\nContact Support:\n Name: hieudoanm \n Email: hieumdoan@gmail.com",
       "type": "text/plain"
     }
   }

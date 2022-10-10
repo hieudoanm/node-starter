@@ -7,8 +7,8 @@ import logger from '@hieudoanm/pino';
 import http from 'http';
 import { HttpError } from 'http-errors';
 import app from './app';
-import configs from './environments';
 import { redis } from './libs/redis';
+import { subscribers } from './subscribers';
 
 // Get port from environment and store in Express.
 const port = normalizePort(process.env.PORT || '4001');
@@ -18,15 +18,8 @@ app.set('port', port);
 const httpServer = http.createServer(app);
 
 const main = async () => {
-  redis.subscribe(configs.redis.channel, (error, count) => {
-    if (error) logger.error(error.message);
-    logger.info(`Subscribed to ${count} channels.`);
-  });
-
-  redis.on('message', (channel, message) => {
-    logger.info(`Received message from ${channel} channel.`);
-    logger.info(JSON.parse(message));
-  });
+  await redis.connect();
+  subscribers(redis);
   // HTTP Server
   httpServer.listen(port);
   httpServer.on('listening', () => {

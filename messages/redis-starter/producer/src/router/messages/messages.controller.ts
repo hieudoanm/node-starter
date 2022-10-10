@@ -9,7 +9,7 @@ export class MessagesController {
   public async produce(
     @Body() { message }: { message: string }
   ): Promise<void> {
-    redis.publish(configs.redis.channel, JSON.stringify({ message }));
+    redis.publish(configs.redis.channel, message);
     return;
   }
 }

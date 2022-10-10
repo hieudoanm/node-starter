@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "01a1aed7-2693-4d85-a2e7-1665099651d2",
+      "id": "ef0e5440-6ebe-404e-9ad4-3e891b7ff13a",
       "name": "Get",
       "request": {
         "name": "Get",
@@ -23,7 +23,7 @@
       },
       "response": [
         {
-          "id": "b87d047b-0fa0-4a90-aa84-cc322dc07830",
+          "id": "7eed119c-0ea2-4945-8355-738261002ee0",
           "name": "Ok",
           "originalRequest": {
             "url": {
@@ -43,7 +43,7 @@
               "value": "application/json"
             }
           ],
-          "body": "{\n  \"status\": \"irure in Excepteur\"\n}",
+          "body": "{\n  \"status\": \"veniam\"\n}",
           "cookie": [],
           "_postman_previewlanguage": "json"
         }
@@ -51,7 +51,7 @@
       "event": []
     },
     {
-      "id": "21239cef-497f-4fb5-a8f5-f1685bb6a0d0",
+      "id": "5c0068c3-5b6f-4284-a26e-3f320ba2d2e5",
       "name": "Produce",
       "request": {
         "name": "Produce",
@@ -82,7 +82,7 @@
       },
       "response": [
         {
-          "id": "7efb5c50-1b35-4f94-8af3-6d9a424a3dbe",
+          "id": "b7732e6f-8dc0-4046-8ab8-7eda76fe485a",
           "name": "No content",
           "originalRequest": {
             "url": {
@@ -130,7 +130,7 @@
     }
   ],
   "info": {
-    "_postman_id": "54514df2-6729-4e15-93e7-af5fb533f3a5",
+    "_postman_id": "73053744-bd81-432f-b4f7-8e9caca87b3b",
     "name": "redis-producer",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
