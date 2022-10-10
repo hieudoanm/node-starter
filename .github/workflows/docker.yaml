@@ -90,7 +90,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install docker-ce
       - name: Docker Build
         working-directory: ${{ matrix.project.working-directory }}
-        run: docker build . --no-cache -t ${{ matrix.project.image-name }}:$IMAGE_TAG
+        run: docker build . --no-cache -t ${{ matrix.project.image-name }}:$IMAGE_TAG --build-arg node_token=${{ NODE_TOKEN }}
         env:
           NODE_TOKEN: ${{ secrets.NODE_TOKEN }}
           IMAGE_TAG: ${{ github.head_ref || github.ref_name }}.${{ steps.datetime.outputs.datetime }}.${{ steps.version.outputs.sha_short }}
