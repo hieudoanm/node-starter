@@ -170,7 +170,7 @@ components:
             write:pets: 'modify things'
             read:pets: 'read things'
 info:
-  title: 'express-starter'
+  title: '@starter/express'
   version: '1.0.0'
   description: 'Express Starter'
   license:
