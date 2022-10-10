@@ -11,7 +11,12 @@ import {
 export class ElasticSearchClient {
   private client: Client;
 
-  constructor({ node = '', nodes = [] }: { node?: string; nodes: string[] }) {
+  constructor(
+    { node = '', nodes = [] }: { node?: string; nodes: string[] } = {
+      node: '',
+      nodes: [],
+    }
+  ) {
     this.client = new Client({ node, nodes });
   }
 

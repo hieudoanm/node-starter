@@ -2,11 +2,11 @@ import dotenv from 'dotenv';
 const NODE_ENV = process.env.NODE_ENV || 'development';
 NODE_ENV === 'development' && dotenv.config();
 
+import { normalizePort, onError, onListening } from '@hieudoanm/express';
 import logger from '@hieudoanm/pino';
 import http from 'http';
 import { HttpError } from 'http-errors';
 import app from './app';
-import { normalizePort, onError, onListening } from './utils/server';
 
 // Get port from environment and store in Express.
 const PORT = normalizePort(process.env.PORT || '8080');

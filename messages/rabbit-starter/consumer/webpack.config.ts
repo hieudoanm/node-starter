@@ -11,7 +11,7 @@ export default {
   externals: [
     nodeExternals(),
     nodeExternals({
-      modulesDir: path.resolve(__dirname, '../../node_modules'),
+      modulesDir: path.resolve(__dirname, '../../../node_modules'),
     }),
   ],
   output: {

@@ -4,8 +4,9 @@ import vault from '../../libs/vault';
 import { Wallet, WalletResponse } from './wallet.types';
 
 export const getWallet = async (path: string): Promise<WalletResponse> => {
-  const { accountId, publicKey, privateKey } =
-    await vault.getVaultSecret<Wallet>(path);
+  const { accountId, publicKey, privateKey } = await vault.getSecret<Wallet>(
+    path
+  );
   logger.info('privateKey', { privateKey });
   // const keypair = getKeypairFromSecretKey(secretKey);
   // if (publicKey !== keypair.publicKey.toString()) {
@@ -17,7 +18,7 @@ export const getWallet = async (path: string): Promise<WalletResponse> => {
 export const createWallet = async (path: string): Promise<WalletResponse> => {
   const { accountId, publicKey, privateKey } = await createAccount();
 
-  await vault.setVaultSecret<Wallet>(path, {
+  await vault.setSecret<Wallet>(path, {
     accountId,
     publicKey,
     privateKey,

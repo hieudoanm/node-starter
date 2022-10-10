@@ -1,11 +1,11 @@
 {
   "item": [
     {
-      "id": "38f5f5f4-71e7-41dd-8614-a5aebcdca63a",
+      "id": "229fe51e-4999-4496-b087-857fc67827c4",
       "name": "products",
       "item": [
         {
-          "id": "f040de9b-5679-4ef2-b97b-e527c7576513",
+          "id": "42bdb344-bffd-4f45-a862-322dfc958a71",
           "name": "Create Products",
           "request": {
             "name": "Create Products",
@@ -21,7 +21,7 @@
           },
           "response": [
             {
-              "id": "600556a9-879c-4607-9591-e3857fe5bde4",
+              "id": "226464cc-6318-4fff-95ec-31947cff7691",
               "name": "No content",
               "originalRequest": {
                 "url": {
@@ -49,7 +49,7 @@
           "event": []
         },
         {
-          "id": "f01f29c0-11b3-4692-8e5b-7a4962c12537",
+          "id": "c83eb931-6b64-46e1-9855-1e8db2bd9083",
           "name": "Search Products",
           "request": {
             "name": "Search Products",
@@ -65,7 +65,7 @@
           },
           "response": [
             {
-              "id": "06eeecff-90ba-40c3-942d-9bf3cd88f0ad",
+              "id": "16cd41ad-b9e2-4dd9-a88c-cb74a191c323",
               "name": "No content",
               "originalRequest": {
                 "url": {
@@ -105,7 +105,7 @@
     }
   ],
   "info": {
-    "_postman_id": "60bbda44-6f1f-4c5a-a456-613affb05465",
+    "_postman_id": "c8603e26-51e1-4881-a121-4d73de528b48",
     "name": "@starter/elastic",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {

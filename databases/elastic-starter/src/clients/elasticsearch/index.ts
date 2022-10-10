@@ -1,9 +1,9 @@
 import { ElasticSearchClient } from '@turtle/elasticsearch';
 
-const ELASTIC_SEARCH_HOSTS = process.env.ELASTIC_SEARCH_HOSTS || '';
+const ELASTIC_SEARCH_NODES = process.env.ELASTIC_SEARCH_NODES || '';
 
 const esClient = new ElasticSearchClient({
-  hosts: ELASTIC_SEARCH_HOSTS.split(','),
+  nodes: ELASTIC_SEARCH_NODES.split(','),
 });
 
 export default esClient;
