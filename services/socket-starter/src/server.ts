@@ -2,24 +2,25 @@ import dotenv from 'dotenv';
 const NODE_ENV = process.env.NODE_ENV || 'development';
 NODE_ENV === 'development' && dotenv.config();
 
+import { normalizePort, onError, onListening } from '@hieudoanm/express';
 import logger from '@hieudoanm/pino';
 import http from 'http';
 import { HttpError } from 'http-errors';
 import { Server } from 'socket.io';
 import app from './app';
-import { normalizePort, onError, onListening } from './utils/server';
 
 // Get port from environment and store in Express.
-const PORT = normalizePort(process.env.PORT || '8080');
-app.set('port', PORT);
+const port = normalizePort(process.env.PORT || '8080');
+app.set('port', port);
 
+// Create HTTP server.
 const httpServer = http.createServer(app);
 
 const main = async () => {
+  // Socket Server
   const io = new Server(httpServer, {
     cors: { origin: ['http://localhost:3000'], credentials: true },
   });
-
   io.on('connection', (webSocket) => {
     const { id, connected } = webSocket;
     logger.info('Client connected', { id, connected });
@@ -31,10 +32,17 @@ const main = async () => {
       webSocket.emit('date-time', dateTime);
     }, oneSecond * 5);
   });
-
-  httpServer.listen(PORT);
-  httpServer.on('listening', () => onListening(httpServer));
-  httpServer.on('error', (error: HttpError) => onError(error, PORT));
+  // HTTP Server
+  httpServer.listen(port);
+  httpServer.on('listening', () => {
+    const message = onListening(httpServer);
+    logger.info(message);
+  });
+  httpServer.on('error', (error: HttpError) => {
+    const message = onError(error, port);
+    logger.info(message);
+    process.exit(1);
+  });
 };
 
 main().catch((error: Error) => logger.error('Error', error));

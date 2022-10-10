@@ -1,9 +1,7 @@
-import express from '@hieudoanm/express';
-import { errorHandler } from './middlewares/error';
-import { notFoundHandler } from './middlewares/not-found';
+import express, { errorHandler, notFoundHandler } from '@hieudoanm/express';
 import { RegisterRoutes } from './routes';
 
-const app = express({ cors: true });
+const app = express();
 
 RegisterRoutes(app);
 
