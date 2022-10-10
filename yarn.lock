@@ -622,7 +622,7 @@
     morgan "1.10.0"
     tsoa "4.1.3"
 
-"@hieudoanm/jwt@^0.0.1":
+"@hieudoanm/jwt@0.0.1":
   version "0.0.1"
   resolved "https://npm.pkg.github.com/download/@hieudoanm/jwt/0.0.1/7dec5fbcffa4168b35b18d3b30dbf277a2bd07f0#7dec5fbcffa4168b35b18d3b30dbf277a2bd07f0"
   integrity sha512-K2bbB7exOFst4l1fQ2QS6yFLXcy+3mpqhDCcU7oDi6gzyvFml1zqtc0TfmxQ8HDafWsvfJo13fXHY9Rlosy0Ow==
