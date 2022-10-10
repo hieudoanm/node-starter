@@ -8,9 +8,9 @@ components:
   schemas: {}
   securitySchemes: {}
 info:
-  title: '@starter/elastic'
+  title: '@starter/elasticsearch'
   version: '0.0.1'
-  description: 'Elastic Starter'
+  description: 'ElasticSearch Starter'
   license:
     name: 'MIT'
   contact:

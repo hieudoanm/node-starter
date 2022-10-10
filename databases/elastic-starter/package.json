@@ -1,7 +1,7 @@
 {
-  "name": "@starter/elastic",
+  "name": "@starter/elasticsearch",
   "version": "0.0.1",
-  "description": "Elastic Starter",
+  "description": "ElasticSearch Starter",
   "main": "dist/server.js",
   "repository": "git@github.com:hieudoanm/node-starter.git",
   "author": "hieudoanm <hieumdoan@gmail.com>",
@@ -28,9 +28,9 @@
     "watch": "webpack --watch"
   },
   "dependencies": {
+    "@hieudoanm/elasticsearch": "0.0.1",
     "@hieudoanm/express": "0.0.1",
     "@hieudoanm/pino": "0.0.1",
-    "@turtle/elasticsearch": "0.0.1",
     "dotenv": "16.0.2"
   },
   "devDependencies": {

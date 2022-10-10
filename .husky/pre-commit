@@ -2,7 +2,7 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 yarn lint:apollo
-yarn lint:elastic
+yarn lint:elasticsearch
 yarn lint:express
 yarn lint:hedera
 yarn lint:kafka:producer

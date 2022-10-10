@@ -1,9 +1,7 @@
-import { ElasticSearchClient } from '@turtle/elasticsearch';
+import ElasticSearchClient from '@hieudoanm/elasticsearch';
 
-const ELASTIC_SEARCH_NODES = process.env.ELASTIC_SEARCH_NODES || '';
+const ELASTIC_SEARCH_NODE: string = process.env.ELASTIC_SEARCH_NODE || '';
 
-const esClient = new ElasticSearchClient({
-  nodes: ELASTIC_SEARCH_NODES.split(','),
-});
+const esClient = new ElasticSearchClient({ node: ELASTIC_SEARCH_NODE });
 
 export default esClient;

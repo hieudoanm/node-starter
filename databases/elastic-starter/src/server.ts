@@ -9,16 +9,24 @@ import { HttpError } from 'http-errors';
 import app from './app';
 
 // Get port from environment and store in Express.
-const PORT = normalizePort(process.env.PORT || '8080');
-app.set('port', PORT);
+const port = normalizePort(process.env.PORT || '8080');
+app.set('port', port);
 
 // Create HTTP server.
-const server = http.createServer(app);
+const httpServer = http.createServer(app);
 
 const main = async () => {
-  server.listen(PORT);
-  server.on('listening', () => onListening(server));
-  server.on('error', (error: HttpError) => onError(error, PORT));
+  // HTTP Server
+  httpServer.listen(port);
+  httpServer.on('listening', () => {
+    const message = onListening(httpServer);
+    logger.info(message);
+  });
+  httpServer.on('error', (error: HttpError) => {
+    const message = onError(error, port);
+    logger.info(message);
+    process.exit(1);
+  });
 };
 
 main().catch((error: Error) => logger.error('Error', error));

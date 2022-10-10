@@ -609,6 +609,13 @@
   dependencies:
     axios "1.1.2"
 
+"@hieudoanm/elasticsearch@0.0.1":
+  version "0.0.1"
+  resolved "https://npm.pkg.github.com/download/@hieudoanm/elasticsearch/0.0.1/b5f8bb7e3c121dd1d92f0aef8ed405a7af2b975f#b5f8bb7e3c121dd1d92f0aef8ed405a7af2b975f"
+  integrity sha512-ipH7CWVPIAD2ZPoYV7bRb4nucnB0lM/MeKJiOuI2DMG9s3P71JuNhl1YAqn6TJQaXtCKmUFgOyjw8kNpdiLo+g==
+  dependencies:
+    "@elastic/elasticsearch" "8.4.0"
+
 "@hieudoanm/express@0.0.1", "@hieudoanm/express@^0.0.1":
   version "0.0.1"
   resolved "https://npm.pkg.github.com/download/@hieudoanm/express/0.0.1/9bbaae6f0c4d1cee14227a637ff742bb630f3b77#9bbaae6f0c4d1cee14227a637ff742bb630f3b77"
@@ -639,8 +646,8 @@
 
 "@hieudoanm/redis@0.0.1":
   version "0.0.1"
-  resolved "https://npm.pkg.github.com/download/@hieudoanm/redis/0.0.1/1c770acb8b5836c5327dbd687331b2005851eb29#1c770acb8b5836c5327dbd687331b2005851eb29"
-  integrity sha512-ixZ728lXBtpvscqp/gJcFfaQETb76GLcXDU/SgC2YoJLiksX4wKYF0v9aCoSI/kOeu6RZ8GXHZ8l9QEgLf0p2Q==
+  resolved "https://npm.pkg.github.com/download/@hieudoanm/redis/0.0.1/85497019fd6d192a3c3a9cd232c3eaefc413ecfb#85497019fd6d192a3c3a9cd232c3eaefc413ecfb"
+  integrity sha512-xmZnBpvBvTko3Sg5Qb1Yy8pb3V0UrUCLHb5axvMcky1TJZBnXkAva8ipeK/xSRw7YQgA385QuKEyNusTefQ4KQ==
   dependencies:
     redis "4.3.1"
 
