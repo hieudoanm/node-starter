@@ -1,5 +1,12 @@
-import { Body, Controller, Get, Post, Query, Route, Tags } from 'tsoa';
-
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  Query,
+  Route,
+  Tags,
+} from '@hieudoanm/express';
 import { createWallet, getWallet } from './wallet.service';
 import { WalletResponse } from './wallet.types';
 

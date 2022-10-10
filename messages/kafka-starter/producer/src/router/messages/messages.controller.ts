@@ -1,4 +1,4 @@
-import { Body, Post, Route, Tags } from 'tsoa';
+import { Body, Post, Route, Tags } from '@hieudoanm/express';
 import configs from '../../environments';
 import { producer } from '../../libs/kafka';
 

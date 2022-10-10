@@ -890,7 +890,7 @@
   ],
   "info": {
     "_postman_id": "1e9b405e-47b8-4b41-9aab-3398b0a5526c",
-    "name": "express-starter",
+    "name": "@starter/express",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "Express Starter\n\nContact Support:\n Name: hieudoanm \n Email: hieumdoan@gmail.com",

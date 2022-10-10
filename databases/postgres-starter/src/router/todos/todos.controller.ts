@@ -9,7 +9,7 @@ import {
   Put,
   Route,
   Tags,
-} from 'tsoa';
+} from '@hieudoanm/express';
 import {
   createTodo,
   deleteTodo,

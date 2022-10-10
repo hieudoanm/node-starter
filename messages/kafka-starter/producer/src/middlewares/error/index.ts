@@ -1,6 +1,6 @@
+import { ValidateError } from '@hieudoanm/express';
 import logger from '@hieudoanm/pino';
 import { NextFunction, Request, Response } from 'express';
-import { ValidateError } from 'tsoa';
 
 export const errorHandler = (
   error: Error | ValidateError | undefined,

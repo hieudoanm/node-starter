@@ -1,5 +1,3 @@
-import { Request as ExpressRequest } from 'express';
-import get from 'lodash/get';
 import {
   Body,
   Controller,
@@ -10,7 +8,9 @@ import {
   Request,
   Route,
   Tags,
-} from 'tsoa';
+} from '@hieudoanm/express';
+import { Request as ExpressRequest } from 'express';
+import get from 'lodash/get';
 import {
   changePassword,
   getUserInfo,

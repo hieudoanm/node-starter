@@ -16,7 +16,7 @@ components:
     }
   securitySchemes: {}
 info:
-  title: hedera-starter
+  title: '@starter/hedera'
   version: 0.0.1
   description: 'Hedera Starter'
   license: { name: MIT }

@@ -8,7 +8,7 @@ components:
   schemas: {}
   securitySchemes: {}
 info:
-  title: 'elastic-starter'
+  title: '@starter/elastic'
   version: '0.0.1'
   description: 'Elastic Starter'
   license:

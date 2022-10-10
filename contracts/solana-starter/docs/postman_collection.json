@@ -204,7 +204,7 @@
   ],
   "info": {
     "_postman_id": "f5ae268b-ed35-4af1-a6e8-93a8a4d61f61",
-    "name": "solana-starter",
+    "name": "@starter/solana",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "Solana Starter\n\nContact Support:\n Name: hieudoanm \n Email: hieumdoan@gmail.com",

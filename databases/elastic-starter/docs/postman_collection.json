@@ -106,7 +106,7 @@
   ],
   "info": {
     "_postman_id": "60bbda44-6f1f-4c5a-a456-613affb05465",
-    "name": "elastic-starter",
+    "name": "@starter/elastic",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "Elastic Starter\n\nContact Support:\n Name: hieudoanm \n Email: hieumdoan@gmail.com",

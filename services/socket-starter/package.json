@@ -1,5 +1,5 @@
 {
-  "name": "socket-starter",
+  "name": "@starter/socket",
   "version": "0.0.1",
   "description": "Socket Starter",
   "main": "dist/server.js",

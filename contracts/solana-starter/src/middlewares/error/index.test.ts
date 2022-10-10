@@ -1,5 +1,5 @@
+import { ValidateError } from '@hieudoanm/express';
 import { Request, Response } from 'express';
-import { ValidateError } from 'tsoa';
 import { errorHandler } from '.';
 
 describe('errorHandler', () => {

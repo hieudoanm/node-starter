@@ -204,7 +204,7 @@
   ],
   "info": {
     "_postman_id": "5b47df7d-3721-4404-ae8b-906ab5e8c1a7",
-    "name": "hedera-starter",
+    "name": "@starter/hedera",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "Hedera Starter\n\nContact Support:\n Name: hieudoanm \n Email: hieumdoan@gmail.com",

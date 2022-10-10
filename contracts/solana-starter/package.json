@@ -1,5 +1,5 @@
 {
-  "name": "solana-starter",
+  "name": "@starter/solana",
   "version": "0.0.1",
   "description": "Solana Starter",
   "main": "dist/server.js",
@@ -32,9 +32,7 @@
     "@hieudoanm/pino": "0.0.1",
     "@hieudoanm/vault": "0.0.1",
     "@solana/web3.js": "1.63.1",
-    "csurf": "1.11.0",
-    "dotenv": "16.0.2",
-    "tsoa": "4.1.3"
+    "dotenv": "16.0.2"
   },
   "devDependencies": {
     "@types/compression": "1.7.2",

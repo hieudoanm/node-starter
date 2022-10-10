@@ -1,5 +1,3 @@
-import { Request as ExRequest } from 'express';
-import get from 'lodash/get';
 import {
   Body,
   Controller,
@@ -13,7 +11,9 @@ import {
   Route,
   Security,
   Tags,
-} from 'tsoa';
+} from '@hieudoanm/express';
+import { Request as ExRequest } from 'express';
+import get from 'lodash/get';
 import {
   createTodo,
   deleteTodo,

@@ -1,4 +1,4 @@
-import { Controller, Get, Route, Tags } from 'tsoa';
+import { Controller, Get, Route, Tags } from '@hieudoanm/express';
 
 @Tags('Health')
 @Route('health')

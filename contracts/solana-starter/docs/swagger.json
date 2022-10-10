@@ -19,7 +19,7 @@
     "securitySchemes": {}
   },
   "info": {
-    "title": "solana-starter",
+    "title": "@starter/solana",
     "version": "0.0.1",
     "description": "Solana Starter",
     "license": {

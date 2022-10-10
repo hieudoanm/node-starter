@@ -1,4 +1,4 @@
-import { gql } from 'apollo-server';
+import { gql } from '@hieudoanm/apollo';
 import merge from 'lodash/merge';
 import {
   resolvers as helloResolvers,

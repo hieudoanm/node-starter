@@ -7,7 +7,7 @@ components:
   schemas: {}
   securitySchemes: {}
 info:
-  title: socket-starter
+  title: '@starter/socket'
   version: 0.0.1
   description: 'Socket Starter'
   license: { name: MIT }

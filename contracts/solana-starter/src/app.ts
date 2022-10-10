@@ -1,13 +1,12 @@
-import express from '@hieudoanm/express';
-import { errorHandler } from './middlewares/error';
-import { notFoundHandler } from './middlewares/not-found';
+import express, { errorHandler, notFoundHandler } from '@hieudoanm/express';
+
 import { RegisterRoutes } from './routes';
 
 const app = express();
 
 RegisterRoutes(app);
 
-app.use(notFoundHandler);
+app.use(notFoundHandler());
 app.use(errorHandler);
 
 export default app;

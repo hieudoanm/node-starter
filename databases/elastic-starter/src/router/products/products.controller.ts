@@ -1,4 +1,4 @@
-import { Controller, Post, Tags, Route } from 'tsoa';
+import { Controller, Post, Route, Tags } from '@hieudoanm/express';
 import { createProducts, searchProducts } from './products.service';
 
 @Tags('Products')

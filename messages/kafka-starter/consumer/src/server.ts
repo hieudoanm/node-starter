@@ -2,12 +2,12 @@ import dotenv from 'dotenv';
 const NODE_ENV = process.env.NODE_ENV || 'development';
 NODE_ENV === 'development' && dotenv.config();
 
+import { normalizePort, onError, onListening } from '@hieudoanm/express';
 import logger from '@hieudoanm/pino';
 import http from 'http';
 import { HttpError } from 'http-errors';
 import app from './app';
 import configs from './environments';
-import { normalizePort, onError, onListening } from './utils/server';
 import { consumer } from './libs/kafka';
 
 // Get port from environment and store in Express.
@@ -27,10 +27,17 @@ const main = async () => {
       logger.info('Receiving', { topic, partition, offset, value });
     },
   });
-
+  // HTTP Server
   httpServer.listen(port);
-  httpServer.on('listening', () => onListening(httpServer));
-  httpServer.on('error', (error: HttpError) => onError(error, port));
+  httpServer.on('listening', () => {
+    const message = onListening(httpServer);
+    logger.info(message);
+  });
+  httpServer.on('error', (error: HttpError) => {
+    const message = onError(error, port);
+    logger.info(message);
+    process.exit(1);
+  });
 };
 
 main().catch((error: Error) => logger.error('Error', error));
