@@ -1,5 +1,4 @@
-import { gql } from '@hieudoanm/apollo';
-import merge from 'lodash/merge';
+import { gql, mergeResolvers } from '@hieudoanm/apollo';
 import {
   resolvers as helloResolvers,
   typeDefs as helloTypeDefs,
@@ -11,4 +10,4 @@ const globalsTypeDefs = gql`
 
 export const typeDefs = [globalsTypeDefs, helloTypeDefs];
 
-export const resolvers = merge(helloResolvers);
+export const resolvers = mergeResolvers([helloResolvers]);
