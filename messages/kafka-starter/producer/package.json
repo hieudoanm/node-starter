@@ -31,7 +31,7 @@
     "@hieudoanm/dotenv": "0.0.1",
     "@hieudoanm/express": "0.0.1",
     "@hieudoanm/pino": "0.0.1",
-    "kafkajs": "2.2.0"
+    "kafkajs": "2.2.1"
   },
   "devDependencies": {
     "@types/jest": "29.1.2",
