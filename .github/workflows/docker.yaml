@@ -30,24 +30,6 @@ jobs:
           - name: Database - PostgreSQL
             image-name: postgres-starter
             working-directory: ./databases/postgres-starter
-          - name: Messaging - Kafka - Producer
-            image-name: kafka-producer-starter
-            working-directory: ./messages/kafka-starter/producer
-          - name: Messaging - Kafka - Consumer
-            image-name: kafka-consumer-starter
-            working-directory: ./messages/kafka-starter/consumer
-          - name: Messaging - Rabbit - Producer
-            image-name: rabbit-producer-starter
-            working-directory: ./messages/rabbit-starter/producer
-          - name: Messaging - Rabbit - Consumer
-            image-name: rabbit-consumer-starter
-            working-directory: ./messages/rabbit-starter/consumer
-          - name: Messaging - Redis - Producer
-            image-name: redis-producer-starter
-            working-directory: ./messages/redis-starter/producer
-          - name: Messaging - Redis - Consumer
-            image-name: redis-consumer-starter
-            working-directory: ./messages/redis-starter/consumer
           - name: Apollo
             image-name: apollo-starter
             working-directory: ./graphql/apollo-starter

@@ -29,18 +29,6 @@ jobs:
             working-directory: ./databases/elastic-starter
           - name: Database - PostgreSQL
             working-directory: ./databases/postgres-starter
-          - name: Messaging - Kafka - Producer
-            working-directory: ./messages/kafka-starter/producer
-          - name: Messaging - Kafka - Consumer
-            working-directory: ./messages/kafka-starter/consumer
-          - name: Messaging - Rabbit - Producer
-            working-directory: ./messages/rabbit-starter/producer
-          - name: Messaging - Rabbit - Consumer
-            working-directory: ./messages/rabbit-starter/consumer
-          - name: Messaging - Redis - Producer
-            working-directory: ./messages/redis-starter/producer
-          - name: Messaging - Redis - Consumer
-            working-directory: ./messages/redis-starter/consumer
           - name: Apollo
             working-directory: ./graphql/apollo-starter
           - name: Express
