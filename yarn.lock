@@ -563,10 +563,10 @@
     long "^4.0.0"
     protobufjs "^6.11.3"
 
-"@hashgraph/sdk@2.18.3":
-  version "2.18.3"
-  resolved "https://registry.yarnpkg.com/@hashgraph/sdk/-/sdk-2.18.3.tgz#1e017009ae3f2de051a5cf4139e32ce0442f8de2"
-  integrity sha512-sWJXo8DPT0PFk1ENpy42bYyuKxk9lPFq4V/2EFUqvMgmaQ6nlVxTUxIY87gDC5doNs4cNJXzGiNyv3Z30U0Vng==
+"@hashgraph/sdk@2.18.4":
+  version "2.18.4"
+  resolved "https://registry.yarnpkg.com/@hashgraph/sdk/-/sdk-2.18.4.tgz#52ce6df2f20e50cc3c57a94267a49e1d2e77373e"
+  integrity sha512-pGpbmJNGNR9TEoyo7/R8ixY7dOL2OB+LXcx9t9vEkEfujU5Tyyvevf3wFXXmePhsytE1Gbm55j1MpvSfh0oMqw==
   dependencies:
     "@ethersproject/rlp" "^5.7.0"
     "@grpc/grpc-js" "^1.7.0"
