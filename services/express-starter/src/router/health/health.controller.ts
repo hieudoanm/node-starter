@@ -1,9 +1,16 @@
-import { Controller, Get, Route, Tags } from '@hieudoanm/express';
+import {
+  Controller,
+  Get,
+  Route,
+  SuccessResponse,
+  Tags,
+} from '@hieudoanm/express';
 
 @Tags('Health')
 @Route('health')
 export class HealthController extends Controller {
   @Get()
+  @SuccessResponse('200', "Service's Status")
   public get() {
     return { status: 'healthy' };
   }

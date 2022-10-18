@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const { readFileSync, writeFileSync } = require('fs');
 const path = require('path');
 const { convert } = require('swagger2-to-postmanv2');

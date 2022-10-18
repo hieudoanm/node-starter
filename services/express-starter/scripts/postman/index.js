@@ -1,5 +1,8 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { readFileSync, writeFileSync } = require('fs');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require('path');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { convert } = require('swagger2-to-postmanv2');
 
 const convertSync = (swaggerJson) => {
@@ -26,10 +29,11 @@ const main = async () => {
     });
     const { result, output = [] } = postmanResult;
     if (!result) return;
-    for (const collection of output) {
+    for (let i = 0; i < output.length; i++) {
+      const collection = output[i];
       const postmanFilePath = path.join(
         __dirname,
-        '../../docs/postman_collection.json'
+        `../../docs/postman_collection_${i}.json`
       );
       console.log('postman file path', postmanFilePath);
       const { type, data } = collection;

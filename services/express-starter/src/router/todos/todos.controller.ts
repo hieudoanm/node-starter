@@ -10,6 +10,7 @@ import {
   Request,
   Route,
   Security,
+  SuccessResponse,
   Tags,
 } from '@hieudoanm/express';
 import { Request as ExRequest } from 'express';
@@ -35,6 +36,7 @@ type UserRequest = { user?: { userId?: string } };
 export class TodosController extends Controller {
   @Security('jwt')
   @Get()
+  @SuccessResponse('200', 'List of Todos')
   public async getTodos(
     @Request() request: ExRequest & UserRequest
   ): Promise<Todo[]> {
@@ -44,6 +46,7 @@ export class TodosController extends Controller {
 
   @Security('jwt')
   @Post()
+  @SuccessResponse('201', 'New Todo')
   public async createTodo(
     @Request() request: ExRequest & UserRequest,
     @Body() { title = '', description = '', completed = false }: TodoRequestBody
@@ -54,6 +57,7 @@ export class TodosController extends Controller {
 
   @Security('jwt')
   @Get(':id')
+  @SuccessResponse('200', 'Get Todo by ID')
   public async getTodo(
     @Request() request: ExRequest & UserRequest,
     @Path('id') id: string
@@ -64,6 +68,7 @@ export class TodosController extends Controller {
 
   @Security('jwt')
   @Patch(':id')
+  @SuccessResponse('200', 'Updated Todo')
   public async updateTodo(
     @Request() request: ExRequest & UserRequest,
     @Path('id') id: string,
@@ -75,6 +80,7 @@ export class TodosController extends Controller {
 
   @Security('jwt')
   @Put(':id')
+  @SuccessResponse('200', 'Updated Todo')
   public async patchTodo(
     @Request() request: ExRequest & UserRequest,
     @Path('id') id: string,
@@ -86,6 +92,7 @@ export class TodosController extends Controller {
 
   @Security('jwt')
   @Delete(':id')
+  @SuccessResponse('200', 'Deleted Response')
   public async deleteTodo(
     @Request() request: ExRequest & UserRequest,
     @Path('id') id: string

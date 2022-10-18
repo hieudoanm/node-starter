@@ -172,7 +172,7 @@ components:
 info:
   title: '@starter/express'
   version: '1.0.0'
-  description: 'Express Starter'
+  description: 'Starter - Express'
   license:
     name: 'MIT'
   contact:
@@ -185,7 +185,7 @@ paths:
       operationId: 'Get'
       responses:
         200:
-          description: 'Ok'
+          description: "Service's Status"
           content:
             application/json:
               schema:
@@ -204,7 +204,7 @@ paths:
       operationId: 'GetTodos'
       responses:
         200:
-          description: 'Ok'
+          description: 'List of Todos'
           content:
             application/json:
               schema:
@@ -219,8 +219,8 @@ paths:
     post:
       operationId: 'CreateTodo'
       responses:
-        200:
-          description: 'Ok'
+        201:
+          description: 'New Todo'
           content:
             application/json:
               schema:
@@ -241,7 +241,7 @@ paths:
       operationId: 'GetTodo'
       responses:
         200:
-          description: 'Ok'
+          description: 'Get Todo by ID'
           content:
             application/json:
               schema:
@@ -260,7 +260,7 @@ paths:
       operationId: 'UpdateTodo'
       responses:
         200:
-          description: 'Ok'
+          description: 'Updated Todo'
           content:
             application/json:
               schema:
@@ -285,7 +285,7 @@ paths:
       operationId: 'PatchTodo'
       responses:
         200:
-          description: 'Ok'
+          description: 'Updated Todo'
           content:
             application/json:
               schema:
@@ -310,7 +310,7 @@ paths:
       operationId: 'DeleteTodo'
       responses:
         200:
-          description: 'Ok'
+          description: 'Deleted Response'
           content:
             application/json:
               schema:
@@ -330,7 +330,7 @@ paths:
       operationId: 'GetUserInfo'
       responses:
         200:
-          description: 'Ok'
+          description: 'User Info'
           content:
             application/json:
               schema:
@@ -343,8 +343,8 @@ paths:
     post:
       operationId: 'SignUp'
       responses:
-        200:
-          description: 'Ok'
+        201:
+          description: 'New User Info'
           content:
             application/json:
               schema:
@@ -364,7 +364,7 @@ paths:
       operationId: 'SignIn'
       responses:
         200:
-          description: 'Ok'
+          description: 'User Token'
           content:
             application/json:
               schema:
@@ -384,7 +384,7 @@ paths:
       operationId: 'RefreshToken'
       responses:
         200:
-          description: 'Ok'
+          description: 'User Token'
           content:
             application/json:
               schema:
@@ -398,7 +398,7 @@ paths:
       operationId: 'SignOut'
       responses:
         204:
-          description: 'No content'
+          description: 'No Content'
       tags:
         - 'Users'
       security: []
@@ -408,7 +408,7 @@ paths:
       operationId: 'ChangePassword'
       responses:
         204:
-          description: 'No content'
+          description: 'No Content'
       tags:
         - 'Users'
       security: []

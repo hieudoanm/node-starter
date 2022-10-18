@@ -18,8 +18,8 @@ app.set('port', port);
 const httpServer = http.createServer(app);
 
 const main = async () => {
-  await mongoClient.connect();
-  await redisClient.connect();
+  // await mongoClient.connect();
+  // await redisClient.connect();
   // HTTP Server
   httpServer.listen(port);
   httpServer.on('listening', () => {

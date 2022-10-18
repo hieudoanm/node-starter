@@ -229,7 +229,7 @@
   "info": {
     "title": "@starter/express",
     "version": "1.0.0",
-    "description": "Express Starter",
+    "description": "Starter - Express",
     "license": {
       "name": "MIT"
     },
@@ -245,7 +245,7 @@
         "operationId": "Get",
         "responses": {
           "200": {
-            "description": "Ok",
+            "description": "Service's Status",
             "content": {
               "application/json": {
                 "schema": {
@@ -271,7 +271,7 @@
         "operationId": "GetTodos",
         "responses": {
           "200": {
-            "description": "Ok",
+            "description": "List of Todos",
             "content": {
               "application/json": {
                 "schema": {
@@ -295,8 +295,8 @@
       "post": {
         "operationId": "CreateTodo",
         "responses": {
-          "200": {
-            "description": "Ok",
+          "201": {
+            "description": "New Todo",
             "content": {
               "application/json": {
                 "schema": {
@@ -330,7 +330,7 @@
         "operationId": "GetTodo",
         "responses": {
           "200": {
-            "description": "Ok",
+            "description": "Get Todo by ID",
             "content": {
               "application/json": {
                 "schema": {
@@ -361,7 +361,7 @@
         "operationId": "UpdateTodo",
         "responses": {
           "200": {
-            "description": "Ok",
+            "description": "Updated Todo",
             "content": {
               "application/json": {
                 "schema": {
@@ -402,7 +402,7 @@
         "operationId": "PatchTodo",
         "responses": {
           "200": {
-            "description": "Ok",
+            "description": "Updated Todo",
             "content": {
               "application/json": {
                 "schema": {
@@ -443,7 +443,7 @@
         "operationId": "DeleteTodo",
         "responses": {
           "200": {
-            "description": "Ok",
+            "description": "Deleted Response",
             "content": {
               "application/json": {
                 "schema": {
@@ -476,7 +476,7 @@
         "operationId": "GetUserInfo",
         "responses": {
           "200": {
-            "description": "Ok",
+            "description": "User Info",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,8 +495,8 @@
       "post": {
         "operationId": "SignUp",
         "responses": {
-          "200": {
-            "description": "Ok",
+          "201": {
+            "description": "New User Info",
             "content": {
               "application/json": {
                 "schema": {
@@ -526,7 +526,7 @@
         "operationId": "SignIn",
         "responses": {
           "200": {
-            "description": "Ok",
+            "description": "User Token",
             "content": {
               "application/json": {
                 "schema": {
@@ -556,7 +556,7 @@
         "operationId": "RefreshToken",
         "responses": {
           "200": {
-            "description": "Ok",
+            "description": "User Token",
             "content": {
               "application/json": {
                 "schema": {
@@ -576,7 +576,7 @@
         "operationId": "SignOut",
         "responses": {
           "204": {
-            "description": "No content"
+            "description": "No Content"
           }
         },
         "tags": ["Users"],
@@ -589,7 +589,7 @@
         "operationId": "ChangePassword",
         "responses": {
           "204": {
-            "description": "No content"
+            "description": "No Content"
           }
         },
         "tags": ["Users"],

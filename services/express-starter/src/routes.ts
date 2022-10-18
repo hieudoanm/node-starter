@@ -198,7 +198,7 @@ export function RegisterRoutes(app: express.Router) {
         const controller = new HealthController();
 
         const promise = controller.get.apply(controller, validatedArgs as any);
-        promiseHandler(controller, promise, response, undefined, next);
+        promiseHandler(controller, promise, response, 200, next);
       } catch (err) {
         return next(err);
       }
@@ -233,7 +233,7 @@ export function RegisterRoutes(app: express.Router) {
           controller,
           validatedArgs as any
         );
-        promiseHandler(controller, promise, response, undefined, next);
+        promiseHandler(controller, promise, response, 200, next);
       } catch (err) {
         return next(err);
       }
@@ -273,7 +273,7 @@ export function RegisterRoutes(app: express.Router) {
           controller,
           validatedArgs as any
         );
-        promiseHandler(controller, promise, response, undefined, next);
+        promiseHandler(controller, promise, response, 201, next);
       } catch (err) {
         return next(err);
       }
@@ -309,7 +309,7 @@ export function RegisterRoutes(app: express.Router) {
           controller,
           validatedArgs as any
         );
-        promiseHandler(controller, promise, response, undefined, next);
+        promiseHandler(controller, promise, response, 200, next);
       } catch (err) {
         return next(err);
       }
@@ -355,7 +355,7 @@ export function RegisterRoutes(app: express.Router) {
           controller,
           validatedArgs as any
         );
-        promiseHandler(controller, promise, response, undefined, next);
+        promiseHandler(controller, promise, response, 200, next);
       } catch (err) {
         return next(err);
       }
@@ -397,7 +397,7 @@ export function RegisterRoutes(app: express.Router) {
           controller,
           validatedArgs as any
         );
-        promiseHandler(controller, promise, response, undefined, next);
+        promiseHandler(controller, promise, response, 200, next);
       } catch (err) {
         return next(err);
       }
@@ -437,7 +437,7 @@ export function RegisterRoutes(app: express.Router) {
           controller,
           validatedArgs as any
         );
-        promiseHandler(controller, promise, response, undefined, next);
+        promiseHandler(controller, promise, response, 200, next);
       } catch (err) {
         return next(err);
       }
@@ -475,7 +475,7 @@ export function RegisterRoutes(app: express.Router) {
           controller,
           validatedArgs as any
         );
-        promiseHandler(controller, promise, response, undefined, next);
+        promiseHandler(controller, promise, response, 200, next);
       } catch (err) {
         return next(err);
       }
@@ -504,7 +504,7 @@ export function RegisterRoutes(app: express.Router) {
           controller,
           validatedArgs as any
         );
-        promiseHandler(controller, promise, response, undefined, next);
+        promiseHandler(controller, promise, response, 201, next);
       } catch (err) {
         return next(err);
       }
@@ -533,7 +533,7 @@ export function RegisterRoutes(app: express.Router) {
           controller,
           validatedArgs as any
         );
-        promiseHandler(controller, promise, response, undefined, next);
+        promiseHandler(controller, promise, response, 200, next);
       } catch (err) {
         return next(err);
       }
@@ -571,7 +571,7 @@ export function RegisterRoutes(app: express.Router) {
           controller,
           validatedArgs as any
         );
-        promiseHandler(controller, promise, response, undefined, next);
+        promiseHandler(controller, promise, response, 200, next);
       } catch (err) {
         return next(err);
       }
@@ -605,7 +605,7 @@ export function RegisterRoutes(app: express.Router) {
           controller,
           validatedArgs as any
         );
-        promiseHandler(controller, promise, response, undefined, next);
+        promiseHandler(controller, promise, response, 204, next);
       } catch (err) {
         return next(err);
       }
@@ -648,7 +648,7 @@ export function RegisterRoutes(app: express.Router) {
           controller,
           validatedArgs as any
         );
-        promiseHandler(controller, promise, response, undefined, next);
+        promiseHandler(controller, promise, response, 204, next);
       } catch (err) {
         return next(err);
       }

@@ -7,8 +7,13 @@ import {
   Post,
   Request,
   Route,
+  SuccessResponse,
   Tags,
 } from '@hieudoanm/express';
+import {
+  KeyCloakAddUserResponse,
+  KeyCloakTokenResponse,
+} from '@turtle/keycloak';
 import { Request as ExpressRequest } from 'express';
 import {
   changePassword,
@@ -24,30 +29,41 @@ import { SignInRequest, SignUpRequest } from './users.types';
 @Route('users')
 export class HelloController extends Controller {
   @Get('info')
+  @SuccessResponse('200', 'User Info')
   public async getUserInfo(@Request() request: ExpressRequest) {
     const authorization: string = request.headers.authorization || '';
     return getUserInfo(authorization);
   }
 
   @Post('sign-up')
-  public async signUp(@Body() { username, password }: SignUpRequest) {
+  @SuccessResponse('201', 'New User Info')
+  public async signUp(
+    @Body() { username, password }: SignUpRequest
+  ): Promise<KeyCloakAddUserResponse> {
     return signUp({ username, password });
   }
 
   @Post('sign-in')
-  public async signIn(@Body() { username, password }: SignInRequest) {
+  @SuccessResponse('200', 'User Token')
+  public async signIn(
+    @Body() { username, password }: SignInRequest
+  ): Promise<KeyCloakTokenResponse> {
     return signIn({ username, password });
   }
 
   @Post('refresh-token')
-  public async refreshToken(@Request() request: ExpressRequest) {
+  @SuccessResponse('200', 'User Token')
+  public async refreshToken(
+    @Request() request: ExpressRequest
+  ): Promise<KeyCloakTokenResponse> {
     const refreshTokenString: string =
       request.headers['refresh_token']?.toString() || '';
     return refreshToken(refreshTokenString);
   }
 
   @Post('sign-out')
-  public async signOut(@Request() request: ExpressRequest) {
+  @SuccessResponse('204', 'No Content')
+  public async signOut(@Request() request: ExpressRequest): Promise<void> {
     const authorization = request.headers.authorization || '';
     const refreshToken: string =
       request.headers['refresh_token']?.toString() || '';
@@ -55,10 +71,11 @@ export class HelloController extends Controller {
   }
 
   @Patch(':id/password')
+  @SuccessResponse('204', 'No Content')
   public async changePassword(
     @Path() id: string,
     @Body() { password }: { password: string }
-  ) {
+  ): Promise<void> {
     return changePassword({ userId: id, newPassword: password });
   }
 }
