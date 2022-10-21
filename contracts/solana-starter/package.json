@@ -32,7 +32,7 @@
     "@hieudoanm/express": "0.0.1",
     "@hieudoanm/pino": "0.0.1",
     "@hieudoanm/vault": "0.0.1",
-    "@solana/web3.js": "1.66.1"
+    "@solana/web3.js": "1.66.2"
   },
   "devDependencies": {
     "@types/compression": "1.7.2",
