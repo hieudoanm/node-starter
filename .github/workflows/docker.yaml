@@ -32,7 +32,7 @@ jobs:
             working-directory: ./databases/postgres-starter
           - name: Apollo
             image-name: apollo-starter
-            working-directory: ./graphql/apollo-starter
+            working-directory: ./services/apollo-starter
           - name: Express
             image-name: express-starter
             working-directory: ./services/express-starter

@@ -30,7 +30,7 @@ jobs:
           - name: Database - PostgreSQL
             working-directory: ./databases/postgres-starter
           - name: Apollo
-            working-directory: ./graphql/apollo-starter
+            working-directory: ./services/apollo-starter
           - name: Express
             working-directory: ./services/express-starter
           - name: Socket.io
