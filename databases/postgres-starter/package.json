@@ -1,5 +1,5 @@
 {
-  "name": "postgres-starter",
+  "name": "@starter/postgres",
   "version": "0.0.1",
   "description": "Postgres Starter",
   "main": "dist/server.js",

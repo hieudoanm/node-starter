@@ -20,7 +20,7 @@ components:
     }
   securitySchemes: {}
 info:
-  title: postgres-starter
+  title: '@starter/postgres'
   version: 0.0.1
   description: 'Postgres Starter'
   license: { name: MIT }
