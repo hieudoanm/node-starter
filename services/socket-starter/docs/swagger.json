@@ -27,7 +27,7 @@
         "operationId": "Get",
         "responses": {
           "200": {
-            "description": "Ok",
+            "description": "Service's Status",
             "content": {
               "application/json": {
                 "schema": {

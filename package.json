@@ -54,7 +54,6 @@
   "workspaces": [
     "contracts/*",
     "databases/*",
-    "graphql/*",
     "packages/*",
     "serverless/*",
     "services/*"

@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "eb6aa887-4642-47d0-b99f-3ff776393fd3",
+      "id": "fee24f50-5756-44b6-874a-e02a0e97f054",
       "name": "Get",
       "request": {
         "name": "Get",
@@ -23,8 +23,8 @@
       },
       "response": [
         {
-          "id": "9224cbbe-224c-405c-a1ca-707a8f4785e8",
-          "name": "Ok",
+          "id": "0198b23e-86ed-495f-9459-8de5b0daba12",
+          "name": "Service's Status",
           "originalRequest": {
             "url": {
               "path": ["health"],
@@ -43,7 +43,7 @@
               "value": "application/json"
             }
           ],
-          "body": "{\n  \"status\": \"exercitation sint nostrud id\"\n}",
+          "body": "{\n  \"status\": \"sed tempor exercitation\"\n}",
           "cookie": [],
           "_postman_previewlanguage": "json"
         }
@@ -60,7 +60,7 @@
     }
   ],
   "info": {
-    "_postman_id": "887a29d4-db33-43b8-8601-9cb2be290c73",
+    "_postman_id": "db50502e-6f8c-4062-b365-4eef98d6f32a",
     "name": "@starter/socket",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
