@@ -1,0 +1,631 @@
+{
+  "components": {
+    "examples": {},
+    "headers": {},
+    "parameters": {},
+    "requestBodies": {},
+    "responses": {},
+    "schemas": {
+      "Todo": {
+        "properties": {
+          "completed": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "CreateResponse": {
+        "properties": {
+          "acknowledged": {
+            "type": "boolean"
+          }
+        },
+        "required": ["acknowledged"],
+        "type": "object"
+      },
+      "TodoRequestBody": {
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "completed": {
+            "type": "boolean"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "required": ["title"],
+        "type": "object"
+      },
+      "UpdateResponse": {
+        "properties": {
+          "upsertedCount": {
+            "type": "number",
+            "format": "double"
+          },
+          "modifiedCount": {
+            "type": "number",
+            "format": "double"
+          },
+          "matchedCount": {
+            "type": "number",
+            "format": "double"
+          },
+          "acknowledged": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "required": [
+          "upsertedCount",
+          "modifiedCount",
+          "matchedCount",
+          "acknowledged"
+        ],
+        "type": "object"
+      },
+      "DeleteResponse": {
+        "properties": {
+          "deletedCount": {
+            "type": "number",
+            "format": "double"
+          },
+          "acknowledged": {
+            "type": "boolean"
+          }
+        },
+        "required": ["deletedCount", "acknowledged"],
+        "type": "object"
+      },
+      "KeyCloakUserInfoResponse": {
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "preferred_username": {
+            "type": "string"
+          },
+          "email_verified": {
+            "type": "boolean"
+          },
+          "sub": {
+            "type": "string"
+          }
+        },
+        "required": ["email", "preferred_username", "email_verified", "sub"],
+        "type": "object"
+      },
+      "KeyCloakAddUserResponse": {
+        "properties": {
+          "requiredActions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "groups": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "emailVerified": {
+            "type": "boolean"
+          },
+          "email": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "requiredActions",
+          "lastName",
+          "groups",
+          "firstName",
+          "enabled",
+          "emailVerified",
+          "email"
+        ],
+        "type": "object"
+      },
+      "SignUpRequest": {
+        "properties": {
+          "password": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          }
+        },
+        "required": ["password", "username"],
+        "type": "object"
+      },
+      "KeyCloakTokenResponse": {
+        "properties": {
+          "scope": {
+            "type": "string"
+          },
+          "session_state": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "refresh_expires_in": {
+            "type": "number",
+            "format": "double"
+          },
+          "expires_in": {
+            "type": "number",
+            "format": "double"
+          },
+          "access_token": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "scope",
+          "session_state",
+          "token_type",
+          "refresh_token",
+          "refresh_expires_in",
+          "expires_in",
+          "access_token"
+        ],
+        "type": "object"
+      },
+      "SignInRequest": {
+        "properties": {
+          "password": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          }
+        },
+        "required": ["password", "username"],
+        "type": "object"
+      }
+    },
+    "securitySchemes": {
+      "tsoa_auth": {
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "http://swagger.io/api/oauth/dialog",
+            "scopes": {
+              "write:pets": "modify things",
+              "read:pets": "read things"
+            }
+          }
+        }
+      }
+    }
+  },
+  "info": {
+    "title": "@starter/express",
+    "version": "1.0.0",
+    "description": "Starter - Express",
+    "license": {
+      "name": "MIT"
+    },
+    "contact": {
+      "name": "hieudoanm ",
+      "email": "hieumdoan@gmail.com"
+    }
+  },
+  "openapi": "3.0.0",
+  "paths": {
+    "/health": {
+      "get": {
+        "operationId": "Get",
+        "responses": {
+          "200": {
+            "description": "Service's Status",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    }
+                  },
+                  "required": ["status"],
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Health"],
+        "security": [],
+        "parameters": []
+      }
+    },
+    "/todos": {
+      "get": {
+        "operationId": "GetTodos",
+        "responses": {
+          "200": {
+            "description": "List of Todos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/Todo"
+                  },
+                  "type": "array"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Todos"],
+        "security": [
+          {
+            "jwt": []
+          }
+        ],
+        "parameters": []
+      },
+      "post": {
+        "operationId": "CreateTodo",
+        "responses": {
+          "201": {
+            "description": "New Todo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Todos"],
+        "security": [
+          {
+            "jwt": []
+          }
+        ],
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TodoRequestBody"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/todos/{id}": {
+      "get": {
+        "operationId": "GetTodo",
+        "responses": {
+          "200": {
+            "description": "Get Todo by ID",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Todo"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Todos"],
+        "security": [
+          {
+            "jwt": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "patch": {
+        "operationId": "UpdateTodo",
+        "responses": {
+          "200": {
+            "description": "Updated Todo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Todos"],
+        "security": [
+          {
+            "jwt": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TodoRequestBody"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "PatchTodo",
+        "responses": {
+          "200": {
+            "description": "Updated Todo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Todos"],
+        "security": [
+          {
+            "jwt": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TodoRequestBody"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "DeleteTodo",
+        "responses": {
+          "200": {
+            "description": "Deleted Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Todos"],
+        "security": [
+          {
+            "jwt": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/users/info": {
+      "get": {
+        "operationId": "GetUserInfo",
+        "responses": {
+          "200": {
+            "description": "User Info",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KeyCloakUserInfoResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Users"],
+        "security": [],
+        "parameters": []
+      }
+    },
+    "/users/sign-up": {
+      "post": {
+        "operationId": "SignUp",
+        "responses": {
+          "201": {
+            "description": "New User Info",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KeyCloakAddUserResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Users"],
+        "security": [],
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignUpRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/sign-in": {
+      "post": {
+        "operationId": "SignIn",
+        "responses": {
+          "200": {
+            "description": "User Token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KeyCloakTokenResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Users"],
+        "security": [],
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignInRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/refresh-token": {
+      "post": {
+        "operationId": "RefreshToken",
+        "responses": {
+          "200": {
+            "description": "User Token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KeyCloakTokenResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Users"],
+        "security": [],
+        "parameters": []
+      }
+    },
+    "/users/sign-out": {
+      "post": {
+        "operationId": "SignOut",
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "tags": ["Users"],
+        "security": [],
+        "parameters": []
+      }
+    },
+    "/users/{id}/password": {
+      "patch": {
+        "operationId": "ChangePassword",
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        },
+        "tags": ["Users"],
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "required": ["password"],
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ]
+}

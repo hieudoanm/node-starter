@@ -1,0 +1,21 @@
+{
+  "name": "@serverless/aws-lambda-starter",
+  "version": "0.0.1",
+  "description": "AWS Lambda Starter",
+  "main": "dist/index.js",
+  "repository": "git@github.com:hieudoanm/node-starter.git",
+  "author": "hieudoanm <hieumdoan@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "8.10.108",
+    "@types/node": "18.11.9",
+    "@typescript-eslint/eslint-plugin": "5.42.1",
+    "@typescript-eslint/parser": "5.42.1",
+    "eslint": "8.27.0",
+    "typescript": "4.8.4"
+  }
+}

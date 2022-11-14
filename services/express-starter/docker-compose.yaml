@@ -1,0 +1,80 @@
+version: '3.9'
+
+volumes:
+  postgres_data:
+    driver: local
+
+services:
+  postgres-instance:
+    restart: unless-stopped
+    image: postgres:latest
+    container_name: postgres-instance
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_DB: starter
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+
+  keycloak-instance:
+    restart: unless-stopped
+    image: quay.io/keycloak/keycloak:20.0.1
+    container_name: keycloak-instance
+    links:
+      - postgres-instance
+    expose:
+      - 8888
+    ports:
+      - 8888:8080
+    environment:
+      DB_VENDOR: postgres
+      DB_ADDR: postgres-instance
+      DB_DATABASE: starter
+      DB_SCHEMA: keycloak
+      DB_USER: admin
+      DB_PASSWORD: password
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: password
+      KEYCLOAK_IMPORT: /tmp/realm-export.json
+    command:
+      - start-dev
+      - -Dkeycloak.migration.action=export
+      - -Dkeycloak.migration.provider=dir
+      - -Dkeycloak.migration.dir=/tmp
+      - -Dkeycloak.migration.usersExportStrategy=REALM_FILE
+    volumes:
+      - ./temp/keycloak:/tmp
+    depends_on:
+      - postgres-instance
+
+  mongo-instance:
+    restart: unless-stopped
+    image: mongo:latest
+    container_name: mongo-instance
+    ports:
+      - 27017:27017
+
+  redis-instance:
+    restart: unless-stopped
+    image: redis:latest
+    container_name: redis-instance
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - 6379:6379
+
+  express-service:
+    container_name: express-service
+    build:
+      context: .
+    expose:
+      - 8080
+    ports:
+      - 8080:8080
+    environment:
+      - PORT=8080
+      - MONGO_URL=mongodb://mongo-instance:27017/starter
+      - REDIS_URL=redis://redis-instance:6379
+    command: yarn dev
