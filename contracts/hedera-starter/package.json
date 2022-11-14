@@ -28,7 +28,7 @@
     "watch": "webpack --watch"
   },
   "dependencies": {
-    "@hashgraph/sdk": "2.18.5",
+    "@hashgraph/sdk": "2.18.6",
     "@hieudoanm/dotenv": "0.0.1",
     "@hieudoanm/express": "0.0.1",
     "@hieudoanm/pino": "0.0.1",
