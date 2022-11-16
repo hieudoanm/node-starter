@@ -21,10 +21,6 @@ jobs:
           - name: Ubuntu
             version: ubuntu-latest
         project:
-          - name: Contract - Hedera
-            working-directory: ./contracts/hedera-starter
-          - name: Contract - Solana
-            working-directory: ./contracts/solana-starter
           - name: Database - Elastic
             working-directory: ./databases/elastic-starter
           - name: Database - PostgreSQL

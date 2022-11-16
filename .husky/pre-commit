@@ -4,8 +4,6 @@
 yarn lint:apollo
 yarn lint:elasticsearch
 yarn lint:express
-yarn lint:hedera
 yarn lint:postgres
 yarn lint:socket
-yarn lint:solana
 yarn pretty-quick --staged
