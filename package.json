@@ -14,24 +14,16 @@
   },
   "scripts": {
     "build:apollo": "yarn workspace @starter/apollo build",
-    "build:elasticsearch": "yarn workspace @starter/elasticsearch build",
     "build:express": "yarn workspace @starter/express build",
-    "build:postgres": "yarn workspace @starter/postgres build",
     "build:socket": "yarn workspace @starter/socket build",
     "dev:apollo": "yarn workspace @starter/apollo dev",
-    "dev:elasticsearch": "yarn workspace @starter/elasticsearch dev",
     "dev:express": "yarn workspace @starter/express dev",
-    "dev:postgres": "yarn workspace @starter/postgres dev",
     "dev:socket": "yarn workspace @starter/socket dev",
     "lint:apollo": "yarn workspace @starter/apollo lint",
-    "lint:elasticsearch": "yarn workspace @starter/elasticsearch lint",
     "lint:express": "yarn workspace @starter/express lint",
-    "lint:postgres": "yarn workspace @starter/postgres lint",
     "lint:socket": "yarn workspace @starter/socket lint",
     "test:apollo": "yarn workspace @starter/apollo test",
-    "test:elasticsearch": "yarn workspace @starter/elasticsearch test",
     "test:express": "yarn workspace @starter/express test",
-    "test:postgres": "yarn workspace @starter/postgres test",
     "test:socket": "yarn workspace @starter/socket test",
     "graph": "nx graph"
   },
@@ -45,7 +37,6 @@
   },
   "workspaces": [
     "contracts/*",
-    "databases/*",
     "packages/*",
     "serverless/*",
     "services/*"

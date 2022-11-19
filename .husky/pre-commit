@@ -2,8 +2,6 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 yarn lint:apollo
-yarn lint:elasticsearch
 yarn lint:express
-yarn lint:postgres
 yarn lint:socket
 yarn pretty-quick --staged

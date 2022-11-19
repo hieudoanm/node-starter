@@ -18,12 +18,6 @@ jobs:
           - name: Ubuntu
             version: ubuntu-latest
         project:
-          - name: Database - Elastic
-            image-name: elastic-starter
-            working-directory: ./databases/elastic-starter
-          - name: Database - PostgreSQL
-            image-name: postgres-starter
-            working-directory: ./databases/postgres-starter
           - name: Apollo
             image-name: apollo-starter
             working-directory: ./services/apollo-starter
