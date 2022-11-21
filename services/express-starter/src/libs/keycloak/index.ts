@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '@hieudoanm/axios';
 
 enum ContentTypes {
   APPLICATION_URLENCODED = 'application/x-www-form-urlencoded',
@@ -36,6 +36,20 @@ export type KeyCloakUserInfoResponse = {
   email_verified: boolean;
   preferred_username: string;
   email: string;
+};
+
+export type AddUserRequest = {
+  enabled: boolean;
+  groups: never[];
+  email: string;
+  emailVerified: boolean;
+  username: string;
+  requiredActions: never[];
+  credentials: {
+    type: string;
+    value: string;
+    temporary: boolean;
+  }[];
 };
 
 export class KeyCloakClient {
@@ -111,10 +125,9 @@ export class KeyCloakClient {
     const headers = { 'content-type': ContentTypes.APPLICATION_URLENCODED };
     const url = `${host}/protocol/openid-connect/token`;
 
-    const { data } = await axios.post<KeyCloakTokenResponse>(url, params, {
+    return axios.post<KeyCloakTokenResponse, URLSearchParams>(url, params, {
       headers,
     });
-    return data;
   }
 
   public async addUser({
@@ -134,7 +147,7 @@ export class KeyCloakClient {
     const authorization = `${token_type} ${access_token}`;
     // Sign Up
     const url = `${this.adminHost}/users`;
-    const data = {
+    const data: AddUserRequest = {
       enabled: true,
       groups: [],
       email: username,
@@ -144,12 +157,9 @@ export class KeyCloakClient {
       credentials: [{ type: 'password', value: password, temporary: false }],
     };
     const headers = { authorization };
-    const { data: responseData } = await axios.post<KeyCloakAddUserResponse>(
-      url,
-      data,
-      { headers }
-    );
-    return responseData;
+    return axios.post<KeyCloakAddUserResponse, AddUserRequest>(url, data, {
+      headers,
+    });
   }
 
   public async getUserInfo(
@@ -157,12 +167,7 @@ export class KeyCloakClient {
   ): Promise<KeyCloakUserInfoResponse> {
     const url = `${this.host}/protocol/openid-connect/userinfo`;
     const headers = { authorization };
-    const { data } = await axios.post<KeyCloakUserInfoResponse>(
-      url,
-      {},
-      { headers }
-    );
-    return data;
+    return axios.post<KeyCloakUserInfoResponse, object>(url, {}, { headers });
   }
 
   public async getUserToken({

@@ -10,11 +10,11 @@ import {
   SuccessResponse,
   Tags,
 } from '@hieudoanm/express';
+import { Request as ExpressRequest } from 'express';
 import {
   KeyCloakAddUserResponse,
   KeyCloakTokenResponse,
-} from '@turtle/keycloak';
-import { Request as ExpressRequest } from 'express';
+} from '../../libs/keycloak';
 import {
   changePassword,
   getUserInfo,

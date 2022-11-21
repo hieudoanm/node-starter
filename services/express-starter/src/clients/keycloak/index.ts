@@ -1,4 +1,3 @@
-import { KeyCloakClient } from '@turtle/keycloak';
 import {
   KEYCLOAK_ADMIN_CLIENT_ID,
   KEYCLOAK_ADMIN_CLIENT_SECRET,
@@ -8,6 +7,7 @@ import {
   KEYCLOAK_REALM_HOST,
   KEYCLOAK_REDIRECT_URI,
 } from '../../environments';
+import { KeyCloakClient } from '../../libs/keycloak';
 
 const keyCloakClient: KeyCloakClient = new KeyCloakClient({
   host: KEYCLOAK_REALM_HOST,

@@ -1,9 +1,9 @@
+import keyCloakClient from '../../clients/keycloak';
 import {
   KeyCloakAddUserResponse,
   KeyCloakTokenResponse,
   KeyCloakUserInfoResponse,
-} from '@turtle/keycloak';
-import keyCloakClient from '../../clients/keycloak';
+} from '../../libs/keycloak';
 import { SignInRequest, SignUpRequest } from './users.types';
 
 export const getUserInfo = async (
