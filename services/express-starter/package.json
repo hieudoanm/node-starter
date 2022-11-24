@@ -25,7 +25,8 @@
     "lint": "eslint . --fix --ext .ts",
     "start": "node .",
     "test": "jest",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "prisma:generate": "prisma format && prisma generate"
   },
   "dependencies": {
     "@hieudoanm/axios": "0.0.1",
@@ -35,6 +36,7 @@
     "@hieudoanm/mongodb": "0.0.1",
     "@hieudoanm/pino": "0.0.1",
     "@hieudoanm/redis": "0.0.1",
+    "@prisma/client": "4.6.1",
     "uuid": "9.0.0"
   },
   "devDependencies": {
@@ -54,6 +56,7 @@
     "json2yaml": "1.1.0",
     "kill-port": "2.0.1",
     "nodemon": "2.0.20",
+    "prisma": "4.6.1",
     "rimraf": "3.0.2",
     "supertest": "6.3.1",
     "swagger2-to-postmanv2": "2.1.0",

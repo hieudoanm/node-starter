@@ -6,6 +6,63 @@ components:
   requestBodies: {}
   responses: {}
   schemas:
+    CapitalPorfolio:
+      properties:
+        percentage:
+          type: 'number'
+          format: 'double'
+        updatedDate:
+          type: 'string'
+        market:
+          type: 'string'
+        sector:
+          type: 'string'
+        stockCode:
+          type: 'string'
+        portfolioCode:
+          type: 'string'
+        capital:
+          type: 'string'
+        id:
+          type: 'string'
+      required:
+        - 'percentage'
+        - 'updatedDate'
+        - 'market'
+        - 'sector'
+        - 'stockCode'
+        - 'portfolioCode'
+        - 'capital'
+        - 'id'
+      type: 'object'
+      description: 'Model CapitalPorfolio'
+    CapitalAvailableDates:
+      properties:
+        availableDate:
+          type: 'string'
+        portfolioCode:
+          type: 'string'
+        capital:
+          type: 'string'
+        id:
+          type: 'string'
+      required:
+        - 'availableDate'
+        - 'portfolioCode'
+        - 'capital'
+        - 'id'
+      type: 'object'
+      description: 'Model CapitalAvailableDates'
+    StockHistory:
+      allOf:
+        - $ref: '#/components/schemas/CapitalPorfolio'
+        - properties:
+            percentageChange:
+              type: 'number'
+              format: 'double'
+          required:
+            - 'percentageChange'
+          type: 'object'
     Todo:
       properties:
         completed:
@@ -199,6 +256,132 @@ paths:
         - 'Health'
       security: []
       parameters: []
+  /portfolio/{capital}/active-stock-codes:
+    get:
+      operationId: 'GetActiveStockCodes'
+      responses:
+        200:
+          description: 'Ok'
+          content:
+            application/json:
+              schema:
+                items:
+                  properties:
+                    stockCode:
+                      type: 'string'
+                  required:
+                    - 'stockCode'
+                  type: 'object'
+                type: 'array'
+      tags:
+        - 'Portfolio'
+      security: []
+      parameters:
+        - in: 'path'
+          name: 'capital'
+          required: true
+          schema:
+            type: 'string'
+  /portfolio/{capital}/{portfolioCode}:
+    get:
+      operationId: 'GetPortfolio'
+      responses:
+        200:
+          description: 'Ok'
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CapitalPorfolio'
+                type: 'array'
+      tags:
+        - 'Portfolio'
+      security: []
+      parameters:
+        - in: 'path'
+          name: 'capital'
+          required: true
+          schema:
+            type: 'string'
+        - in: 'path'
+          name: 'portfolioCode'
+          required: true
+          schema:
+            type: 'string'
+        - in: 'query'
+          name: 'updatedDate'
+          required: true
+          schema:
+            type: 'string'
+  /portfolio/{capital}/{portfolioCode}/available-dates:
+    get:
+      operationId: 'GetAvailableDates'
+      responses:
+        200:
+          description: 'Ok'
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CapitalAvailableDates'
+                type: 'array'
+      tags:
+        - 'Portfolio'
+      security: []
+      parameters:
+        - in: 'path'
+          name: 'capital'
+          required: true
+          schema:
+            type: 'string'
+        - in: 'path'
+          name: 'portfolioCode'
+          required: true
+          schema:
+            type: 'string'
+  /portfolio/{capital}/{portfolioCode}/{stockCode}:
+    get:
+      operationId: 'GetStockHistory'
+      responses:
+        200:
+          description: 'Ok'
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/StockHistory'
+                type: 'array'
+      tags:
+        - 'Portfolio'
+      security: []
+      parameters:
+        - in: 'path'
+          name: 'capital'
+          required: true
+          schema:
+            type: 'string'
+        - in: 'path'
+          name: 'portfolioCode'
+          required: true
+          schema:
+            type: 'string'
+        - in: 'path'
+          name: 'stockCode'
+          required: true
+          schema:
+            type: 'string'
+        - in: 'query'
+          name: 'fromDate'
+          required: false
+          schema:
+            default: ''
+            type: 'string'
+        - in: 'query'
+          name: 'toDate'
+          required: false
+          schema:
+            default: ''
+            type: 'string'
   /todos:
     get:
       operationId: 'GetTodos'
@@ -429,5 +612,68 @@ paths:
               required:
                 - 'password'
               type: 'object'
+  /api/vnindex/history/{symbol}/chart:
+    get:
+      operationId: 'ChartifyHistory'
+      responses:
+        200:
+          description: 'Chart SVG'
+          content:
+            application/json:
+              schema:
+                type: 'number'
+                enum:
+                  - null
+                nullable: true
+      tags:
+        - 'VNINDEX'
+      security: []
+      parameters:
+        - in: 'path'
+          name: 'symbol'
+          required: true
+          schema:
+            type: 'string'
+        - in: 'query'
+          name: 'width'
+          required: false
+          schema:
+            default: 500
+            format: 'double'
+            type: 'number'
+        - in: 'query'
+          name: 'height'
+          required: false
+          schema:
+            default: 100
+            format: 'double'
+            type: 'number'
+        - in: 'query'
+          name: 'minValue'
+          required: false
+          schema:
+            default: 0
+            format: 'double'
+            type: 'number'
+        - in: 'query'
+          name: 'maxValue'
+          required: false
+          schema:
+            default: 200
+            format: 'double'
+            type: 'number'
+        - in: 'query'
+          name: 'strokeColor'
+          required: false
+          schema:
+            default: '#0074d9'
+            type: 'string'
+        - in: 'query'
+          name: 'strokeWidth'
+          required: false
+          schema:
+            default: 2
+            format: 'double'
+            type: 'number'
 servers:
   - url: '/'

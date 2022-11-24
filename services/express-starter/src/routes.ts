@@ -14,9 +14,13 @@ import {
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { HealthController } from './router/health/health.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+import { PortfolioController } from './router/portfolio/portfolio.controller';
+// WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { TodosController } from './router/todos/todos.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { HelloController } from './router/users/users.controller';
+// WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+import { VnindexController } from './router/vnindex/vnindex.controller';
 import { expressAuthentication } from './middlewares/guards/authentication';
 // @ts-ignore - no great way to install types from subpackage
 const promiseAny = require('promise.any');
@@ -26,6 +30,55 @@ import * as express from 'express';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 
 const models: TsoaRoute.Models = {
+  CapitalPorfolio: {
+    dataType: 'refAlias',
+    type: {
+      dataType: 'nestedObjectLiteral',
+      nestedProperties: {
+        percentage: { dataType: 'double', required: true },
+        updatedDate: { dataType: 'string', required: true },
+        market: { dataType: 'string', required: true },
+        sector: { dataType: 'string', required: true },
+        stockCode: { dataType: 'string', required: true },
+        portfolioCode: { dataType: 'string', required: true },
+        capital: { dataType: 'string', required: true },
+        id: { dataType: 'string', required: true },
+      },
+      validators: {},
+    },
+  },
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  CapitalAvailableDates: {
+    dataType: 'refAlias',
+    type: {
+      dataType: 'nestedObjectLiteral',
+      nestedProperties: {
+        availableDate: { dataType: 'string', required: true },
+        portfolioCode: { dataType: 'string', required: true },
+        capital: { dataType: 'string', required: true },
+        id: { dataType: 'string', required: true },
+      },
+      validators: {},
+    },
+  },
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  StockHistory: {
+    dataType: 'refAlias',
+    type: {
+      dataType: 'intersection',
+      subSchemas: [
+        { ref: 'CapitalPorfolio' },
+        {
+          dataType: 'nestedObjectLiteral',
+          nestedProperties: {
+            percentageChange: { dataType: 'double', required: true },
+          },
+        },
+      ],
+      validators: {},
+    },
+  },
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
   Todo: {
     dataType: 'refAlias',
     type: {
@@ -199,6 +252,208 @@ export function RegisterRoutes(app: express.Router) {
 
         const promise = controller.get.apply(controller, validatedArgs as any);
         promiseHandler(controller, promise, response, 200, next);
+      } catch (err) {
+        return next(err);
+      }
+    }
+  );
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  app.get(
+    '/portfolio/:capital/active-stock-codes',
+    ...fetchMiddlewares<RequestHandler>(PortfolioController),
+    ...fetchMiddlewares<RequestHandler>(
+      PortfolioController.prototype.getActiveStockCodes
+    ),
+
+    function PortfolioController_getActiveStockCodes(
+      request: any,
+      response: any,
+      next: any
+    ) {
+      const args = {
+        capital: {
+          in: 'path',
+          name: 'capital',
+          required: true,
+          dataType: 'string',
+        },
+      };
+
+      // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+      let validatedArgs: any[] = [];
+      try {
+        validatedArgs = getValidatedArgs(args, request, response);
+
+        const controller = new PortfolioController();
+
+        const promise = controller.getActiveStockCodes.apply(
+          controller,
+          validatedArgs as any
+        );
+        promiseHandler(controller, promise, response, undefined, next);
+      } catch (err) {
+        return next(err);
+      }
+    }
+  );
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  app.get(
+    '/portfolio/:capital/:portfolioCode',
+    ...fetchMiddlewares<RequestHandler>(PortfolioController),
+    ...fetchMiddlewares<RequestHandler>(
+      PortfolioController.prototype.getPortfolio
+    ),
+
+    function PortfolioController_getPortfolio(
+      request: any,
+      response: any,
+      next: any
+    ) {
+      const args = {
+        capital: {
+          in: 'path',
+          name: 'capital',
+          required: true,
+          dataType: 'string',
+        },
+        portfolioCode: {
+          in: 'path',
+          name: 'portfolioCode',
+          required: true,
+          dataType: 'string',
+        },
+        updatedDate: {
+          in: 'query',
+          name: 'updatedDate',
+          required: true,
+          dataType: 'string',
+        },
+      };
+
+      // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+      let validatedArgs: any[] = [];
+      try {
+        validatedArgs = getValidatedArgs(args, request, response);
+
+        const controller = new PortfolioController();
+
+        const promise = controller.getPortfolio.apply(
+          controller,
+          validatedArgs as any
+        );
+        promiseHandler(controller, promise, response, undefined, next);
+      } catch (err) {
+        return next(err);
+      }
+    }
+  );
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  app.get(
+    '/portfolio/:capital/:portfolioCode/available-dates',
+    ...fetchMiddlewares<RequestHandler>(PortfolioController),
+    ...fetchMiddlewares<RequestHandler>(
+      PortfolioController.prototype.getAvailableDates
+    ),
+
+    function PortfolioController_getAvailableDates(
+      request: any,
+      response: any,
+      next: any
+    ) {
+      const args = {
+        capital: {
+          in: 'path',
+          name: 'capital',
+          required: true,
+          dataType: 'string',
+        },
+        portfolioCode: {
+          in: 'path',
+          name: 'portfolioCode',
+          required: true,
+          dataType: 'string',
+        },
+      };
+
+      // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+      let validatedArgs: any[] = [];
+      try {
+        validatedArgs = getValidatedArgs(args, request, response);
+
+        const controller = new PortfolioController();
+
+        const promise = controller.getAvailableDates.apply(
+          controller,
+          validatedArgs as any
+        );
+        promiseHandler(controller, promise, response, undefined, next);
+      } catch (err) {
+        return next(err);
+      }
+    }
+  );
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  app.get(
+    '/portfolio/:capital/:portfolioCode/:stockCode',
+    ...fetchMiddlewares<RequestHandler>(PortfolioController),
+    ...fetchMiddlewares<RequestHandler>(
+      PortfolioController.prototype.getStockHistory
+    ),
+
+    function PortfolioController_getStockHistory(
+      request: any,
+      response: any,
+      next: any
+    ) {
+      const args = {
+        capital: {
+          in: 'path',
+          name: 'capital',
+          required: true,
+          dataType: 'string',
+        },
+        portfolioCode: {
+          in: 'path',
+          name: 'portfolioCode',
+          required: true,
+          dataType: 'string',
+        },
+        stockCode: {
+          in: 'path',
+          name: 'stockCode',
+          required: true,
+          dataType: 'string',
+        },
+        fromDate: {
+          default: '',
+          in: 'query',
+          name: 'fromDate',
+          dataType: 'string',
+        },
+        toDate: {
+          default: '',
+          in: 'query',
+          name: 'toDate',
+          dataType: 'string',
+        },
+      };
+
+      // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+      let validatedArgs: any[] = [];
+      try {
+        validatedArgs = getValidatedArgs(args, request, response);
+
+        const controller = new PortfolioController();
+
+        const promise = controller.getStockHistory.apply(
+          controller,
+          validatedArgs as any
+        );
+        promiseHandler(controller, promise, response, undefined, next);
       } catch (err) {
         return next(err);
       }
@@ -649,6 +904,83 @@ export function RegisterRoutes(app: express.Router) {
           validatedArgs as any
         );
         promiseHandler(controller, promise, response, 204, next);
+      } catch (err) {
+        return next(err);
+      }
+    }
+  );
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  app.get(
+    '/api/vnindex/history/:symbol/chart',
+    ...fetchMiddlewares<RequestHandler>(VnindexController),
+    ...fetchMiddlewares<RequestHandler>(
+      VnindexController.prototype.chartifyHistory
+    ),
+
+    function VnindexController_chartifyHistory(
+      request: any,
+      response: any,
+      next: any
+    ) {
+      const args = {
+        request: {
+          in: 'request',
+          name: 'request',
+          required: true,
+          dataType: 'object',
+        },
+        symbol: {
+          in: 'path',
+          name: 'symbol',
+          required: true,
+          dataType: 'string',
+        },
+        width: { default: 500, in: 'query', name: 'width', dataType: 'double' },
+        height: {
+          default: 100,
+          in: 'query',
+          name: 'height',
+          dataType: 'double',
+        },
+        minValue: {
+          default: 0,
+          in: 'query',
+          name: 'minValue',
+          dataType: 'double',
+        },
+        maxValue: {
+          default: 200,
+          in: 'query',
+          name: 'maxValue',
+          dataType: 'double',
+        },
+        strokeColor: {
+          default: '#0074d9',
+          in: 'query',
+          name: 'strokeColor',
+          dataType: 'string',
+        },
+        strokeWidth: {
+          default: 2,
+          in: 'query',
+          name: 'strokeWidth',
+          dataType: 'double',
+        },
+      };
+
+      // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+      let validatedArgs: any[] = [];
+      try {
+        validatedArgs = getValidatedArgs(args, request, response);
+
+        const controller = new VnindexController();
+
+        const promise = controller.chartifyHistory.apply(
+          controller,
+          validatedArgs as any
+        );
+        promiseHandler(controller, promise, response, 200, next);
       } catch (err) {
         return next(err);
       }

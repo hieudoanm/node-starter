@@ -1,0 +1,26 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model CapitalPorfolio {
+  id            String @id
+  capital       String
+  portfolioCode String
+  stockCode     String
+  sector        String
+  market        String
+  updatedDate   String
+  percentage    Float
+}
+
+model CapitalAvailableDates {
+  id            String @id
+  capital       String
+  portfolioCode String
+  availableDate String
+}
