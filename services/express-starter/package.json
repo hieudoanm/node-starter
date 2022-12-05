@@ -42,7 +42,7 @@
   "devDependencies": {
     "@types/csurf": "1.11.2",
     "@types/http-errors": "2.0.1",
-    "@types/jest": "29.2.3",
+    "@types/jest": "29.2.4",
     "@types/jsonwebtoken": "8.5.9",
     "@types/node": "18.11.10",
     "@types/supertest": "2.0.12",
