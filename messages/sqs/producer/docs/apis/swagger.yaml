@@ -1,0 +1,85 @@
+---
+components:
+  examples: {}
+  headers: {}
+  parameters: {}
+  requestBodies: {}
+  responses: {}
+  schemas:
+    AWS.SQS.SendMessageResult:
+      properties:
+        MD5OfMessageBody:
+          type: 'string'
+          description: 'An MD5 digest of the non-URL-encoded message body string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see RFC1321.'
+        MD5OfMessageAttributes:
+          type: 'string'
+          description: 'An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see RFC1321.'
+        MD5OfMessageSystemAttributes:
+          type: 'string'
+          description: 'An MD5 digest of the non-URL-encoded message system attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest.'
+        MessageId:
+          type: 'string'
+          description: 'An attribute containing the MessageId of the message sent to the queue. For more information, see Queue and Message Identifiers in the Amazon SQS Developer Guide.'
+        SequenceNumber:
+          type: 'string'
+          description: 'This parameter applies only to FIFO (first-in-first-out) queues. The large, non-consecutive number that Amazon SQS assigns to each message. The length of SequenceNumber is 128 bits. SequenceNumber continues to increase for a particular MessageGroupId.'
+      type: 'object'
+      additionalProperties: false
+  securitySchemes: {}
+info:
+  title: '@sqs/producer'
+  version: '0.0.1'
+  description: 'AWS SQS Producer'
+  license:
+    name: 'MIT'
+  contact:
+    name: 'hieudoanm '
+    email: 'hieumdoan@gmail.com'
+openapi: '3.0.0'
+paths:
+  /health:
+    get:
+      operationId: 'Get'
+      responses:
+        200:
+          description: 'Ok'
+          content:
+            application/json:
+              schema:
+                properties:
+                  status:
+                    type: 'string'
+                required:
+                  - 'status'
+                type: 'object'
+      tags:
+        - 'Health'
+      security: []
+      parameters: []
+  /messages/produce:
+    post:
+      operationId: 'Produce'
+      responses:
+        200:
+          description: 'Ok'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AWS.SQS.SendMessageResult'
+      tags:
+        - 'Messages'
+      security: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                message:
+                  type: 'string'
+              required:
+                - 'message'
+              type: 'object'
+servers:
+  - url: '/'

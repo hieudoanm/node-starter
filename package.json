@@ -13,18 +13,6 @@
     "yarn": "1"
   },
   "scripts": {
-    "build:apollo": "yarn workspace @starter/apollo build",
-    "build:express": "yarn workspace @starter/express build",
-    "build:socket": "yarn workspace @starter/socket build",
-    "dev:apollo": "yarn workspace @starter/apollo dev",
-    "dev:express": "yarn workspace @starter/express dev",
-    "dev:socket": "yarn workspace @starter/socket dev",
-    "lint:apollo": "yarn workspace @starter/apollo lint",
-    "lint:express": "yarn workspace @starter/express lint",
-    "lint:socket": "yarn workspace @starter/socket lint",
-    "test:apollo": "yarn workspace @starter/apollo test",
-    "test:express": "yarn workspace @starter/express test",
-    "test:socket": "yarn workspace @starter/socket test",
     "graph": "nx graph"
   },
   "devDependencies": {
@@ -36,9 +24,10 @@
     "pretty-quick": "3.1.3"
   },
   "workspaces": [
-    "contracts/*",
-    "packages/*",
-    "serverless/*",
-    "services/*"
+    "apis/*",
+    "connections/*",
+    "graphql/*",
+    "messages/*",
+    "serverless/*"
   ]
 }

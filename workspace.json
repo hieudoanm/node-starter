@@ -1,0 +1,21 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "express": "apis/express",
+    "socket": "connections/socket",
+    "apollo": "graphql/apollo",
+    "active-producer": "messages/active/producer",
+    "active-consumer": "messages/active/consumer",
+    "grpc-producer": "messages/grpc/producer",
+    "grpc-consumer": "messages/grpc/consumer",
+    "kafka-producer": "messages/kafka/producer",
+    "kafka-consumer": "messages/kafka/consumer",
+    "rabbit-producer": "messages/rabbit/producer",
+    "rabbit-consumer": "messages/rabbit/consumer",
+    "redis-producer": "messages/redis/producer",
+    "redis-consumer": "messages/redis/consumer",
+    "sqs-producer": "messages/sqs/producer",
+    "sqs-consumer": "messages/sqs/consumer"
+  }
+}

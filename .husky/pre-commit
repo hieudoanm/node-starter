@@ -1,7 +1,28 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
-
-yarn lint:apollo
-yarn lint:express
-yarn lint:socket
+# APIs
+nx lint express
+# GraphQL
+nx lint apollo
+# Socket.io
+nx lint socket
+# Messages Broker - ActiveMQ
+nx lint active-producer
+nx lint active-consumer
+# Messages Broker - gRPC
+nx lint grpc-producer
+nx lint grpc-consumer
+# Messages Broker - Kafka
+nx lint kafka-producer
+nx lint kafka-consumer
+# Messages Broker - RabbitMQ
+nx lint rabbit-producer
+nx lint rabbit-consumer
+# Messages Broker - Redis
+nx lint redis-producer
+nx lint redis-consumer
+# Messages Broker - SQS
+nx lint sqs-producer
+nx lint sqs-consumer
+# Prettier
 yarn pretty-quick --staged

@@ -21,12 +21,28 @@ jobs:
           - name: Ubuntu
             version: ubuntu-latest
         project:
-          - name: Apollo
-            working-directory: ./services/apollo-starter
-          - name: Express
-            working-directory: ./services/express-starter
-          - name: Socket.io
-            working-directory: ./services/socket-starter
+          - name: APIs - Express
+            working-directory: ./apis/express
+          - name: Connections - Socket.io
+            working-directory: ./connections/socket
+          - name: GraphQL - Apollo
+            working-directory: ./graphql/apollo
+          - name: Messages - ActiveMQ - Producer
+            working-directory: ./services/active/producer
+          - name: Messages - ActiveMQ - Consumer
+            working-directory: ./services/active/consumer
+          - name: Messages - Kafka - Producer
+            working-directory: ./services/kafka/producer
+          - name: Messages - Kafka - Consumer
+            working-directory: ./services/kafka/consumer
+          - name: Messages - RabbitMQ - Producer
+            working-directory: ./services/rabbit/producer
+          - name: Messages - RabbitMQ - Consumer
+            working-directory: ./services/rabbit/consumer
+          - name: Messages - Redis - Producer
+            working-directory: ./services/redis/producer
+          - name: Messages - Redis - Consumer
+            working-directory: ./services/redis/consumer
     name: ${{ matrix.os.name }} - ${{ matrix.node.name }} - ${{ matrix.project.name }}
     runs-on: ${{ matrix.os.version }}
     steps:

@@ -11,22 +11,46 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node:
-          - name: Node.js 16
-            version: 16.x
         os:
           - name: Ubuntu
             version: ubuntu-latest
+        node:
+          - name: Node.js 16
+            version: 16.x
         project:
-          - name: Apollo
-            image-name: apollo-starter
-            working-directory: ./services/apollo-starter
-          - name: Express
-            image-name: express-starter
-            working-directory: ./services/express-starter
-          - name: Socket.io
-            image-name: socket-starter
-            working-directory: ./services/socket-starter
+          - name: APIs - Express
+            image-name: apis-express
+            working-directory: ./apis/express
+          - name: Connections - Socket.io
+            image-name: connections-socket
+            working-directory: ./connections/socket
+          - name: GraphQL - Apollo
+            image-name: graphql-apollo
+            working-directory: ./graphql/apollo
+          - name: Messages - ActiveMQ - Producer
+            image-name: active-producer
+            working-directory: ./messages/active/producer
+          - name: Messages - ActiveMQ - Consumer
+            image-name: active-consumer
+            working-directory: ./messages/active/consumer
+          - name: Messages - Kafka - Producer
+            image-name: kafka-producer
+            working-directory: ./messages/kafka/producer
+          - name: Messages - Kafka - Consumer
+            image-name: kafka-consumer
+            working-directory: ./messages/kafka/consumer
+          - name: Messages - RabbitMQ - Producer
+            image-name: rabbit-producer
+            working-directory: ./messages/rabbit/producer
+          - name: Messages - RabbitMQ - Consumer
+            image-name: rabbit-consumer
+            working-directory: ./messages/rabbit/consumer
+          - name: Messages - Redis - Producer
+            image-name: redis-producer
+            working-directory: ./messages/redis/producer
+          - name: Messages - Redis - Consumer
+            image-name: redis-consumer
+            working-directory: ./messages/redis/consumer
     name: ${{ matrix.os.name }} - ${{ matrix.node.name }} - ${{ matrix.project.name }}
     runs-on: ${{ matrix.os.version }}
     steps:
@@ -35,7 +59,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: ${{ matrix.node.version }}
       - name: Branch
         run: echo ${{ github.head_ref || github.ref_name }}
       - name: TimeZone
