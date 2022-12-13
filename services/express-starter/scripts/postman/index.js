@@ -18,9 +18,7 @@ const convertSync = (swaggerJson) => {
 
 const main = async () => {
   try {
-    console.log(__dirname);
     const swaggerFilePath = path.join(__dirname, '../../docs/swagger.json');
-    console.log('swagger file path', swaggerFilePath);
     const swaggerString = readFileSync(swaggerFilePath, 'utf-8');
     const swaggerJson = JSON.parse(swaggerString);
     const postmanResult = await convertSync({
@@ -29,13 +27,27 @@ const main = async () => {
     });
     const { result, output = [] } = postmanResult;
     if (!result) return;
+
+    if (output.length === 1) {
+      const collection = output[0];
+      const { type, data } = collection;
+
+      const postmanFilePath = path.join(
+        __dirname,
+        `../../docs/postman/collection.json`
+      );
+      if (type === 'collection') {
+        writeFileSync(postmanFilePath, JSON.stringify(data, null, 2));
+      }
+      return;
+    }
+
     for (let i = 0; i < output.length; i++) {
       const collection = output[i];
       const postmanFilePath = path.join(
         __dirname,
-        `../../docs/postman_collection_${i}.json`
+        `../../docs/postman/collection_${i}.json`
       );
-      console.log('postman file path', postmanFilePath);
       const { type, data } = collection;
       if (type === 'collection') {
         writeFileSync(postmanFilePath, JSON.stringify(data, null, 2));
@@ -44,7 +56,6 @@ const main = async () => {
 
     process.exit(0);
   } catch (error) {
-    console.error(error);
     process.exit(1);
   }
 };

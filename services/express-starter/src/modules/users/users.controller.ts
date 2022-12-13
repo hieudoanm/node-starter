@@ -14,7 +14,7 @@ import { Request as ExpressRequest } from 'express';
 import {
   KeyCloakAddUserResponse,
   KeyCloakTokenResponse,
-} from '../../libs/keycloak';
+} from '../../common/libs/keycloak';
 import {
   changePassword,
   getUserInfo,

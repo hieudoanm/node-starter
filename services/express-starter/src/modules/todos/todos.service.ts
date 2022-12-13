@@ -1,6 +1,6 @@
 import { v4 } from 'uuid';
-import mongoClient from '../../clients/mongo';
-import redisClient from '../../clients/redis';
+import mongoClient from '../../common/clients/mongo';
+import redisClient from '../../common/clients/redis';
 import {
   CreateResponse,
   DeleteResponse,

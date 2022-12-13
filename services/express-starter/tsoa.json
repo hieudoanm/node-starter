@@ -1,7 +1,7 @@
 {
   "entryFile": "src/app.ts",
   "noImplicitAdditionalProperties": "throw-on-extras",
-  "controllerPathGlobs": ["src/router/**/*.controller.ts"],
+  "controllerPathGlobs": ["src/modules/**/*.controller.ts"],
   "spec": {
     "outputDirectory": "docs",
     "specVersion": 3,
@@ -18,7 +18,7 @@
     }
   },
   "routes": {
-    "authenticationModule": "./src/middlewares/guards/authentication",
+    "authenticationModule": "./src/common/middlewares/guards/authentication",
     "routesDir": "src"
   }
 }

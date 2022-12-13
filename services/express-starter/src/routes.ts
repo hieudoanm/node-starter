@@ -12,16 +12,16 @@ import {
   fetchMiddlewares,
 } from '@tsoa/runtime';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { HealthController } from './router/health/health.controller';
+import { HealthController } from './modules/health/health.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { PortfolioController } from './router/portfolio/portfolio.controller';
+import { PortfolioController } from './modules/portfolio/portfolio.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { TodosController } from './router/todos/todos.controller';
+import { TodosController } from './modules/todos/todos.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { HelloController } from './router/users/users.controller';
+import { HelloController } from './modules/users/users.controller';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { VnindexController } from './router/vnindex/vnindex.controller';
-import { expressAuthentication } from './middlewares/guards/authentication';
+import { VnindexController } from './modules/vnindex/vnindex.controller';
+import { expressAuthentication } from './common/middlewares/guards/authentication';
 // @ts-ignore - no great way to install types from subpackage
 const promiseAny = require('promise.any');
 import type { RequestHandler } from 'express';

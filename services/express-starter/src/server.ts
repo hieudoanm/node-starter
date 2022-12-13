@@ -7,8 +7,6 @@ import logger from '@hieudoanm/pino';
 import http from 'http';
 import { HttpError } from 'http-errors';
 import app from './app';
-import mongoClient from './clients/mongo';
-import redisClient from './clients/redis';
 
 // Get port from environment and store in Express.
 const port = normalizePort(process.env.PORT || '8080');

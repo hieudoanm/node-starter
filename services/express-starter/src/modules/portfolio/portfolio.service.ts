@@ -1,6 +1,6 @@
 import logger from '@hieudoanm/pino';
 import { CapitalAvailableDates, CapitalPorfolio, Prisma } from '@prisma/client';
-import { prisma } from '../../libs/prisma';
+import { prisma } from '../../common/libs/prisma';
 import { StockHistory } from './portfolio.types';
 
 export const getPortfolio = async ({

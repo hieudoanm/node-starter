@@ -15,7 +15,7 @@ import {
   STROKE_COLOR,
   STROKE_WIDTH,
   WIDTH,
-} from '../../libs/chartify/defaults';
+} from '../../common/libs/chartify/defaults';
 import { chartifyHistory } from './vnindex.service';
 
 @Tags('VNINDEX')

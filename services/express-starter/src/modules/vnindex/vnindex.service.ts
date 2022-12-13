@@ -1,13 +1,13 @@
 import axios from '@hieudoanm/axios';
 import logger from '@hieudoanm/pino';
-import { chartify } from '../../libs/chartify';
+import { chartify } from '../../common/libs/chartify';
 import {
   HEIGHT,
   MAX_VALUE,
   STROKE_COLOR,
   STROKE_WIDTH,
   WIDTH,
-} from '../../libs/chartify/defaults';
+} from '../../common/libs/chartify/defaults';
 import { StockHistory } from './vnindex.types';
 
 const TABLEBASE_URL =
