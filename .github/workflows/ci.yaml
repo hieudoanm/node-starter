@@ -28,21 +28,21 @@ jobs:
           - name: GraphQL - Apollo
             working-directory: ./graphql/apollo
           - name: Messages - ActiveMQ - Producer
-            working-directory: ./services/active/producer
+            working-directory: ./messages/active/producer
           - name: Messages - ActiveMQ - Consumer
-            working-directory: ./services/active/consumer
+            working-directory: ./messages/active/consumer
           - name: Messages - Kafka - Producer
-            working-directory: ./services/kafka/producer
+            working-directory: ./messages/kafka/producer
           - name: Messages - Kafka - Consumer
-            working-directory: ./services/kafka/consumer
+            working-directory: ./messages/kafka/consumer
           - name: Messages - RabbitMQ - Producer
-            working-directory: ./services/rabbit/producer
+            working-directory: ./messages/rabbit/producer
           - name: Messages - RabbitMQ - Consumer
-            working-directory: ./services/rabbit/consumer
+            working-directory: ./messages/rabbit/consumer
           - name: Messages - Redis - Producer
-            working-directory: ./services/redis/producer
+            working-directory: ./messages/redis/producer
           - name: Messages - Redis - Consumer
-            working-directory: ./services/redis/consumer
+            working-directory: ./messages/redis/consumer
     name: ${{ matrix.os.name }} - ${{ matrix.node.name }} - ${{ matrix.project.name }}
     runs-on: ${{ matrix.os.version }}
     steps:
