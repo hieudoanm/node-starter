@@ -27,7 +27,12 @@
     "apis/*",
     "connections/*",
     "graphql/*",
-    "messages/*",
+    "messages/active/*",
+    "messages/grpc/*",
+    "messages/kafka/*",
+    "messages/rabbit/*",
+    "messages/redis/*",
+    "messages/sqs/*",
     "packages/*",
     "serverless"
   ]
