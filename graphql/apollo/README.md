@@ -1,1 +1,1 @@
-# GraphQL Starter
+# Apollo Starter
