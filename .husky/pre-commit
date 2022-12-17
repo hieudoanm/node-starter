@@ -1,5 +1,23 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
+
+# Packages
+nx lint air-visual
+nx lint axios
+nx lint dotenv
+nx lint elasticsearch
+nx lint download
+nx lint football
+nx lint forex
+nx lint jwt
+nx lint mongodb
+nx lint news
+nx lint pino
+nx lint redis
+nx lint telegram
+nx lint utils
+nx lint vault
+nx lint weather
 # APIs
 nx lint express
 # GraphQL
