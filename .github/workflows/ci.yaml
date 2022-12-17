@@ -58,15 +58,15 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node.version }}
-      - name: Install nx
-        uses: mansagroup/nrwl-nx-action@v3
-        with:
-          targets: build,lint
       - name: Install Dependencies
         run: yarn install --network-timeout 86400000
         working-directory: ${{ matrix.project.working-directory }}
         env:
           NODE_TOKEN: ${{ secrets.NODE_TOKEN }}
+      - name: Install nx
+        uses: mansagroup/nrwl-nx-action@v3
+        with:
+          targets: build,lint
       - name: Build Packages
         run: |
           nx build apollo
