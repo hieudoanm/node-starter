@@ -5,19 +5,19 @@
       "runner": "@nrwl/nx-cloud",
       "options": {
         "cacheableOperations": [
+          "prebuild",
           "build",
           "build:dev",
           "build:prod",
-          "dev",
-          "docs:json",
-          "docs:yaml",
+          "docs",
+          "docs:postman",
+          "docs:swagger:json",
+          "docs:swagger:yaml",
           "lint",
           "test",
-          "watch",
-          "docker:build",
-          "docker:run"
+          "watch"
         ],
-        "accessToken": "Mzc4ZDY2MjItYTc0Yi00YTdmLTlkYTQtMTcwOTc3MmUyYmVjfHJlYWQtd3JpdGU="
+        "accessToken": "MjYxMTQ2NTItN2UyZS00YjBhLWExMDktOGFmNThhODViN2ExfHJlYWQtd3JpdGU="
       }
     }
   },

@@ -9,6 +9,7 @@ on:
       - feature/**
       - renovate/**
     paths:
+      - .github/workflows/**
       - apis/**
       - connections/**
       - graphql/**
@@ -60,6 +61,27 @@ jobs:
       - name: Install Dependencies
         run: yarn install --network-timeout 86400000
         working-directory: ${{ matrix.project.working-directory }}
+        env:
+          NODE_TOKEN: ${{ secrets.NODE_TOKEN }}
+      - name: Build Packages
+        run: |
+          nx build apollo
+          nx build axios
+          nx build dotenv
+          nx build download
+          nx build elasticsearch
+          nx build fast
+          nx build football
+          nx build forex
+          nx build jwt
+          nx build mongodb
+          nx build news
+          nx build pino
+          nx build redis
+          nx build telegram
+          nx build utils
+          nx build vault
+          nx build weather
         env:
           NODE_TOKEN: ${{ secrets.NODE_TOKEN }}
       - name: Build Production

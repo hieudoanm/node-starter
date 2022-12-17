@@ -25,8 +25,7 @@
     "lint": "eslint . --fix --ext .ts",
     "start": "node .",
     "test": "jest",
-    "watch": "webpack --watch",
-    "prisma:generate": "prisma format && prisma generate"
+    "watch": "webpack --watch"
   },
   "dependencies": {
     "@hieudoanm/axios": "0.0.1",
@@ -58,7 +57,6 @@
     "json2yaml": "1.1.0",
     "kill-port": "2.0.1",
     "nodemon": "2.0.20",
-    "prisma": "4.7.1",
     "rimraf": "3.0.2",
     "supertest": "6.3.3",
     "swagger2-to-postmanv2": "2.1.0",
