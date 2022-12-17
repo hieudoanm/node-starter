@@ -1,4 +1,4 @@
-import { ValidateError } from '@hieudoanm/express';
+import { ValidateError } from '@hieudoanm/fast';
 import logger from '@hieudoanm/pino';
 import { NextFunction, Request, Response } from 'express';
 

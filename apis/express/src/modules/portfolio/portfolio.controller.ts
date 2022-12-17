@@ -1,4 +1,4 @@
-import { Controller, Get, Path, Query, Route, Tags } from '@hieudoanm/express';
+import { Controller, Get, Path, Query, Route, Tags } from '@hieudoanm/fast';
 import { CapitalAvailableDates, CapitalPorfolio } from '@prisma/client';
 import {
   getActiveStockCodes,

@@ -1,4 +1,4 @@
-import { Controller, Get, Route, Tags } from '@hieudoanm/express';
+import { Controller, Get, Route, Tags } from '@hieudoanm/fast';
 
 @Tags('Health')
 @Route('health')

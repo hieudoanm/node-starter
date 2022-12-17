@@ -1,4 +1,4 @@
-import express, { errorHandler, notFoundHandler } from '@hieudoanm/express';
+import express, { errorHandler, notFoundHandler } from '@hieudoanm/fast';
 import { RegisterRoutes } from './routes';
 
 const app = express();

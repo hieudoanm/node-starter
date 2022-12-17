@@ -9,7 +9,7 @@ import {
   Route,
   SuccessResponse,
   Tags,
-} from '@hieudoanm/express';
+} from '@hieudoanm/fast';
 import { Request as ExpressRequest } from 'express';
 import {
   KeyCloakAddUserResponse,

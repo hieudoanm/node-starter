@@ -12,7 +12,7 @@ import {
   Security,
   SuccessResponse,
   Tags,
-} from '@hieudoanm/express';
+} from '@hieudoanm/fast';
 import { Request as ExRequest } from 'express';
 import {
   createTodo,

@@ -31,7 +31,7 @@
   "dependencies": {
     "@hieudoanm/axios": "0.0.1",
     "@hieudoanm/dotenv": "0.0.1",
-    "@hieudoanm/express": "0.0.1",
+    "@hieudoanm/fast": "0.0.1",
     "@hieudoanm/jwt": "0.0.1",
     "@hieudoanm/mongodb": "0.0.1",
     "@hieudoanm/pino": "0.0.1",

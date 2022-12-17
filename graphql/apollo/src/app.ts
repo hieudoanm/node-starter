@@ -1,4 +1,4 @@
-import express, { errorHandler, notFoundHandler } from '@hieudoanm/express';
+import express, { errorHandler, notFoundHandler } from '@hieudoanm/fast';
 import { NODE_ENV } from './environments';
 
 const isProduction = NODE_ENV === 'production';

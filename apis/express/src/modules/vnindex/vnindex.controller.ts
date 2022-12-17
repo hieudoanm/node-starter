@@ -7,7 +7,7 @@ import {
   Route,
   SuccessResponse,
   Tags,
-} from '@hieudoanm/express';
+} from '@hieudoanm/fast';
 import { Request as ExpressRequest, Response } from 'express';
 import {
   HEIGHT,

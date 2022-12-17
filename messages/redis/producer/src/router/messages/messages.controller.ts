@@ -1,4 +1,4 @@
-import { Body, Post, Route, Tags } from '@hieudoanm/express';
+import { Body, Post, Route, Tags } from '@hieudoanm/fast';
 import configs from '../../environments';
 import { redis } from '../../libs/redis';
 

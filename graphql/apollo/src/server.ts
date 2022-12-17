@@ -3,7 +3,7 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 NODE_ENV === 'development' && dotenv.config();
 
 import apollo from '@hieudoanm/apollo';
-import { normalizePort, onError, onListening } from '@hieudoanm/express';
+import { normalizePort, onError, onListening } from '@hieudoanm/fast';
 import logger from '@hieudoanm/pino';
 import http from 'http';
 import { HttpError } from 'http-errors';

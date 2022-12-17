@@ -1,4 +1,4 @@
-import { ValidateError } from '@hieudoanm/express';
+import { ValidateError } from '@hieudoanm/fast';
 import { Request, Response } from 'express';
 import { errorHandler } from '.';
 
