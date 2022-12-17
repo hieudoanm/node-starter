@@ -6,7 +6,7 @@
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/hieudoanm/node-sdk.git"
+    "url": "git+ssh://git@github.com/hieudoanm/node-starter.git"
   },
   "author": "hieudoanm <hieumdoan@gmail.com>",
   "license": "MIT",
@@ -58,9 +58,9 @@
     "@hieudoanm:registry": "https://npm.pkg.github.com"
   },
   "bugs": {
-    "url": "https://github.com/hieudoanm/node-sdk/issues"
+    "url": "https://github.com/hieudoanm/node-starter/issues"
   },
-  "homepage": "https://github.com/hieudoanm/node-sdk#readme",
+  "homepage": "https://github.com/hieudoanm/node-starter#readme",
   "keywords": [
     "apollo",
     "framework"

@@ -1,20 +1,20 @@
 import axios from 'axios';
-import { WeatherClient } from '..';
+import { OpenWeatherMapClient } from '..';
 
-describe('WeatherClient', () => {
-  const weatherClient = new WeatherClient({ apiKey: '' });
+describe('OpenWeatherMap', () => {
+  const openWeatherMapClient = new OpenWeatherMapClient({ apiKey: '' });
 
   describe('getWeather', () => {
     it('success', async () => {
       jest.spyOn(axios, 'get').mockResolvedValueOnce({ data: {} });
-      const data = await weatherClient.getWeather('city');
+      const data = await openWeatherMapClient.getWeather('city');
       expect(data).toEqual({});
     });
 
     it('error', async () => {
       jest.spyOn(axios, 'get').mockRejectedValueOnce(new Error('error'));
       try {
-        await weatherClient.getWeather('city');
+        await openWeatherMapClient.getWeather('city');
       } catch (error) {
         expect((error as Error).message).toEqual('error');
       }
