@@ -63,29 +63,25 @@ jobs:
         working-directory: ${{ matrix.project.working-directory }}
         env:
           NODE_TOKEN: ${{ secrets.NODE_TOKEN }}
-      - name: Install nx
-        uses: mansagroup/nrwl-nx-action@v3
-        with:
-          targets: build,lint
       - name: Build Packages
         run: |
-          nx build apollo
-          nx build axios
-          nx build dotenv
-          nx build download
-          nx build elasticsearch
-          nx build fast
-          nx build football
-          nx build forex
-          nx build jwt
-          nx build mongodb
-          nx build news
-          nx build pino
-          nx build redis
-          nx build telegram
-          nx build utils
-          nx build vault
-          nx build weather
+          yarn workspace @hieudoanm/apollo build
+          yarn workspace @hieudoanm/axios build
+          yarn workspace @hieudoanm/dotenv build
+          yarn workspace @hieudoanm/download build
+          yarn workspace @hieudoanm/elasticsearch build
+          yarn workspace @hieudoanm/fast build
+          yarn workspace @hieudoanm/football build
+          yarn workspace @hieudoanm/forex build
+          yarn workspace @hieudoanm/jwt build
+          yarn workspace @hieudoanm/mongodb build
+          yarn workspace @hieudoanm/news build
+          yarn workspace @hieudoanm/pino build
+          yarn workspace @hieudoanm/redis build
+          yarn workspace @hieudoanm/telegram build
+          yarn workspace @hieudoanm/utils build
+          yarn workspace @hieudoanm/vault build
+          yarn workspace @hieudoanm/weather build
         env:
           NODE_TOKEN: ${{ secrets.NODE_TOKEN }}
       - name: Build Production
