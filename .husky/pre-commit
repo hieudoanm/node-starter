@@ -2,11 +2,12 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 # Packages
-nx lint air-visual
 nx lint axios
 nx lint dotenv
 nx lint elasticsearch
+nx lint fast
 nx lint download
+nx lint fast
 nx lint football
 nx lint forex
 nx lint jwt

@@ -19,8 +19,6 @@ jobs:
           - name: Node.js 16
             version: 16.x
         package:
-          - name: Package - air-visual
-            working-directory: ./packages/air-visual
           - name: Package - apollo
             working-directory: ./packages/apollo
           - name: Package - axios
@@ -31,8 +29,8 @@ jobs:
             working-directory: ./packages/download
           - name: Package - elasticsearch
             working-directory: ./packages/elasticsearch
-          - name: Package - express
-            working-directory: ./packages/express
+          - name: Package - fast
+            working-directory: ./packages/fast
           - name: Package - football
             working-directory: ./packages/football
           - name: Package - forex
