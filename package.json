@@ -28,6 +28,7 @@
     "connections/*",
     "graphql/*",
     "messages/*",
+    "packages/*",
     "serverless/*"
   ]
 }
