@@ -31,7 +31,7 @@ export type EverythingRequest = {
   q?: string;
   searchIn?: SearchIn[];
   sortBy?: SortBy;
-  sources?: Source[];
+  sources?: string[];
   to?: string;
 };
 

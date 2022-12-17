@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { NewsClient } from '..';
+import { NewsClient, SearchIn } from '..';
 
 describe('NewsClient', () => {
   const newsClient = new NewsClient({ apiKey: '' });
@@ -24,7 +24,21 @@ describe('NewsClient', () => {
   describe('getEverything', () => {
     it('success', async () => {
       jest.spyOn(axios, 'get').mockResolvedValueOnce({ data: {} });
-      const data = await newsClient.getEverything({});
+      const data = await newsClient.getEverything();
+      expect(data).toEqual({});
+    });
+
+    it('success with paramters', async () => {
+      jest.spyOn(axios, 'get').mockResolvedValueOnce({ data: {} });
+      const data = await newsClient.getEverything({
+        q: 'query',
+        domains: ['cnn.com'],
+        excludeDomains: ['foxnews.com'],
+        sources: ['cnn'],
+        from: '2000-01-01',
+        to: '2020-01-01',
+        searchIn: [SearchIn.TITLE],
+      });
       expect(data).toEqual({});
     });
 
