@@ -1,0 +1,19 @@
+# Packages
+
+1. apollo
+2. axios
+3. dotenv
+4. download
+5. elasticsearch
+6. fast
+7. football
+8. forex
+9. jwt
+10. mongodb
+11. news
+12. pino
+13. redis
+14. telegram
+15. utils
+16. vault
+17. weather
