@@ -8,6 +8,11 @@ on:
       - hotfix/**
       - feature/**
       - renovate/**
+    paths:
+      - apis/**
+      - connections/**
+      - graphql/**
+      - messages/**
 
 jobs:
   github-actions:
