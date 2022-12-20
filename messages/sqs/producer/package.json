@@ -31,7 +31,7 @@
     "@hieudoanm/dotenv": "0.0.1",
     "@hieudoanm/fast": "0.0.1",
     "@hieudoanm/pino": "0.0.1",
-    "aws-sdk": "2.1278.0"
+    "aws-sdk": "2.1279.0"
   },
   "devDependencies": {
     "@types/express": "4.17.15",
