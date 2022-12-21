@@ -35,7 +35,7 @@
     "@hieudoanm/mongodb": "0.0.1",
     "@hieudoanm/pino": "0.0.1",
     "@hieudoanm/redis": "0.0.1",
-    "@prisma/client": "4.7.1",
+    "@prisma/client": "4.8.0",
     "uuid": "9.0.0"
   },
   "devDependencies": {
